@@ -80,7 +80,7 @@
                                     <a href="#"><i class="bi bi-question-circle"></i> Help & More</a>
                                 </li> -->
                                 <li class="point">
-                                    <a href="wishlist.html" style="color:black"><i class="fa-solid fa-yen-sign"></i></a>
+                                    <a href="wishlist.html" style="color:black"><i class="fa-solid fa-yen-sign"></i>:0.05</a>
                                 </li>
                                 <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
@@ -117,8 +117,8 @@
                         </div>
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
-                            <li class="point">
-                                    <a href="wishlist.html" style="color:black"><i class="fa-solid fa-yen-sign"></i> </a>
+                                <li class="point">
+                                    <a href="wishlist.html" style="color:black"><i style="font-size:large" class="fa-solid fa-yen-sign"></i><span> 0.05 </span></a>
                                 </li>
 
                                 <li class="wishlist">
@@ -181,7 +181,7 @@
                         </div>
                     </div>
                     <div class="col-2 align-self-center">
-                        
+
                         <div class="header-mini-cart-icon">
                             <div class="icon" id="minicart_open">
                                 <i class="fas fa-shopping-basket"></i>
@@ -411,170 +411,170 @@
     </section>
     <!-- End Hero Slider Area -->
 
-     <!-- Larg banner -->
-	<div class="pt-70 pb-20">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 mb-30 d-flex">
-					<div class="lg-banner-item">
-						<a href="shop.html">
-							<img src="assets/Halal/banner1.png" alt="banner">
-						</a>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<div class="row">
-						<div class="col-lg-12 mb-30">
-							<div class="lg-banner-item">
-								<a href="shop.html">
-									<img src="assets/Halal/b2.png" alt="banner">
-								</a>
-							</div>
-						</div>
-						<div class="col-lg-12 mb-30">
-							<div class="lg-banner-item">
-								<a href="shop.html">
-									<img src="assets/Halal/b3.png" alt="banner">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Larg banner -->
+    <!-- Larg banner -->
+    <div class="pt-70 pb-20">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-30 d-flex">
+                    <div class="lg-banner-item">
+                        <a href="shop.html">
+                            <img src="assets/Halal/banner1.png" alt="banner">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row">
+                        <div class="col-lg-12 mb-30">
+                            <div class="lg-banner-item">
+                                <a href="shop.html">
+                                    <img src="assets/Halal/b2.png" alt="banner">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 mb-30">
+                            <div class="lg-banner-item">
+                                <a href="shop.html">
+                                    <img src="assets/Halal/b3.png" alt="banner">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Larg banner -->
 
 
 
-	<!-- Start Shop Category -->
-	<section class="shop-category pt-20 pb-20">
-		<div class="container">
-			<!-- Section Headding -->
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-headding text-center  mb-50">
-						<h2><span>Shop by category</span></h2>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/1.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Fruits</a></h4>
-							<span>(78 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/2.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Salads</a></h4>
-							<span>(24 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/3.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Vegetables</a></h4>
-							<span>(94 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/4.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Meat</a></h4>
-							<span>(11 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/8.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Meat</a></h4>
-							<span>(11 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/5.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Others</a></h4>
-							<span>(99 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/6.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Fish</a></h4>
-							<span>(32 item)</span>
-						</div>
-					</div>
-				</div>
-				<!-- Single -->
-				<div class="col-lg-3 col-6 mb-30">
-					<div class="s2-cate-item">
-						<div class="thumbn">
-							<a href="shop.html">
-								<img src="assets/img/cate/7.jpg" alt="img">
-							</a>
-						</div>
-						<div class="con">
-							<h4><a href="shop.html">Health Product</a></h4>
-							<span>(11 item)</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Shop Category -->
+    <!-- Start Shop Category -->
+    <section class="shop-category pt-20 pb-20">
+        <div class="container">
+            <!-- Section Headding -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-headding text-center  mb-50">
+                        <h2><span>Shop by category</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/1.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Fruits</a></h4>
+                            <span>(78 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/2.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Salads</a></h4>
+                            <span>(24 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/3.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Vegetables</a></h4>
+                            <span>(94 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/4.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Meat</a></h4>
+                            <span>(11 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/8.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Meat</a></h4>
+                            <span>(11 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/5.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Others</a></h4>
+                            <span>(99 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/6.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Fish</a></h4>
+                            <span>(32 item)</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/img/cate/7.jpg" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">Health Product</a></h4>
+                            <span>(11 item)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop Category -->
 
     <!-- Feature Products -->
     <section class="pt-30 pb-50">
@@ -783,7 +783,7 @@
     </section>
     <!-- Feature Products -->
 
-  
+
 
     <!-- Start Newest Products -->
     <section class="pt-30 pb-50">
