@@ -22,9 +22,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <!-- update link -->
+     
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 </head>
+
 
 <body>
     <!-- Preloader -->
@@ -459,17 +463,19 @@
                 </div>
             </div>
             <div class="row">
+               
                 <!-- Single -->
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/1.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/bens-dry-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Fruits</a></h4>
-                            <span>(78 item)</span>
+                            <h4><a href="shop.html">
+                                    Beans & Dry Fruit </a></h4>
+                            <!-- <span>(24 item)</span> -->
                         </div>
                     </div>
                 </div>
@@ -478,12 +484,12 @@
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/2.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/beef-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Salads</a></h4>
-                            <span>(24 item)</span>
+                            <h4><a href="shop.html">Beef </a></h4>
+                            <!-- <span>(94 item)</span> -->
                         </div>
                     </div>
                 </div>
@@ -492,12 +498,62 @@
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/3.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/chicken-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Vegetables</a></h4>
-                            <span>(94 item)</span>
+                            <h4><a href="shop.html">
+                                    Chicken </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Single -->
+                    <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/masla-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+                                    Masala & Spices </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+                 <!-- Single -->
+                 <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="./assets/Halal/bg-remove/Bangladeshi-food.png" alt="img">
+
+
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+                                    Bangladeshi Food </a></h4>
+                            <!-- <span>(78 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+             
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/frozen_and_dry-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+                                    Frozen & Dry Fish </a></h4>
+                            <!-- <span>(99 item)</span> -->
                         </div>
                     </div>
                 </div>
@@ -506,75 +562,217 @@
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/4.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/indonetian-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Meat</a></h4>
-                            <span>(11 item)</span>
+                            <h4><a href="shop.html">
+                                    Indonesian Food </a></h4>
+                            <!-- <span>(32 item)</span> -->
                         </div>
                     </div>
                 </div>
-                <!-- Single -->
+            
+                   <!-- Single -->
+                   <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/Cos-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+                                    Cosmetics </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/8.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/mutton-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Meat</a></h4>
-                            <span>(11 item)</span>
+                            <h4><a href="shop.html">
+
+                                    Mutton </a></h4>
+                            <!-- <span>(11 item)</span> -->
                         </div>
                     </div>
                 </div>
-                <!-- Single -->
+
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/5.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/meat-fish-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Others</a></h4>
-                            <span>(99 item)</span>
+                            <h4><a href="shop.html">
+
+                                    Meat & Fish </a></h4>
+                            <!-- <span>(11 item)</span> -->
                         </div>
                     </div>
                 </div>
-                <!-- Single -->
+
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/6.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/srilankan-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Fish</a></h4>
-                            <span>(32 item)</span>
+                            <h4><a href="shop.html">
+
+                                    Srilankan Food </a></h4>
+                            <!-- <span>(11 item)</span> -->
                         </div>
                     </div>
                 </div>
-                <!-- Single -->
+
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
-                                <img src="assets/img/cate/7.jpg" alt="img">
+                                <img src="assets/Halal/bg-remove/OIL-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Health Product</a></h4>
-                            <span>(11 item)</span>
+                            <h4><a href="shop.html">
+
+                                    Oil and Ghee </a></h4>
+                            <!-- <span>(11 item)</span> -->
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/meat-fish-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+
+                                    Meat & Fish </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/Nepal-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+
+
+                                    Nepali Food </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/ramadan-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+
+
+                                    Ramadan Food </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/snaks-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+
+
+
+                                    Snacks </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/Bangladeshi-food.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+
+
+
+                                    Rice and Atta </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+
+                
+                <div class="col-lg-3 col-6 mb-30">
+                    <div class="s2-cate-item">
+                        <div class="thumbn">
+                            <a href="shop.html">
+                                <img src="assets/Halal/bg-remove/pakistani-removebg-preview.png" alt="img">
+                            </a>
+                        </div>
+                        <div class="con">
+                            <h4><a href="shop.html">
+
+
+                                    Pakistani Food </a></h4>
+                            <!-- <span>(11 item)</span> -->
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
     <!-- End Shop Category -->
+
+    <!-- discount and promotion -->
+
+  
+
+    <!-- end fiodcount and promotion -->
 
     <!-- Feature Products -->
     <section class="pt-30 pb-50">
@@ -1719,6 +1917,7 @@
 
 
     <!-- Js File -->
+    <script src="aseets/js/update.js"></script>
     <script src="assets/js/modernizr.min.js"></script>
     <script src="assets/js/jquery-3.5.1.min.js"></script>
     <script src="assets/js/popper.min.js"></script>
@@ -1730,6 +1929,7 @@
     <script src="assets/js/ajax-form.js"></script>
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/script.js"></script>
+  
 </body>
 
 </html>
