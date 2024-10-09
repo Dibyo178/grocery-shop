@@ -781,7 +781,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-headding text-center  mb-50">
-                        <h2><span>Featured products</span></h2>
+                        <h2><span>Discounts and promotions</span></h2>
                     </div>
                 </div>
             </div>
@@ -789,12 +789,12 @@
                 <div class="col-lg-12">
                     <div class="feature-product-slider owl-carousel">
                         <!-- Single -->
-                        <div class="product-item">
-                            <div class="sale-badge"><span>sale</span></div>
+                        <div class="product-item feature">
+                            <div class="sale-badge"><span>20%</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/1.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/beta.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -806,26 +806,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                </div> -->
+                                <h4><a href="product-details.html">Belta Coconut Vinegar 350ml</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥250 <del>¥320.</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
-                        <div class="product-item">
+                        <div class="product-item feature">
                             <div class="sale-badge"><span>25%</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/2.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/marmite.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -837,26 +837,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                </div> -->
+                                <h4><a href="product-details.html">Marmite Yeast extract</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>$200 <del>¥480.</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
-                        <div class="product-item">
-                            <div class="sale-badge"><span>new</span></div>
+                        <div class="product-item feature">
+                            <div class="sale-badge"><span>10%</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/3.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/la-monisa.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -868,25 +868,25 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                </div> -->
+                                <h4><a href="product-details.html">La Molisana Cous Cous (500G)</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥380 <del>¥480</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
-                        <div class="product-item">
+                        <div class="product-item feature">
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/4.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/beason.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -898,26 +898,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                </div> -->
+                                <h4><a href="product-details.html">Beason (1kg)</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥490 <del>¥530</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
-                        <div class="product-item">
-                            <div class="sale-badge"><span>sale</span></div>
+                        <div class="product-item feature">
+                            <div class="sale-badge"><span>30%</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/5.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/dry-lptoa.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -929,26 +929,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                </div> -->
+                                <h4><a href="product-details.html">Dry Loitta Fish (200gm)</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥490 <del>¥530</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
-                        <div class="product-item">
+                        <div class="product-item feature">
                             <div class="sale-badge"><span>25%</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/6.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/wai-wai.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -960,16 +960,16 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                </div> -->
+                                <h4><a href="product-details.html">WAI WAI Chicken Flavor (6P Set)</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥490 <del>¥500</del></span>
                                 </div>
                             </div>
                         </div>
@@ -999,10 +999,11 @@
                     <div class="feature-product-slider owl-carousel">
                         <!-- Single -->
                         <div class="product-item">
+                        <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/1.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/marmite.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -1014,16 +1015,16 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
+                                </div> -->
                                 <h4><a href="product-details.html">Raddish Vegitable</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥200 <del>¥210</del></span>
                                 </div>
                             </div>
                         </div>
@@ -1033,7 +1034,7 @@
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/2.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/beta.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -1045,16 +1046,16 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
+                                </div> -->
                                 <h4><a href="product-details.html">Raddish Vegitable</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥200 <del>¥210</del></span>
                                 </div>
                             </div>
                         </div>
@@ -1064,7 +1065,7 @@
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/3.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/beason.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -1076,25 +1077,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
+                                </div> -->
                                 <h4><a href="product-details.html">Raddish Vegitable</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥200 <del>¥210</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
                         <div class="product-item">
+                        <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/4.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/wai-wai.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -1106,25 +1108,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
+                                </div> -->
                                 <h4><a href="product-details.html">Raddish Vegitable</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥200 <del>¥210</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
                         <div class="product-item">
+                        <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/5.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/la-monisa.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -1136,25 +1139,26 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
+                                </div> -->
                                 <h4><a href="product-details.html">Raddish Vegitable</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥200 <del>¥210</del></span>
                                 </div>
                             </div>
                         </div>
                         <!-- Single -->
                         <div class="product-item">
+                        <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/img/product/6.jpg" alt="product">
+                                    <img src="assets/discount-images/bg-remove/dry-lptoa.png" alt="product">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
@@ -1166,16 +1170,16 @@
                             </div>
                             <!-- Content -->
                             <div class="product-content">
-                                <div class="ratting">
+                                <!-- <div class="ratting">
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
                                     <span><i class="fas fa-star"></i></span>
-                                </div>
+                                </div> -->
                                 <h4><a href="product-details.html">Raddish Vegitable</a></h4>
                                 <div class="pricing">
-                                    <span>$200 <del>$210</del></span>
+                                    <span>¥200 <del>¥210</del></span>
                                 </div>
                             </div>
                         </div>
@@ -1193,399 +1197,31 @@
             <div class="row">
                 <div class="col-lg-5">
                     <div class="deal-section-img">
-                        <img src="assets/img/deal.png" alt="del">
+                        <img src="assets/discount-images/bg-remove/beef.png" alt="del">
                     </div>
                 </div>
                 <div class="col-lg-7 align-self-center">
                     <div class="deal-section-content">
-                        <h4>Todays Hot Deals</h4>
-                        <h2>Original Stock Honey Combo Package</h2>
-                        <div class="count-time" id="FuristCountdown" data-countdown-codepopular="2022/9/31">
-                            <ul>
-                                <li><strong>%d</strong><span>Days</span></li>
-                                <li><strong>%h</strong> <span>Hours</span></li>
-                                <li><strong>%m</strong> <span>Minits</span></li>
-                                <li><strong>%s</strong> <span>Days</span></li>
-                            </ul>
-                        </div>
+                    <h4>Friday Hot Deals</h4>
+                    <h2>Fresh Beef Available in Every Friday </h2>
+                   
                         <div class="dh-btn mt-30">
-                            <a class="button-3" href="shop.html">Shop Now</a>
+                            <a class="button-3" href="shop.html" style="background-color:#679509;color:#fff">Shop Now</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> 
     <!-- End Deal Section -->
 
     <!-- Start Product Widgets -->
-    <section class="pt-30 pb-50">
-        <div class="container">
-            <div class="row">
-                <!-- Single -->
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="deal-title">Best Selling</h3>
-                    <div class="product-widgets-single">
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/1.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/2.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/3.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/4.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="deal-title">Sale Products</h3>
-                    <div class="product-widgets-single">
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/5.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/6.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/7.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/8.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="deal-title">Latest Products</h3>
-                    <div class="product-widgets-single">
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/9.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/10.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/1.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Single -->
-                        <div class="p-widgets-single mb-20">
-                            <div class="row">
-                                <div class="col-5">
-                                    <div class="thumbnail">
-                                        <a href="product-details.html">
-                                            <img src="assets/img/product/2.jpg" alt="img">
-                                        </a>
-                                    </div>
-                                </div>
-                                <div class="col-7 align-self-center">
-                                    <div class="content">
-                                        <h4><a href="product-details.html">Carrots Group Scal</a></h4>
-                                        <div class="ratting">
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                            <span><i class="fas fa-star"></i></span>
-                                        </div>
-                                        <div class="pricing">
-                                            <span>$200 <del>$210</del></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-md-6 d-flex">
-                    <div class="width-100-week">
-                        <h3 class="deal-title">Weekly Discount</h3>
-                        <div class="weekly-offer-banner" style="background-image:url('assets/img/week.jpg');">
-                            <div class="con">
-                                <h2>Get a discount for weekly offer!</h2>
-                                <a class="button-1" href="#">Shop Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    
+   
     <!-- End Product Widgets -->
 
     <!-- Start Call Now Section -->
-    <section class="call-now pt-120 pb-120" style="background-image:url('assets/img/call-bg.jpg');">
+    <!-- <section class="call-now pt-120 pb-120" style="background-image:url('assets/img/call-bg.jpg');">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -1603,8 +1239,75 @@
         <div class="call-now-shap">
             <img src="assets/img/call.png" alt="img">
         </div>
-    </section>
+    </section> -->
     <!-- End Call Now Section -->
+
+
+
+    	<!-- Start Free  Shipping Area -->
+	<section class="pt-30 pb-30">
+		<div class="container">
+			<div class="shipping-item-full">
+				<div class="row">
+					<!-- Single -->
+					<div class="col-lg-4 col-md-6 mb-30">
+						<div class="shipping-item">
+							<div class="iocn">
+								<i class="bi bi-truck"></i>
+							</div>
+							<div class="content">
+								<h3> Convenient & Quick</h3>
+								<p>
+                                No waiting in traffic, no haggling, no worries carrying Food,they're delivered right at your door.					</p>
+							</div>
+						</div>
+					</div>
+					<!-- Single -->
+					<div class="col-lg-4 col-md-6 mb-30">
+						<div class="shipping-item">
+							<div class="iocn">
+								<i class="fab fa-pagelines"></i>
+							</div>
+							<div class="content">
+								<h3> Get Fresh Products</h3>
+								<p>
+                                Our fresh produce is sourced In our store, you get the best from us.we are always sourced halal products					</p>
+							</div>
+						</div>
+					</div>
+					<!-- Single -->
+					<div class="col-lg-4 col-md-6 mb-30">
+						<div class="shipping-item">
+							<div class="iocn">
+								<i class="fas fa-dollar-sign"></i>
+							</div>
+							<div class="content">
+								<h3> Product Purchaes Offer</h3>
+								<p>
+                                Order more than <span style="color:#679509;font-weight:700">¥8000</span> & get free delivery</p>
+							</div>
+						</div>
+					</div>
+					<!-- Single -->
+					<!-- <div class="col-lg-3 col-md-6 mb-30">
+						<div class="shipping-item">
+							<div class="iocn">
+								<i class="bi bi-shield-lock"></i>
+							</div>
+							<div class="content">
+								<h3> Safe Payment</h3>
+								<p>We are using secure payment methods.</p>
+							</div>
+						</div>
+					</div> -->
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- End Free  Shipping Area -->
+
+      
+
     <!-- Start Latest Blog -->
     <section class="section-padding-2">
         <div class="container">
@@ -1622,7 +1325,7 @@
                     <div class="blog-item">
                         <div class="thumbnail">
                             <a href="single.html">
-                                <img src="assets/img/blog/1.jpg" alt="blog">
+                                <img src="assets/discount-images/bg-remove/guava-nutritional-fruit-600x450.jpg" alt="blog">
                             </a>
                         </div>
                         <div class="content">
@@ -1647,7 +1350,7 @@
                     <div class="blog-item">
                         <div class="thumbnail">
                             <a href="single.html">
-                                <img src="assets/img/blog/2.jpg" alt="blog">
+                                <img src="assets/discount-images/bg-remove/la-monisa.png" alt="blog">
                             </a>
                         </div>
                         <div class="content">
@@ -1672,7 +1375,7 @@
                     <div class="blog-item">
                         <div class="thumbnail">
                             <a href="single.html">
-                                <img src="assets/img/blog/3.jpg" alt="blog">
+                                <img src="assets/discount-images/bg-remove/marmite.png" alt="blog">
                             </a>
                         </div>
                         <div class="content">
@@ -1698,31 +1401,7 @@
     <!-- End Latest Blog -->
 
     <!-- Start Subscribe Form -->
-    <section class="subscribe-form pt-70 pb-20">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5">
-                    <div class="subscribe-left mb-50">
-                        <div class="img">
-                            <img src="assets/img/subscribe.png" alt="img">
-                        </div>
-                        <div class="content">
-                            <h2>Newsletter</h2>
-                            <p>Subsribe here for get every single updates</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="subscribe-form">
-                        <form action="#">
-                            <input type="email" name="sub" placeholder="Enter Your Email Address">
-                            <button type="submit">subscribe now</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+\
     <!-- End Subscribe Form -->
 
     <!-- Start Footer Area -->
@@ -1731,7 +1410,7 @@
             <div class="container">
                 <div class="row">
                     <!-- Single -->
-                    <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="col-lg-4 col-md-6 mb-30">
                         <div class="footer-widget-item">
                             <div class="f-logo mb-10">
                                 <a href="index.html">
@@ -1748,7 +1427,7 @@
                         </div>
                     </div>
                     <!-- Single -->
-                    <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="col-lg-4 col-md-6 mb-30">
                         <div class="footer-widget-item">
                             <h2>Product Catalog</h2>
                             <ul>
@@ -1761,7 +1440,7 @@
                         </div>
                     </div>
                     <!-- Single -->
-                    <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="col-lg-4 col-md-6 mb-30">
                         <div class="footer-widget-item">
                             <h2>Useful Links</h2>
                             <ul>
@@ -1774,7 +1453,7 @@
                         </div>
                     </div>
                     <!-- Single -->
-                    <div class="col-lg-3 col-md-6 mb-30">
+                    <!-- <div class="col-lg-3 col-md-6 mb-30">
                         <div class="footer-widget-item">
                             <h2>Download Apps</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing..</p>
@@ -1787,7 +1466,7 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
