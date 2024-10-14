@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
 
     <!-- update link -->
-     
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -68,8 +68,81 @@
                             </div>
                             <div class="search-form">
                                 <form action="#">
-                                    <input type="text" name="search" placeholder="Search Products.....">
-                                    <button type="submit"><i class="bi bi-search"></i></button>
+                                    <div class="search">
+                                        <input type="text" id="search-input" placeholder="Search for items..." oninput="filterItems()" />
+                                        <div id="loading">Loading...</div>
+                                        <div id="not-found">No items found</div>
+                                        <ul id="dropdata">
+                                            <li>
+                                                <a href="#" class="search-item">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="search-item">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="search-item">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" class="search-item">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                            </li>
+                                            <!-- <li>
+                                                <a href="" style="color: black; text-decoration: none">
+                                                    <div class="search_des">
+                                                        <h3>Pants</h3>
+                                                        <p>2200 BDT</p>
+                                                    </div>
+                                                </a>
+                                            </li> -->
+                                            <!-- More list items... -->
+                                        </ul>
+                                    </div>
+
                                 </form>
                             </div>
                         </div>
@@ -463,7 +536,7 @@
                 </div>
             </div>
             <div class="row">
-               
+
                 <!-- Single -->
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
@@ -509,8 +582,8 @@
                     </div>
                 </div>
 
-                    <!-- Single -->
-                    <div class="col-lg-3 col-6 mb-30">
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
@@ -524,8 +597,8 @@
                         </div>
                     </div>
                 </div>
-                 <!-- Single -->
-                 <div class="col-lg-3 col-6 mb-30">
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
@@ -541,7 +614,7 @@
                         </div>
                     </div>
                 </div>
-             
+
                 <!-- Single -->
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
@@ -572,9 +645,9 @@
                         </div>
                     </div>
                 </div>
-            
-                   <!-- Single -->
-                   <div class="col-lg-3 col-6 mb-30">
+
+                <!-- Single -->
+                <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
                             <a href="shop.html">
@@ -704,7 +777,7 @@
                     </div>
                 </div>
 
-                
+
 
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
@@ -744,7 +817,7 @@
                 </div>
 
 
-                
+
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
@@ -770,7 +843,7 @@
 
     <!-- discount and promotion -->
 
-  
+
 
     <!-- end fiodcount and promotion -->
 
@@ -999,7 +1072,7 @@
                     <div class="feature-product-slider owl-carousel">
                         <!-- Single -->
                         <div class="product-item">
-                        <div class="sale-badge"><span>new</span></div>
+                            <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
@@ -1092,7 +1165,7 @@
                         </div>
                         <!-- Single -->
                         <div class="product-item">
-                        <div class="sale-badge"><span>new</span></div>
+                            <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
@@ -1123,7 +1196,7 @@
                         </div>
                         <!-- Single -->
                         <div class="product-item">
-                        <div class="sale-badge"><span>new</span></div>
+                            <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
@@ -1154,7 +1227,7 @@
                         </div>
                         <!-- Single -->
                         <div class="product-item">
-                        <div class="sale-badge"><span>new</span></div>
+                            <div class="sale-badge"><span>new</span></div>
                             <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
@@ -1202,9 +1275,9 @@
                 </div>
                 <div class="col-lg-7 align-self-center">
                     <div class="deal-section-content">
-                    <h4>Friday Hot Deals</h4>
-                    <h2>Fresh Beef Available in Every Friday </h2>
-                   
+                        <h4>Friday Hot Deals</h4>
+                        <h2>Fresh Beef Available in Every Friday </h2>
+
                         <div class="dh-btn mt-30">
                             <a class="button-3" href="shop.html" style="background-color:#679509;color:#fff">Shop Now</a>
                         </div>
@@ -1212,12 +1285,12 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
     <!-- End Deal Section -->
 
     <!-- Start Product Widgets -->
-    
-   
+
+
     <!-- End Product Widgets -->
 
     <!-- Start Call Now Section -->
@@ -1244,52 +1317,52 @@
 
 
 
-    	<!-- Start Free  Shipping Area -->
-	<section class="pt-30 pb-30">
-		<div class="container">
-			<div class="shipping-item-full">
-				<div class="row">
-					<!-- Single -->
-					<div class="col-lg-4 col-md-6 mb-30">
-						<div class="shipping-item">
-							<div class="iocn">
-								<i class="bi bi-truck"></i>
-							</div>
-							<div class="content">
-								<h3> Convenient & Quick</h3>
-								<p>
-                                No waiting in traffic, no haggling, no worries carrying Food,they're delivered right at your door.					</p>
-							</div>
-						</div>
-					</div>
-					<!-- Single -->
-					<div class="col-lg-4 col-md-6 mb-30">
-						<div class="shipping-item">
-							<div class="iocn">
-								<i class="fab fa-pagelines"></i>
-							</div>
-							<div class="content">
-								<h3> Get Fresh Products</h3>
-								<p>
-                                Our fresh produce is sourced In our store, you get the best from us.we are always sourced halal products					</p>
-							</div>
-						</div>
-					</div>
-					<!-- Single -->
-					<div class="col-lg-4 col-md-6 mb-30">
-						<div class="shipping-item">
-							<div class="iocn">
-								<i class="fas fa-dollar-sign"></i>
-							</div>
-							<div class="content">
-								<h3> Product Purchaes Offer</h3>
-								<p>
-                                Order more than <span style="color:#679509;font-weight:700">¥8000</span> & get free delivery</p>
-							</div>
-						</div>
-					</div>
-					<!-- Single -->
-					<!-- <div class="col-lg-3 col-md-6 mb-30">
+    <!-- Start Free  Shipping Area -->
+    <section class="pt-30 pb-30">
+        <div class="container">
+            <div class="shipping-item-full">
+                <div class="row">
+                    <!-- Single -->
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="shipping-item">
+                            <div class="iocn">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <div class="content">
+                                <h3> Convenient & Quick</h3>
+                                <p>
+                                    No waiting in traffic, no haggling, no worries carrying Food,they're delivered right at your door. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="shipping-item">
+                            <div class="iocn">
+                                <i class="fab fa-pagelines"></i>
+                            </div>
+                            <div class="content">
+                                <h3> Get Fresh Products</h3>
+                                <p>
+                                    Our fresh produce is sourced In our store, you get the best from us.we are always sourced halal products </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="shipping-item">
+                            <div class="iocn">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <div class="content">
+                                <h3> Product Purchaes Offer</h3>
+                                <p>
+                                    Order more than <span style="color:#679509;font-weight:700">¥8000</span> & get free delivery</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single -->
+                    <!-- <div class="col-lg-3 col-md-6 mb-30">
 						<div class="shipping-item">
 							<div class="iocn">
 								<i class="bi bi-shield-lock"></i>
@@ -1300,13 +1373,13 @@
 							</div>
 						</div>
 					</div> -->
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- End Free  Shipping Area -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Free  Shipping Area -->
 
-      
+
 
     <!-- Start Latest Blog -->
     <section class="section-padding-2">
@@ -1401,7 +1474,7 @@
     <!-- End Latest Blog -->
 
     <!-- Start Subscribe Form -->
-\
+
     <!-- End Subscribe Form -->
 
     <!-- Start Footer Area -->
@@ -1410,26 +1483,21 @@
             <div class="container">
                 <div class="row">
                     <!-- Single -->
-                    <div class="col-lg-4 col-md-6 mb-30">
+                    <div class="col-lg-3 col-md-6 mb-30">
                         <div class="footer-widget-item">
                             <div class="f-logo mb-10">
                                 <a href="index.html">
                                     <img src="assets/img/logo.png" alt="logo">
                                 </a>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod teincididunt ut labore et </p>
-                            <div class="footer-social">
-                                <span><a href="#"><i class="fab fa-facebook-f"></i></a></span>
-                                <span><a href="#"><i class="fab fa-twitter"></i></a></span>
-                                <span><a href="#"><i class="fab fa-instagram"></i></a></span>
-                                <span><a href="#"><i class="fab fa-pinterest-p"></i></a></span>
-                            </div>
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod teincididunt ut labore et </p> -->
+
                         </div>
                     </div>
                     <!-- Single -->
-                    <div class="col-lg-4 col-md-6 mb-30">
+                    <div class="col-lg-3 col-md-6 mb-30">
                         <div class="footer-widget-item">
-                            <h2>Product Catalog</h2>
+                            <h2>Product Categories</h2>
                             <ul>
                                 <li><a href="#">Vegetables</a></li>
                                 <li><a href="#">Fish & Seafood</a></li>
@@ -1440,33 +1508,32 @@
                         </div>
                     </div>
                     <!-- Single -->
-                    <div class="col-lg-4 col-md-6 mb-30">
+                    <div class="col-lg-3 col-md-6 mb-30">
                         <div class="footer-widget-item">
                             <h2>Useful Links</h2>
                             <ul>
                                 <li><a href="#">About Us</a></li>
                                 <li><a href="#">Featured Products</a></li>
-                                <li><a href="#">Terms & Conditions</a></li>
+                                <!-- <li><a href="#">Terms & Conditions</a></li> -->
                                 <li><a href="#">Contact Us</a></li>
                                 <li><a href="#">Promotional Offers</a></li>
                             </ul>
                         </div>
                     </div>
                     <!-- Single -->
-                    <!-- <div class="col-lg-3 col-md-6 mb-30">
+                    <div class="col-lg-3 col-md-6 mb-30">
                         <div class="footer-widget-item">
-                            <h2>Download Apps</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing..</p>
-                            <div class="app-down">
-                                <a class="mb-30" href="#">
-                                    <img src="assets/img/google.png" alt="google">
-                                </a>
-                                <a href="#">
-                                    <img src="assets/img/apple.png" alt="apple">
-                                </a>
+                            <h2>Social Links</h2>
+
+                            <div class="footer-social">
+                                <span><a href="#"><i class="fab fa-facebook-f"></i></a></span>
+                                <!-- <span><a href="#"><i class="fab fa-twitter"></i></a></span> -->
+                                <span><a href="#"><i class="fab fa-instagram"></i></a></span>
+                                <!-- <span><a href="#"><i class="fab fa-pinterest-p"></i></a></span> -->
                             </div>
+
                         </div>
-                    </div> -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -1475,7 +1542,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="copyright-text">
-                            <p>Copyright © 2021 Fruits Theme by <a href="#"><b>CodexUnicTheme</b></a></p>
+                            <p>Copyright © 2024 <a href="#"><b>Zaman Halal Food</b></a></p>
                         </div>
                     </div>
                 </div>
@@ -1608,7 +1675,9 @@
     <script src="assets/js/ajax-form.js"></script>
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/script.js"></script>
-  
+
+    <script src="./assets/js/update.js"></script>
+
 </body>
 
 </html>

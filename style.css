@@ -4168,3 +4168,227 @@ h2.accordion-header {
 }
 
 /* responsive end update */
+
+
+/* serach */
+
+#dropdata {
+  background-color: rgba(255, 255, 255, 1); /* White background */
+  list-style-type: none; /* Remove bullet points */
+  padding: 10px;
+  margin: 0;
+  display: none; /* Initially hidden */
+  max-height: 300px; /* Set max height for scrolling */
+  overflow-y: auto; /* Enable scrolling when necessary */
+  border: 1px solid #ddd; /* Border around dropdown */
+  position: relative; /* Ensure z-index works */
+  z-index: 1000; /* Layer on top of other elements */
+}
+
+#dropdata li {
+  display: flex; /* Flexbox layout for list items */
+  align-items: center;
+  padding: 10px;
+  /* border: 1px solid #ddd; */
+  margin-bottom: 10px;
+  background-color: #fff; /* Ensure list items have a white background */
+  z-index: 1001; /* Keep list items on top of other content */
+}
+
+.border_part {
+  padding: 10px;
+  text-align: center;
+}
+
+.search_part {
+  display: flex;
+  align-items: center;
+}
+
+.search_img img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.search_des {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; /* Adjust spacing between text and price */
+}
+
+/* Large devices: Grid layout for better responsiveness */
+@media (min-width: 992px) {
+  #dropdata li {
+    display: grid; /* Grid layout for larger screens */
+    grid-template-columns: 1fr 1fr; /* 2 columns */
+    gap: 10px;
+  }
+
+  .search_part {
+    display: block; /* Block layout on larger screens */
+    text-align: center;
+  }
+
+  .search_img img {
+    width: 100px; /* Larger images for bigger screens */
+    height: 100px;
+  }
+}
+
+/* Small devices: Stack items and enable smooth scrolling */
+@media (max-width: 991px) {
+  #dropdata li {
+    flex-direction: column; /* Column layout for small devices */
+    justify-content: center; /* Center content vertically */
+  }
+
+  .search_img img {
+    width: 70px; /* Slightly larger image for small devices */
+    height: 70px;
+  }
+
+  .search_des {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+}
+
+/* Loading spinner */
+#loading {
+  display: none; /* Initially hidden */
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Not Found message */
+#not-found {
+  display: none; /* Initially hidden */
+  text-align: center;
+  color: red;
+  font-weight: bold; /* Emphasize not-found message */
+  padding: 10px;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+/* Hover effect for list items */
+#dropdata li:hover {
+  background-color: #f9f9f9; /* Slightly grey background on hover */
+  cursor: pointer;
+  border-color: #ccc;
+}
+
+/* Custom scrollbar for dropdown list */
+#dropdata::-webkit-scrollbar {
+  width: 8px;
+}
+
+#dropdata::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Scrollbar thumb color */
+  border-radius: 10px;
+}
+
+#dropdata::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+
+/* Style for the search item container */
+.search-item {
+  display: flex;
+  align-items: center;
+  color: black; /* Keep text color black */
+  text-decoration: none; /* Remove underline from links */
+  padding: 15px;
+  border: 1px solid #ddd; /* Border around each search item */
+  margin-bottom: 15px;
+  border-radius: 10px; /* Rounded corners for a modern look */
+  background-color: #fff; /* White background for the item */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover transition */
+}
+
+/* Hover effect for search items */
+.search-item:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Border part styling */
+.border_part {
+  text-align: center;
+  padding: 0; /* Remove padding from the border_part */
+}
+
+/* Search part - Main content layout */
+.search_part {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Spread content evenly */
+  width: 100%;
+  padding: 0 10px; /* Padding inside the container */
+}
+
+/* Image container */
+.search_img img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover; /* Ensure the image covers the container neatly */
+  border-radius: 50%; /* Circular images for a modern look */
+  border: 2px solid #eee; /* Subtle border around the image */
+  transition: transform 0.3s ease; /* Smooth hover on the image */
+}
+
+/* Image hover effect */
+.search_img img:hover {
+  transform: scale(1.1); /* Slight zoom on hover */
+}
+
+/* Description section (product name and price) */
+.search_des {
+  flex-grow: 1;
+  margin-left: 15px; /* Space between the image and text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search_des h3 {
+  font-size: 18px; /* Font size for product name */
+  font-weight: 600; /* Slightly bolder font */
+  margin: 0 0 5px 0; /* Space below the heading */
+  color: #333; /* Darker shade for product title */
+}
+
+.search_des p {
+  font-size: 16px; /* Font size for product price */
+  margin: 0; /* No margin around price */
+  color: #888; /* Slightly lighter color for price */
+}
+
+/* Responsive for larger screens */
+@media (min-width: 992px) {
+  .search-item {
+    flex-direction: row; /* Layout in a row for larger screens */
+  }
+
+  .search_img img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 991px) {
+  .search-item {
+    flex-direction: column; /* Stack items for small screens */
+  }
+
+  .search_des {
+    text-align: center; /* Center text on small screens */
+    margin-left: 0; /* Remove left margin for smaller screens */
+    margin-top: 10px; /* Add space above the text */
+  }
+}
