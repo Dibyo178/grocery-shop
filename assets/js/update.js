@@ -1,13 +1,18 @@
 function filterItems() {
     const searchInput = document.getElementById("search-input").value.toLowerCase().trim();
     const items = document.querySelectorAll("#dropdata li"); // Select all list items
+    const loading = document.getElementById("loading"); // Loading spinner element
     let hasVisibleItems = false;
+
+    // Show loading spinner
+    loading.style.display = "block"; 
 
     // Check if search input is empty
     if (searchInput === "") {
         // Hide everything if search input is empty
         document.getElementById("dropdata").style.display = "none";
         document.getElementById("not-found").style.display = "none";
+        loading.style.display = "none"; // Hide loading spinner
         return; // Stop further execution
     }
 
@@ -30,9 +35,16 @@ function filterItems() {
 
     if (hasVisibleItems) {
         dropdata.style.display = "block";  // Show the list if any item is visible
-        notFound.style.display = "none";   // Hide 'no items found' message
+        notFound.style.display = "none";    // Hide 'no items found' message
     } else {
-        dropdata.style.display = "none";   // Hide the list if no items are visible
-        notFound.style.display = "block";  // Show 'no items found' message
+        dropdata.style.display = "none";    // Hide the list if no items are visible
+        notFound.style.display = "block";   // Show 'no items found' message
     }
+
+    // Hide loading spinner after processing
+    loading.style.display = "none"; 
 }
+
+
+// add to cart 
+
