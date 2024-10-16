@@ -4,6 +4,7 @@ const itemCountElement = document.getElementById('item-count');
 const headerItemCountElement = document.querySelector('.header-mini-cart-icon span');
 let itemCount = 0;
 let totalPrice = 0;
+const taxRate = 0.1; // Set your tax rate (e.g., 10%)
 
 // Load cart data from local storage on page load
 window.onload = () => {
@@ -31,113 +32,108 @@ function showAlert() {
 
 // Function to add product to minicart
 function addToCart(product, showAlertOnAdd = true) {
-    const productId = product.id;
+    const productId = product.id; // Get the data-id value
     const productName = product.name;
     const productPrice = parseFloat(product.price);
     const productImage = product.image;
 
-    // Create minicart product item
-    const minicartProduct = document.createElement('div');
-    minicartProduct.classList.add('minicart-product-item');
-    minicartProduct.innerHTML = `
-        <div class="minicart-product-content">
-            <div class="minicart-product-img">
-                <img src="${productImage}" alt="${productName}">
-            </div>
-            <div class="minicart-product-details">
-                <h4>${productName}</h4>
-                <span class="product-price">¥${productPrice.toFixed(2)}</span>
-                <div class="quantity-control">
-                    <button class="decrement">-</button>
-                    <span class="quantity">1</span>
-                    <button class="increment">+</button>
-                </div>
-            </div>
-            <div class="minicart-product-remove">
-                <button class="remove-item" data-id="${productId}">&times;</button>
-            </div>
-        </div>
-    `;
-    minicartProductsContainer.appendChild(minicartProduct);
-
-    // Attach delete functionality
-    minicartProduct.querySelector('.remove-item').addEventListener('click', function() {
-        removeCartItem(productId, productPrice, minicartProduct);
+    // Check if product is already in the minicart
+    const existingProduct = Array.from(minicartProductsContainer.children).find(item => {
+        return item.querySelector('.remove-item').getAttribute('data-id') === productId;
     });
 
-    // Attach increment/decrement functionality
-    minicartProduct.querySelector('.increment').addEventListener('click', () => updateQuantity(minicartProduct, true));
-    minicartProduct.querySelector('.decrement').addEventListener('click', () => updateQuantity(minicartProduct, false));
+    if (existingProduct) {
+        // If product exists, do not change quantity in the display
+        // Just update the total price if needed
+    } else {
+        // Calculate tax only for new items being added
+        const taxValue = productPrice * taxRate;
+        const totalPriceWithoutTax = productPrice;
 
-    // Update total price and item count
-    itemCount++;
-    totalPrice += productPrice;
-    updateCartDisplay();
+        // Create minicart product item
+        const minicartProduct = document.createElement('div');
+        minicartProduct.classList.add('minicart-product-item');
+        minicartProduct.innerHTML = `
+            <div class="minicart-product-content">
+                <div class="minicart-product-img">
+                    <img src="${productImage}" alt="${productName}">
+                </div>
+                <div class="minicart-product-details">
+                    <h4>${productName}</h4>
+                    <span class="product-price">¥${productPrice.toFixed(2)}</span>
+                    <span class="total-price">1 × ¥${productPrice.toFixed(2)}</span> <!-- Display single product price -->
+                </div>
+                <div class="minicart-product-remove">
+                    <button class="remove-item" data-id="${productId}">&times;</button>
+                </div>
+            </div>
+        `;
+        minicartProductsContainer.appendChild(minicartProduct);
+
+        // Attach delete functionality
+        minicartProduct.querySelector('.remove-item').addEventListener('click', function() {
+            removeCartItem(productId, totalPriceWithoutTax, minicartProduct);
+        });
+
+        // Update total price and item count
+        itemCount++;
+        totalPrice += totalPriceWithoutTax; // Add total price excluding tax
+        updateCartDisplay();
+
+        // Store cart item in local storage including tax
+        storeCartData(productId, productName, productPrice, productImage, taxValue);
+    }
 
     // Show alert after adding item
     if (showAlertOnAdd) {
         showAlert();
     }
-
-    // Store cart item in local storage
-    storeCartData();
 }
 
 // Function to update cart display
 function updateCartDisplay() {
     itemCountElement.textContent = `${itemCount} Item${itemCount !== 1 ? 's' : ''}`;
     headerItemCountElement.textContent = itemCount;
-    document.getElementById('total-price').textContent = `¥${totalPrice.toFixed(2)}`;
-}
-
-// Function to update quantity of products in minicart
-function updateQuantity(productElement, increment) {
-    const quantityElement = productElement.querySelector('.quantity');
-    let quantity = parseInt(quantityElement.textContent);
-
-    if (increment) {
-        quantity++;
-    } else {
-        if (quantity > 1) {
-            quantity--;
-        }
-    }
-
-    // Update the quantity text
-    quantityElement.textContent = quantity;
-
-    // Update total price only if quantity is greater than zero
-    const productPrice = parseFloat(productElement.querySelector('.product-price').textContent.replace('¥', ''));
-    totalPrice += (increment ? productPrice : -productPrice * (quantity === 0 ? 0 : 1));
-    updateCartDisplay();
-
-    // Store updated quantity in local storage
-    storeCartData();
+    document.getElementById('total-price').textContent = `Total: ¥${totalPrice.toFixed(2)}`; // Display total price
 }
 
 // Function to remove product from minicart
-function removeCartItem(productId, productPrice, minicartProduct) {
+function removeCartItem(productId, totalPriceWithoutTax, minicartProduct) {
     minicartProductsContainer.removeChild(minicartProduct);
     itemCount--;
-    totalPrice -= productPrice;
+    totalPrice -= totalPriceWithoutTax; // Subtract total price excluding tax
     updateCartDisplay();
 
     // Remove from local storage
-    storeCartData();
+    removeFromCartData(productId);
 }
 
 // Function to store cart data in local storage
-function storeCartData() {
-    const cartData = [];
-    document.querySelectorAll('.minicart-product-item').forEach(item => {
-        const productId = item.querySelector('.remove-item').getAttribute('data-id');
-        const productName = item.querySelector('h4').textContent;
-        const productPrice = item.querySelector('.product-price').textContent.replace('¥', '');
-        const productImage = item.querySelector('img').getAttribute('src');
-        const quantity = item.querySelector('.quantity').textContent;
+function storeCartData(productId, productName, productPrice, productImage, taxValue) {
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItemIndex = cartData.findIndex(item => item.id === productId);
 
-        cartData.push({ id: productId, name: productName, price: productPrice, image: productImage, quantity });
-    });
+    if (existingItemIndex >= 0) {
+        // If product exists, do not add the tax again
+        // Just leave the existing product unchanged
+    } else {
+        // Add new product to the cart with tax value stored
+        cartData.push({
+            id: productId,
+            name: productName,
+            price: productPrice,
+            image: productImage,
+            taxValue: taxValue // Store the tax value
+        });
+    }
+
+    localStorage.setItem('cart', JSON.stringify(cartData));
+}
+
+// Function to remove item from local storage
+function removeFromCartData(productId) {
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    cartData = cartData.filter(item => item.id !== productId);
     localStorage.setItem('cart', JSON.stringify(cartData));
 }
 
@@ -146,7 +142,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', function(e) {
         e.preventDefault();
         const product = {
-            id: this.closest('.product-item').getAttribute('data-id'),
+            id: this.closest('.product-item').getAttribute('data-id'), // Get the specific data-id value
             name: this.closest('.product-item').getAttribute('data-name'),
             price: this.closest('.product-item').getAttribute('data-price'),
             image: this.closest('.product-item').querySelector('img').getAttribute('src')

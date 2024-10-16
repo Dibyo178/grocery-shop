@@ -53,172 +53,222 @@
 </head>
 
 <style>
-/* Minicart Products Container */
-#minicart-products {
-    display: flex;
-    flex-direction: column; /* Set to column for a list display */
-    max-height: 400px; /* Adjust height as needed */
-    overflow-y: auto; /* Enable vertical scrolling if needed */
-}
+    /* Minicart Products Container */
+    #minicart-products {
+        display: flex;
+        flex-direction: column;
+        /* Set to column for a list display */
+        max-height: 400px;
+        /* Adjust height as needed */
+        overflow-y: auto;
+        /* Enable vertical scrolling if needed */
+    }
 
-/* Minicart Product Item */
-.minicart-product-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    transition: background-color 0.3s;
-    max-width: 100%; /* Ensure full width */
-}
+    /* Minicart Product Item */
+    .minicart-product-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        border-bottom: 1px solid #ddd;
+        background-color: #f9f9f9;
+        margin-bottom: 10px;
+        transition: background-color 0.3s;
+        max-width: 100%;
+        /* Ensure full width */
+    }
 
-.minicart-product-item:hover {
-    background-color: #e8f5e9;
-}
+    .minicart-product-item:hover {
+        background-color: #e8f5e9;
+    }
 
-/* Flexbox layout for the product content */
-.minicart-product-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-}
+    /* Flexbox layout for the product content */
+    .minicart-product-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
 
-/* Minicart Product Image */
-.minicart-product-img {
-    flex-shrink: 0;
-    margin-right: 15px;
-}
+    /* Minicart Product Image */
+    .minicart-product-img {
+        flex-shrink: 0;
+        margin-right: 15px;
+    }
 
-.minicart-product-img img {
-    width: 80px; /* Adjusted for list display */
-    height: 60px; /* Adjusted for list display */
-    object-fit: cover;
-    border-radius: 5px;
-}
+    .minicart-product-img img {
+        width: 80px;
+        /* Adjusted for list display */
+        height: 60px;
+        /* Adjusted for list display */
+        object-fit: cover;
+        border-radius: 5px;
+    }
 
-/* Minicart Product Details */
-.minicart-product-details {
-    flex-grow: 1;
-    margin-right: 15px;
-}
+    /* Minicart Product Details */
+    .minicart-product-details {
+        flex-grow: 1;
+        margin-right: 15px;
+    }
 
-.minicart-product-details h4 {
-    font-size: 16px;
-    margin: 0;
-    font-weight: 600;
-    color: #333;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+    .minicart-product-details h4 {
+        font-size: 16px;
+        margin: 0;
+        font-weight: 600;
+        color: #333;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
-.minicart-product-details span {
-    display: block;
-    color: #666;
-    font-size: 14px;
-    margin-top: 5px;
-}
+    .minicart-product-details span {
+        display: block;
+        color: #666;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 
-/* Center the quantity control buttons */
-.quantity-control {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 5px;
-}
+    /* Center the quantity control buttons */
+    /* Center the quantity control buttons with Grid */
+    .quantity-control {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        /* Three columns: minus button, quantity, plus button */
+        gap: 0px;
+        /* Add gap between the grid items */
+        justify-content: center;
+        /* Center the entire grid */
+        align-items: center;
+        /* Vertically center the items */
+        margin-top: 5px;
+    }
 
-.quantity-control button {
-    background: #7ca440;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-    margin: 0 5px; /* Reduce gap between buttons */
-}
+    .quantity-control button {
+        background: #7ca440;
+        color: white;
+        border: none;
+        padding: 5px;
+        /* Small padding for compact buttons */
+        width: 30px;
+        /* Fixed width for smaller button size */
+        height: 30px;
+        /* Make the buttons square */
+        cursor: pointer;
+        transition: background 0.3s;
+        border-radius: 5px;
+        /* Rounded corners */
+    }
 
-.quantity-control button:hover {
-    background: #5b8a32;
-}
+    .quantity-control button:hover {
+        background: #5b8a32;
+    }
 
-.quantity-control span {
-    font-size: 16px; /* Adjust font size if necessary */
-}
-
-/* Remove Button */
-.minicart-product-remove {
-    flex-shrink: 0;
-}
-
-.minicart-product-remove button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #ff6f61;
-    cursor: pointer;
-    outline: none;
-}
-
-.minicart-product-remove button:hover {
-    color: #e85040;
-}
-
-/* Minicart Header */
-#item-count {
-    font-size: 18px;
-    color: #7ca440;
-}
-
-/* Total Price and Buttons */
-.minicart-bottom .title h2 {
-    font-size: 20px;
-    font-weight: 700;
-    color: #7ca440;
-}
-
-.minicart-bottom .button-b .button-2,
-.minicart-bottom .button-b .button-1 {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    background-color: #7ca440;
-    color: #fff;
-    text-transform: uppercase;
-    margin-top: 10px;
-    border-radius: 5px;
-}
-
-.minicart-bottom .button-b .button-2 {
-    background-color: #fff;
-    color: #333;
-    border: 1px solid #7ca440;
-}
-
-.minicart-bottom .button-b .button-1:hover,
-.minicart-bottom .button-b .button-2:hover {
-    background-color: #5b8a32;
-    color: #fff;
-}
-
-/* Alert Styles */
-.alert {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
-    padding: 10px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    border-radius: 5px;
-}
+    .quantity-control span {
+        font-size: 16px;
+        text-align: center;
+        padding: 5px;
+        /* Add padding for quantity text */
+        min-width: 30px;
+        /* Ensure quantity span doesn't shrink too much */
+        height: 30px;
+        /* Keep the span height consistent with buttons */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 
+    /* Remove Button */
+    .minicart-product-remove {
+        flex-shrink: 0;
+    }
 
+    .minicart-product-remove button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: #ff6f61;
+        cursor: pointer;
+        outline: none;
+    }
+
+    .minicart-product-remove button:hover {
+        color: #e85040;
+    }
+
+    /* Minicart Header */
+    #item-count {
+        font-size: 18px;
+        color: #7ca440;
+    }
+
+    /* Total Price and Buttons */
+    .minicart-bottom .title h2 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #7ca440;
+    }
+
+    .minicart-bottom .button-b .button-2,
+    .minicart-bottom .button-b .button-1 {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
+        background-color: #7ca440;
+        color: #fff;
+        text-transform: uppercase;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+
+    .minicart-bottom .button-b .button-2 {
+        background-color: #fff;
+        color: #333;
+        border: 1px solid #7ca440;
+    }
+
+    .minicart-bottom .button-b .button-1:hover,
+    .minicart-bottom .button-b .button-2:hover {
+        background-color: #5b8a32;
+        color: #fff;
+    }
+
+    /* Alert Styles */
+    .alert {
+        background-color: #f8f9fa;
+        color: #333;
+        border: 1px solid #ddd;
+        padding: 10px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1000;
+        border-radius: 5px;
+    }
+
+
+    /* alredy  have peroduct  */
+
+    #add-to-cart-alert {
+        display: none;
+        /* Initially hidden */
+        background-color: #4CAF50;
+        /* Green */
+        color: white;
+        padding: 15px;
+        margin-bottom: 20px;
+        position: fixed;
+        z-index: 9999;
+        right: 20px;
+        top: 20px;
+        transition: opacity 0.5s;
+    }
+
+    #add-to-cart-alert.warning {
+        background-color: #f44336;
+        /* Red for warning */
+    }
 </style>
 
 
@@ -587,8 +637,8 @@
     </div>
 
 
-<!-- Start Mincart Section -->
-<div class="minicart-sidebar">
+    <!-- Start Mincart Section -->
+    <div class="minicart-sidebar">
         <div class="minicart-sidebar-full">
             <div class="minicart-header">
                 <div class="left">
@@ -607,7 +657,7 @@
                     <h2>Total : <span id="total-price">$0.00</span></h2>
                 </div>
                 <div class="button-b">
-                    <a class="button-2" href="cart.html">View Cart</a>
+                    <a class="button-2" href="cart.php">View Cart</a>
                     <a class="button-1" href="checkout.html">Proceed Checkout</a>
                 </div>
             </div>
@@ -616,25 +666,25 @@
     <!-- End Mincart Section -->
 
 
-<!-- alert -->
+    <!-- alert -->
 
-<!-- Progress Bar Alert -->
-<!-- Progress Bar Alert -->
-<div id="add-to-cart-alert" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 1000;">
-    <div class="alert alert-success" style="width: 300px;">
-        <strong>Success!</strong> Product added to cart.
-        <div class="progress" style="height: 5px;">
-            <div class="progress-bar" role="progressbar" style="width: 100%; transition: width 2s;"></div>
+    <!-- Progress Bar Alert -->
+    <!-- Progress Bar Alert -->
+    <div id="add-to-cart-alert" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <div class="alert alert-success" style="width: 300px;">
+            <strong>Success!</strong> Product added to cart.
+            <div class="progress" style="height: 5px;">
+                <div class="progress-bar" role="progressbar" style="width: 100%; transition: width 2s;"></div>
+            </div>
         </div>
     </div>
-</div>
 
 
     <!-- End Mincart Section -->
 
     <script src="./assets/js/update.js"></script>
 
-   
+
 </body>
 
 </html>
