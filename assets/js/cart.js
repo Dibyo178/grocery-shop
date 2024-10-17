@@ -150,3 +150,7 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         addToCart(product);
     });
 });
+
+
+//  spiner view cart
+

@@ -3869,14 +3869,14 @@ h2.accordion-header {
   width: 150px;
   height: 150px;
   border-radius: 100%;
-  background-color: #e52e06;
+  background-color: #06dee5;
   -webkit-animation: preloader 1.3s linear infinite;
   animation: preloader 1.3s linear infinite;
 }
 #preloader .preloader span:last-child {
   animation-delay: -0.8s;
   -webkit-animation-delay: -0.8s;
-  background-color: green;
+  background-color: rgb(128, 0, 38);
 }
 
 @keyframes preloader {

@@ -508,6 +508,9 @@
                                         </ul>
                                     </li>
                                     <li><a href="about.html">About Us</a></li>
+                                    <li >
+                                        <a href="./shop.php"> Shop</a>
+                                    </li>
                                     <li class="menu-item-has-children">
                                         <a href="#">Page</a>
                                         <ul>
@@ -521,17 +524,7 @@
                                             <li><a href="404.html">404 Error</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Shop</a>
-                                        <ul>
-                                            <li><a href="shop.html">Shop</a></li>
-                                            <li><a href="shop-grid.html">Shop Grid</a></li>
-                                            <li><a href="shop-2-column.html">Shop 2 Columns</a></li>
-                                            <li><a href="shop-leftsidebar.html">Shop Left Sidebar</a></li>
-                                            <li><a href="shop-rightsidebar.html">Shop Right Sidebar</a></li>
-                                            <li><a href="product-details.html">Single Products</a></li>
-                                        </ul>
-                                    </li>
+                                   
                                     <li class="menu-item-has-children">
                                         <a href="#">Blog</a>
                                         <ul>
@@ -588,6 +581,10 @@
                         <li class="menu-item-has-children">
                             <a href="about.html"> About Us</a>
                         </li>
+
+                        <li >
+                                        <a href="./shop.php"> Shop</a>
+                                    </li>
                         <li class="menu-item-has-children">
                             <a href="#">Page</a>
                             <ul class="sub-menu">
@@ -601,17 +598,7 @@
                                 <li><a href="404.html">404 Error</a></li>
                             </ul>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Shop</a>
-                            <ul class="sub-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                <li><a href="shop-2-column.html">Shop 2 Columns</a></li>
-                                <li><a href="shop-leftsidebar.html">Shop Left Sidebar</a></li>
-                                <li><a href="shop-rightsidebar.html">Shop Right Sidebar</a></li>
-                                <li><a href="product-details.html">Single Products</a></li>
-                            </ul>
-                        </li>
+                       
                         <li class="menu-item-has-children">
                             <a href="#">Blog</a>
                             <ul class="sub-menu">
@@ -638,31 +625,35 @@
 
 
     <!-- Start Mincart Section -->
-    <div class="minicart-sidebar">
-        <div class="minicart-sidebar-full">
-            <div class="minicart-header">
-                <div class="left">
-                    <i class="bi bi-bag-fill"></i>
-                    <span id="item-count">0 Item</span>
-                </div>
-                <div class="mini-cart-off">
-                    <i class="bi bi-x-lg"></i>
-                </div>
+ <div class="minicart-sidebar">
+    <div class="minicart-sidebar-full">
+        <div class="minicart-header">
+            <div class="left">
+                <i class="bi bi-bag-fill"></i>
+                <span id="item-count">0 Item</span>
             </div>
-            <div class="minicart-product-item-full" id="minicart-products">
-                <!-- Product items will be added here -->
+            <div class="mini-cart-off">
+                <i class="bi bi-x-lg"></i>
             </div>
-            <div class="minicart-bottom">
-                <div class="title">
-                    <h2>Total : <span id="total-price">$0.00</span></h2>
-                </div>
-                <div class="button-b">
-                    <a class="button-2" href="cart.php">View Cart</a>
-                    <a class="button-1" href="checkout.html">Proceed Checkout</a>
-                </div>
+        </div>
+        <div class="minicart-product-item-full" id="minicart-products">
+            <!-- Product items will be added here -->
+        </div>
+        <div class="minicart-bottom">
+            <div class="title">
+                <h2>Total : <span id="total-price">$0.00</span></h2>
+            </div>
+            <div class="button-b">
+                <a class="button-2" id="view-cart" href="cart.php">
+                    <span>View Cart</span>
+                    <i class="fa-solid fa-spinner fa-spin" id="loading-spinner" style="display:none;"></i>
+                </a>
+                <a class="button-1" href="checkout.html">Proceed Checkout</a>
             </div>
         </div>
     </div>
+</div>
+
     <!-- End Mincart Section -->
 
 

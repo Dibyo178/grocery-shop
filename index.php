@@ -467,6 +467,34 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="feature-product-slider owl-carousel">
+
+                    <div class="product-item feature" data-id="3" data-name="Raddish Vegetable" data-price="200">
+                            <div class="sale-badge"><span>Discount</span></div>
+                            <div class="product-thumbnail">
+                                <a href="product-details.html">
+                                    <img src="assets/discount-images/bg-remove/marmite.png" alt="Marmite product image">
+                                </a>
+                                <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                <div class="product-overly-btn">
+                                    <ul>
+                                        <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h4><a href="product-details.html">Raddish Vegetable</a></h4>
+                                <div class="pricing">
+                                    <span>¥200 <del>¥210</del></span>
+                                </div>
+
+                                <div class="tax" style="display:none">
+                                    <span>¥20</span>
+                                </div>
+
+
+                            </div>
+                        </div>
                         <!-- Single -->
                         <div class="product-item feature">
                             <div class="sale-badge"><span>20%</span></div>
@@ -664,8 +692,6 @@
 
     <!-- Part 1: Feature Products -->
 
-
-
     <section class="pt-30 pb-50">
         <div class="container">
             <div class="row">
@@ -740,9 +766,6 @@
     </section>
 
 
-
-
-
     <!-- end add to cart -->
 
 
@@ -761,37 +784,36 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="feature-product-slider owl-carousel">
-                        <!-- Single -->
-                        <div class="product-item">
+
+                    <div class="product-item" data-id="1" data-name="Raddish Vegetable" data-price="200">
                             <div class="sale-badge"><span>new</span></div>
-                            <!-- Thumbnail -->
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/discount-images/bg-remove/marmite.png" alt="product">
+                                    <img src="assets/discount-images/bg-remove/marmite.png" alt="Marmite product image">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                        <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
                                         <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
-                            <!-- Content -->
                             <div class="product-content">
-                                <!-- <div class="ratting">
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                    <span><i class="fas fa-star"></i></span>
-                                </div> -->
-                                <h4><a href="product-details.html">Raddish Vegitable</a></h4>
+                                <h4><a href="product-details.html">Raddish Vegetable</a></h4>
                                 <div class="pricing">
                                     <span>¥200 <del>¥210</del></span>
                                 </div>
+
+                                <div class="tax" style="display:none">
+                                    <span>¥20</span>
+                                </div>
+
+
                             </div>
                         </div>
+                        <!-- Single -->
+                      
                         <!-- Single -->
                         <div class="product-item">
                             <div class="sale-badge"><span>new</span></div>

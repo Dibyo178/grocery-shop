@@ -22,41 +22,47 @@
     <link rel="stylesheet" href="assets/css/normalize.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <style>
     .quantity-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.quantity-container button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: 16px;
-}
+    .quantity-container button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
-.quantity-container button:hover {
-    background-color: #45a049;
-}
+    .quantity-container button:hover {
+        background-color: #45a049;
+    }
 
-.quantity-container input {
-    width: 40px;
-    text-align: center;
-    border: 1px solid #ddd;
-    margin: 0 5px;
-}
+    .quantity-container input {
+        width: 40px;
+        text-align: center;
+        border: 1px solid #ddd;
+        margin: 0 5px;
+    }
 
+    .remove {
+        border: none;
+        background: none;
+        cursor: pointer;
+    }
 </style>
 
 <body>
 
     <?php include './header.php'; ?>
-    <!-- End Mincart Section -->
 
     <!-- Start Breadcrumb Area -->
     <section class="breadcrumb-area pt-100 pb-100" style="background-image:url('./assets/discount-images/cart.jpg');">
@@ -138,12 +144,19 @@
                             <h6 class="m-0">Use Coupon Code</h6>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form id="coupon-form">
                                 <div class="form-group mb-3">
                                     <label class="form-label">Have a Coupon Code?</label>
-                                    <input type="text" class="form-control" placeholder="xxxx">
+                                    <input type="text" id="coupon-code" class="form-control" placeholder="Have a Cupon Code">
                                 </div>
-                                <button class="button-1">Apply</button>
+                                <button type="button" class="button-1" id="apply-coupon">Apply</button>
+
+                                <!-- Loading Icon -->
+                                <div id="loading-icon" style="display:none; text-align:center;">
+                                    <img src="assets/discount-images/loading.gif" alt="Loading" style="width: 30px; height: 30px;">
+                                </div>
+                                <!-- Discount message -->
+                                <div id="discount-message" style="display:none; color: green;"></div>
                             </form>
                         </div>
                     </div>
@@ -173,95 +186,123 @@
     <script src="assets/js/modernizr.min.js"></script>
     <script src="assets/js/script.js"></script>
 
-<script>
-    function displayCartItems() {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const taxValue = parseFloat(localStorage.getItem('taxValue')) || 0; // Get tax value from local storage
-    const cartTableBody = document.getElementById('cart-items');
-    cartTableBody.innerHTML = ''; // Clear existing items
+    <script src="./assets/js/cart.js"></script>
 
-    var subtotal = 0;
-    let initialTaxValue = 0;
+    <script>
+        let totalTax = 0; // Declare totalTax globally
+        let couponApplied = false; // Flag to track if a coupon has been applied
 
-    // Iterate through the cart items
-    cartItems.forEach(item => {
-        const row = document.createElement('tr');
+        // Function to display cart items and calculate totals
+        function displayCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTableBody = document.getElementById('cart-items');
+            cartTableBody.innerHTML = ''; // Clear existing items
 
-        const subtotalPrice = parseFloat(item.price) * parseInt(item.quantity || 1);
-        subtotal += subtotalPrice;
+            let subtotal = 0;
 
-        const findTaxValue = parseFloat(item.taxValue);
-        initialTaxValue += findTaxValue;
+            // Iterate through the cart items
+            cartItems.forEach(item => {
+                const quantity = parseInt(item.quantity || 1);
+                const itemPrice = parseFloat(item.price);
+                const itemTax = parseFloat(item.taxValue) || 0;
 
-        // Create table rows for each cart item
-        row.innerHTML = `
-            <td class="text-center product-thumbnail">
-                <a href="#"><img src="${item.image}" alt="product"></a>
-            </td>
-            <td class="text-center product-name">
-                <a href="#">${item.name}</a>
-            </td>
-            <td class="text-center product-price-cart">
-                <span class="amount">¥${parseFloat(item.price).toFixed(2)}</span>
-            </td>
-            <td class="text-center product-quantity">
-                <div class="quantity-container">
-                    <button class="decrement" onclick="updateQuantity('${item.id}', -1)">-</button>
-                    <input type="number" min="1" value="${item.quantity || 1}" id="qty-${item.id}" readonly>
-                    <button class="increment" onclick="updateQuantity('${item.id}', 1)">+</button>
-                </div>
-            </td>
-            <td class="text-center product-subtotal">
-                <span class="amount">¥${subtotalPrice.toFixed(2)}</span>
-            </td>
-            <td class="product-remove text-center">
-                <a href="#" onclick="removeItem('${item.id}')"><i class="fas fa-times"></i></a>
-            </td>
-        `;
-        cartTableBody.appendChild(row);
-    });
+                const subtotalPrice = itemPrice * quantity;
+                subtotal += subtotalPrice;
 
-    // Calculate grand total including subtotal and initial tax value
-    const grandTotal = (subtotal + initialTaxValue).toFixed(2);
+                // Calculate tax based on quantity
+                totalTax = (itemTax * quantity); // Sum of tax values
+                const totalPriceWithTax = subtotalPrice + totalTax; // Total price with tax
 
-    // Update the displayed subtotal, tax, and grand total
-    document.getElementById('subtotal').innerText = `¥${subtotal.toFixed(2)}`;
-    document.getElementById('tax').innerText = `¥${initialTaxValue.toFixed(2)}`;
-    document.getElementById('grand-total').innerText = `¥${grandTotal}`;
-}
+                // Create a new row for each cart item
+                const row = `
+                    <tr>
+                        <td class="text-center"><img src="${item.image}" width="100" alt="Product Image"></td>
+                        <td class="text-center">${item.name}</td>
+                        <td class="text-center">¥${itemPrice.toFixed(2)}</td>
+                        <td class="text-center quantity-container">
+                            <button class="decrement" data-id="${item.id}">-</button>
+                            <input type="number" value="${quantity}" min="1" data-id="${item.id}" class="quantity-input" readonly>
+                            <button class="increment" data-id="${item.id}">+</button>
+                        </td>
+                        <td class="text-center" id="item-subtotal-${item.id}">¥${totalPriceWithTax.toFixed(2)}</td>
+                        <td class="text-center"><button class="remove" data-id="${item.id}">X</button></td>
+                    </tr>
+                `;
+                cartTableBody.insertAdjacentHTML('beforeend', row);
+            });
 
-// Function to update quantity
-function updateQuantity(itemId, change) {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const item = cartItems.find(i => i.id === itemId);
-
-    if (item) {
-        let newQty = item.quantity + change;
-
-        // Ensure quantity is not less than 1
-        if (newQty < 1) {
-            newQty = 1;
+            // Update the subtotal and grand total
+            const grandTotal = subtotal + totalTax; // Grand total including tax
+            document.getElementById('subtotal').innerText = `¥${subtotal.toFixed(2)}`;
+            document.getElementById('tax').innerText = `¥${totalTax.toFixed(2)}`;
+            document.getElementById('grand-total').innerText = `¥${grandTotal.toFixed(2)}`;
         }
 
-        item.quantity = newQty;
-        localStorage.setItem('cart', JSON.stringify(cartItems)); // Update local storage
-        displayCartItems(); // Refresh the displayed cart items
-    }
-}
+        // Increment quantity
+        function incrementQuantity(itemId) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cartItems.find(item => item.id === itemId);
 
-// Function to remove an item from the cart
-function removeItem(itemId) {
-    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-    const updatedCart = cartItems.filter(item => item.id !== itemId);
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    displayCartItems(); // Refresh the displayed cart items
-}
+            if (item) {
+                item.quantity = parseInt(item.quantity || 1) + 1; // Increase quantity
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                displayCartItems();
+            }
+        }
 
-// Call the displayCartItems function on page load
-document.addEventListener('DOMContentLoaded', displayCartItems);
+        // Decrement quantity
+        function decrementQuantity(itemId) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cartItems.find(item => item.id === itemId);
 
-</script>
+            if (item && item.quantity > 1) {
+                item.quantity = parseInt(item.quantity) - 1; // Decrease quantity
+                localStorage.setItem('cart', JSON.stringify(cartItems));
+                displayCartItems();
+            }
+        }
 
+        // Remove item from cart
+        function removeItem(itemId) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems = cartItems.filter(item => item.id !== itemId); // Filter out removed item
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            displayCartItems();
+        }
+
+        // Apply coupon code
+        document.getElementById('apply-coupon').addEventListener('click', () => {
+            const couponCode = document.getElementById('coupon-code').value;
+
+            if (couponCode === 'DISCOUNT10' && !couponApplied) {
+                const discount = 10; // Fixed discount amount for simplicity
+                const grandTotalElement = document.getElementById('grand-total');
+                let grandTotal = parseFloat(grandTotalElement.innerText.replace('$', ''));
+
+                grandTotal -= discount; // Apply discount
+                grandTotalElement.innerText = `$${grandTotal.toFixed(2)}`;
+                document.getElementById('discount-message').innerText = `Coupon applied! You saved $${discount}`;
+                document.getElementById('discount-message').style.display = 'block';
+                couponApplied = true; // Mark coupon as applied
+            } else {
+                alert('Coupon is invalid or already applied.');
+            }
+        });
+
+        // Event listeners for increment, decrement, and remove buttons
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('increment')) {
+                incrementQuantity(e.target.dataset.id);
+            } else if (e.target.classList.contains('decrement')) {
+                decrementQuantity(e.target.dataset.id);
+            } else if (e.target.classList.contains('remove')) {
+                removeItem(e.target.dataset.id);
+            }
+        });
+
+        // Initialize cart display
+        displayCartItems();
+    </script>
 </body>
 
 </html>
