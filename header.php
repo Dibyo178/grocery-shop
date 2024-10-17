@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaman Halal Food</title>
-    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="16x16">
-    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
-    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20">
+    <!-- <link rel="icon" href="assets/logo/favicon.png" type="image/gif" sizes="16x16"> -->
+    <!-- <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
+    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20"> -->
 
+
+    <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
+    <!-- #region  link-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
@@ -25,7 +28,9 @@
     <!-- update link -->
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- jquery cdn -->
 
@@ -35,7 +40,9 @@
 
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- jquery cdn -->
 
@@ -269,6 +276,19 @@
         background-color: #f44336;
         /* Red for warning */
     }
+
+
+    /* responsive iphone 12 and se  */
+
+    @media only screen and (max-width: 390px) {
+
+
+
+        .col-10 {
+            flex: 0 0 auto;
+            width: 100.333333%;
+        }
+    }
 </style>
 
 
@@ -290,8 +310,8 @@
                 <div class="row">
                     <div class="col-lg-2 align-self-center">
                         <div class="logo d-mobile-none">
-                            <a href="index.html">
-                                <img src="assets/img/logo.png" alt="logo">
+                            <a href="index.php">
+                                <img src="assets/logo/final.png" alt="logo">
                             </a>
                         </div>
                     </div>
@@ -300,7 +320,7 @@
                         <div class="select-search-option">
                             <div class="select-category">
                                 <select name="cate">
-                                    <option value="0">Select Catagory</option>
+                                    <option value="0">Select Category</option>
                                     <option value="1">Vegetables</option>
                                     <option value="2">Fruits</option>
                                     <option value="3">Salads</option>
@@ -313,16 +333,18 @@
                             <div class="search-form">
                                 <form action="#">
                                     <div class="search">
-                                        <input type="text" id="search-input" placeholder="Search for items..." oninput="filterItems()" />
+                                        <input type="text" id="search-input" placeholder="Search for items..."
+                                            oninput="filterItems()" />
                                         <div id="loading"><i class="fa-solid fa-spinner fa-spin"></i></div>
                                         <div id="not-found">No items found</div>
                                         <ul id="dropdata">
                                             <li>
-                                                <a href="" style="color: black; text-decoration: none">
+                                                <a href="#" style="color: black; text-decoration: none">
                                                     <div class="col-lg-6 border_part">
                                                         <div class="search_part col-lg-12">
                                                             <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
+                                                                    alt="TShirt Image">
                                                             </div>
                                                             <div class="search_des">
                                                                 <h3>TShirt</h3>
@@ -331,108 +353,10 @@
                                                         </div>
                                                     </div>
                                                 </a>
-
-                                                <a href="" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-                                                <a href="" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-
-                                                <a href="" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-                                                <a href="" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-                                                <a href="" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-
-                                                <a href="" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png" alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-
-
-
-
-
-
-
+                                                <!-- Repeat as necessary for more items -->
                                             </li>
-
                                         </ul>
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -443,11 +367,9 @@
                                     <i class="bi bi-telephone-inbound"></i>
                                     <span>+91 235 548 7548</span>
                                 </li>
-                                <!-- <li class="need-help">
-                                    <a href="#"><i class="bi bi-question-circle"></i> Help & More</a>
-                                </li> -->
                                 <li class="point">
-                                    <a href="wishlist.html" style="color:black"><i class="fa-solid fa-yen-sign"></i>:0.05</a>
+                                    <a href="wishlist.html" style="color:black"><i
+                                            class="fa-solid fa-yen-sign"></i>:0.05</a>
                                 </li>
                                 <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
@@ -469,7 +391,7 @@
                         <!-- Logo -->
                         <div class="logo mobile-bar-logo">
                             <a href="index.html">
-                                <img src="assets/img/logo.png" alt="img">
+                                <img src="assets/logo/mobile/logo.png" alt="img">
                             </a>
                         </div>
                         <div class="mobile-bar">
@@ -485,7 +407,8 @@
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
                                 <li class="point">
-                                    <a href="wishlist.html" style="color:black"><i style="font-size:large" class="fa-solid fa-yen-sign"></i><span> 0.05 </span></a>
+                                    <a href="wishlist.html" style="color:black"><i style="font-size:large"
+                                            class="fa-solid fa-yen-sign"></i><span> 0.05 </span></a>
                                 </li>
 
                                 <li class="wishlist">
@@ -508,7 +431,7 @@
                                         </ul>
                                     </li>
                                     <li><a href="about.html">About Us</a></li>
-                                    <li >
+                                    <li>
                                         <a href="./shop.php"> Shop</a>
                                     </li>
                                     <li class="menu-item-has-children">
@@ -524,7 +447,7 @@
                                             <li><a href="404.html">404 Error</a></li>
                                         </ul>
                                     </li>
-                                   
+
                                     <li class="menu-item-has-children">
                                         <a href="#">Blog</a>
                                         <ul>
@@ -565,7 +488,7 @@
                 </div>
                 <div class="mobile-logo">
                     <a href="index.html">
-                        <img src="assets/img/logo.png" alt="logo">
+                        <img style="width:100px" src="./assets/logo/favicon.png" alt="logo">
                     </a>
                 </div>
                 <div id="menu" class="text-left ">
@@ -582,9 +505,9 @@
                             <a href="about.html"> About Us</a>
                         </li>
 
-                        <li >
-                                        <a href="./shop.php"> Shop</a>
-                                    </li>
+                        <li>
+                            <a href="./shop.php"> Shop</a>
+                        </li>
                         <li class="menu-item-has-children">
                             <a href="#">Page</a>
                             <ul class="sub-menu">
@@ -598,7 +521,7 @@
                                 <li><a href="404.html">404 Error</a></li>
                             </ul>
                         </li>
-                       
+
                         <li class="menu-item-has-children">
                             <a href="#">Blog</a>
                             <ul class="sub-menu">
@@ -625,34 +548,34 @@
 
 
     <!-- Start Mincart Section -->
- <div class="minicart-sidebar">
-    <div class="minicart-sidebar-full">
-        <div class="minicart-header">
-            <div class="left">
-                <i class="bi bi-bag-fill"></i>
-                <span id="item-count">0 Item</span>
+    <div class="minicart-sidebar">
+        <div class="minicart-sidebar-full">
+            <div class="minicart-header">
+                <div class="left">
+                    <i class="bi bi-bag-fill"></i>
+                    <span id="item-count">0 Item</span>
+                </div>
+                <div class="mini-cart-off">
+                    <i class="bi bi-x-lg"></i>
+                </div>
             </div>
-            <div class="mini-cart-off">
-                <i class="bi bi-x-lg"></i>
+            <div class="minicart-product-item-full" id="minicart-products">
+                <!-- Product items will be added here -->
             </div>
-        </div>
-        <div class="minicart-product-item-full" id="minicart-products">
-            <!-- Product items will be added here -->
-        </div>
-        <div class="minicart-bottom">
-            <div class="title">
-                <h2>Total : <span id="total-price">$0.00</span></h2>
-            </div>
-            <div class="button-b">
-                <a class="button-2" id="view-cart" href="cart.php">
-                    <span>View Cart</span>
-                    <i class="fa-solid fa-spinner fa-spin" id="loading-spinner" style="display:none;"></i>
-                </a>
-                <a class="button-1" href="checkout.html">Proceed Checkout</a>
+            <div class="minicart-bottom">
+                <div class="title">
+                    <h2>Total : <span id="total-price">$0.00</span></h2>
+                </div>
+                <div class="button-b">
+                    <a class="button-2" id="view-cart" href="cart.php">
+                        <span>View Cart</span>
+                        <i class="fa-solid fa-spinner fa-spin" id="loading-spinner" style="display:none;"></i>
+                    </a>
+                    <a class="button-1" href="checkout.html">Proceed Checkout</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- End Mincart Section -->
 

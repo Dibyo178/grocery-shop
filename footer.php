@@ -8,7 +8,7 @@
                         <div class="footer-widget-item">
                             <div class="f-logo mb-10">
                                 <a href="index.html">
-                                    <img src="assets/img/logo.png" alt="logo">
+                                    <img style="width:200px" src="assets/logo/favicon.png" alt="logo">
                                 </a>
                             </div>
                             <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod teincididunt ut labore et </p> -->

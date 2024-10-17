@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaman Halal Food</title>
-    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="16x16">
+    <!-- <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="16x16">
     <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
-    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20">
+    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20"> -->
 
+    <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
+
+     
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
@@ -50,7 +53,7 @@
                                 <h2>Teasty & Healthy Organic Food</h2>
                                 <div class="hero-btn">
                                     <a class="button-1" href="shop.html">Shop Now</a>
-                                    <a class="button-3" href="shop.html">Category</a>
+                                    <a class="button-3" href="#category">Category</a>
                                 </div>
                             </div>
                         </div>
@@ -75,7 +78,7 @@
                                 <h2>Teasty & Healthy Organic Food</h2>
                                 <div class="hero-btn">
                                     <a class="button-1" href="shop.html">Shop Now</a>
-                                    <a class="button-3" href="shop.html">Category</a>
+                                    <a class="button-3" href="#category">Category</a>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +134,7 @@
 
 
     <!-- Start Shop Category -->
-    <section class="shop-category pt-20 pb-20">
+    <section class="shop-category pt-20 pb-20" >
         <div class="container">
             <!-- Section Headding -->
             <div class="row">
@@ -141,7 +144,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" id="category">
 
                 <!-- Single -->
                 <div class="col-lg-3 col-6 mb-30">
@@ -1322,6 +1325,22 @@
     <script src="./assets/js/update.js"></script>
 
     <script src="./assets/js/cart.js"></script>
+
+    <!-- Add this script at the end of your HTML or in your JavaScript file -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryButton = document.querySelector('.button-3'); // Assuming this class is used for the category button
+
+    categoryButton.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent the default anchor click behavior
+        const targetSection = document.getElementById('category'); // Target the category section
+        targetSection.scrollIntoView({
+            behavior: 'smooth' // Smooth scroll
+        });
+    });
+});
+</script>
+
 
 </body>
 
