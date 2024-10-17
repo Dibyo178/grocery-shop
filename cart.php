@@ -194,6 +194,7 @@
         cartTableBody.innerHTML = ''; // Clear existing items
 
         let subtotal = 0;
+        totalTax = 0; // Reset total tax for recalculation
 
         // Iterate through the cart items
         cartItems.forEach(item => {
@@ -204,8 +205,10 @@
             const subtotalPrice = itemPrice * quantity;
             subtotal += subtotalPrice;
 
-            // Calculate total price with tax
+            // Calculate total price with tax for each item
             const totalPriceWithTax = subtotalPrice + (itemTax * quantity); // Total price with tax
+
+            totalTax += itemTax * quantity; // Accumulate total tax
 
             const row = document.createElement('tr');
             row.innerHTML = `
@@ -225,6 +228,7 @@
             cartTableBody.appendChild(row);
         });
 
+        // Update subtotal and grand total
         document.getElementById('subtotal').textContent = `¥${subtotal.toFixed(2)}`;
         document.getElementById('tax').textContent = `¥${totalTax.toFixed(2)}`;
         const grandTotal = subtotal + totalTax;
@@ -314,6 +318,7 @@
     // Initial call to display cart items
     displayCartItems();
 </script>
+
 
 
 
