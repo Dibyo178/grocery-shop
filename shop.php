@@ -19,6 +19,29 @@
 	<link rel="stylesheet" href="assets/css/responsive.css">
 
 </head>
+
+<style>
+	 .fr-pagination ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fr-pagination ul li {
+            display: inline;
+            margin: 0 5px;
+        }
+
+        .fr-pagination .active {
+            font-weight: bold;
+            color: #679509; /* Change to your desired color */
+        }
+
+        .fr-pagination .disabled {
+            pointer-events: none;
+            color: grey; /* Change to your desired color */
+        }
+</style>
 <body>
 	
  <?php include './header.php'; ?>
@@ -44,741 +67,652 @@
 
 	<!-- Start Shop Page -->
 	<section class="section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<!-- ltn__shop-options -->
-					<div class="row mb-30">
-						<div class="col-12">
-							<div class="ltn__shop-options">
-								<div class="list-single">
-									<div class="ltn__grid-list-tab-menu ">
-	                                	<ul class="nav nav-tabs" id="myTab" role="tablist">
-										  	<li class="nav-item" role="presentation">
-										    	<button class="nav-link active" id="gridView-tab" data-bs-toggle="tab" data-bs-target="#gridView" role="tab" aria-controls="gridView" aria-selected="true"><i class="fas fa-th"></i></button>
-										  	</li>
-										  	<li class="nav-item" role="presentation">
-										    	<button class="nav-link" id="listView-tab" data-bs-toggle="tab" data-bs-target="#listView" role="tab" aria-controls="listView" aria-selected="false"><i class="fas fa-list-ul"></i></button>
-										  	</li>
-										</ul>
-	                            	</div>
-								</div>
-								<div class="list-single">
-									<div class="showing-product-number text-right">
-	                                    <span>Showing 1–12 of 18 results</span>
-	                                </div>
-								</div>
-								<div class="list-single">
-									<div class="woo-product-shorting">
-										<select name="srot">
-											<option value="0">Default Sorting</option>
-											<option value="1">Sort by popularity</option>
-											<option value="2">Sort by new arrivals</option>
-											<option value="3">Sort by price: low to high</option>
-											<option value="4">Sort by price: high to low</option>
-										</select>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- Products -->
-					<div class="row">
-						<div class="tab-content" id="myTabContent">
-							<!-- Shop GridView -->
-						  	<div class="tab-pane fade show active shop-gridview" id="gridView" role="tabpanel" aria-labelledby="gridView-tab">
-						  		<div class="row">
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/1.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/2.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/3.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/4.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/5.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/6.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/7.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/8.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/9.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/1.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/2.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-						  				<div class="product-item">
-											<!-- Thumbnail -->
-											<div class="product-thumbnail">
-												<a href="product-details.html">
-													<img src="assets/img/product/10.jpg" alt="product">
-												</a>
-												<a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
-												<div class="product-overly-btn">
-													<ul>
-														<li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-														<li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
-													</ul>
-												</div>
-											</div>
-											<!-- Content -->
-											<div class="product-content">
-												
-												<h4><a href="product-details.html">Raddish Vegitable</a></h4>
-												<div class="pricing">
-													<span>$200 <del>$210</del></span>
-												</div>
-											</div>
-										</div>
-						  			</div>
-						  		</div>
-						  	</div>
-						  	<!-- Shop ListView -->
-						  	<div class="tab-pane fade shop-listview" id="listView" role="tabpanel" aria-labelledby="listView-tab">
-						  		<div class="row">
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/1.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/3.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/4.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/5.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/6.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/7.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/5.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/9.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  			<!-- Single -->
-						  			<div class="col-lg-12">
-						  				<div class="product-list-item mb-30">
-						  					<div class="row">
-						  						<div class="col-sm-4 d-flex">
-						  							<div class="thumbnail">
-						  								<a href="product-details.html">
-						  									<img src="assets/img/product/10.jpg" alt="img">
-						  								</a>
-						  							</div>
-						  						</div>
-						  						<div class="col-sm-8 align-self-center">
-						  							<div class="content">
-						  								<h2 class="title">
-						  									<a href="product-details.html">Vegetables Juices</a>
-						  								</h2>
-						  								
-														<div class="pricing">
-															<span>$200 <del>$210</del></span>
-														</div>
-														<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae asperiores sit odit nesciunt, aliquid...</p>
-														<div class="product-hover-action">
-		                                                    <ul>
-		                                                        <li>
-		                                                        	<a title="Quick View" data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Add to Cart"><i class="fas fa-shopping-cart"></i></a>
-		                                                        </li>
-		                                                        <li>
-		                                                            <a href="#" title="Wishlist"><i class="far fa-heart"></i></a>
-		                                                        </li>
-		                                                    </ul>
-		                                                </div>
-						  							</div>
-						  						</div>
-						  					</div>
-						  				</div>
-						  			</div>
-						  		</div>
-						  	</div>
-						</div>
-					</div>
-					<!-- Pagination -->
-					<div class="row mt-15 mb-30">
-						<div class="col-12 text-center">
-							<div class="fr-pagination">
-								<ul>
-									<li><a href="#"><i class="fas fa-angle-left"></i></a></li>
-									<li><a href="#">1</a></li>
-									<li><span>2</span></li>
-									<li><a href="#">3</a></li>
-									<li><a href="#">4</a></li>
-									<li><a href="#"><i class="fas fa-angle-right"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row mb-30">
+                    <div class="col-12">
+                        <div class="ltn__shop-options">
+                            <div class="list-single">
+                                <div class="showing-product-number text-right">
+                                    <span id="showing-results">Showing 1–10 of 18 results</span>
+                                </div>
+                            </div>
+                            <div class="list-single">
+                                <div class="woo-product-shorting">
+                                    <select name="srot">
+                                        <option value="0">Default Sorting</option>
+                                        <option value="1">Sort by popularity</option>
+                                        <option value="2">Sort by new arrivals</option>
+                                        <option value="3">Sort by price: low to high</option>
+                                        <option value="4">Sort by price: high to low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Products -->
+                <div class="row">
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Shop GridView -->
+                        <div class="tab-pane fade show active shop-gridview" id="gridView" role="tabpanel" aria-labelledby="gridView-tab">
+                            <div class="row">
+                                <!-- Single Product Item -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="1" data-name="Raddish Vegetable" data-price="200">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/marmite.png" alt="Marmite product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Raddish Vegetable</a></h4>
+                                            <div class="pricing">
+                                                <span>¥200 <del>¥210</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥20</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Repeat product items as needed -->
+                                <!-- Example product item -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add more product items here -->
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="row mt-15 mb-30">
+                    <div class="col-12 text-center">
+                        <div class="fr-pagination">
+                            <ul>
+                                <li><a href="#" class="page-link" id="prev-page"><i class="fas fa-angle-left"></i></a></li>
+                                <!-- Pagination links will be dynamically added here -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 	<!-- End Shop Page -->
 
 
@@ -914,5 +848,75 @@
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="./assets/js/cart.js"></script>
+
+<!-- jQuery and JavaScript -->
+<!-- jQuery and JavaScript -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        const itemsPerPage = 12; // Number of items to show per page
+        const totalItems = $('.product-item').length; // Total number of items
+        const totalPages = Math.ceil(totalItems / itemsPerPage); // Total pages needed
+        let currentPage = 1; // Track the current page
+
+        // Create pagination links
+        for (let i = 1; i <= totalPages; i++) {
+            $('.fr-pagination ul').append(`<li><a href="#" class="page-link">${i}</a></li>`);
+        }
+
+        // Hide all product items initially
+        $('.product-item').hide();
+
+        // Show items for the first page
+        showPage(currentPage);
+
+        // Event listener for pagination links
+        $('.fr-pagination').on('click', '.page-link', function(e) {
+            e.preventDefault(); // Prevent the default anchor click behavior
+            const pageNum = $(this).text(); // Get the page number
+            currentPage = parseInt(pageNum);
+            showPage(currentPage);
+        });
+
+        // Event listener for previous page button
+        $('#prev-page').on('click', function(e) {
+            e.preventDefault(); // Prevent the default anchor click behavior
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        function showPage(page) {
+            // Hide all product items
+            $('.product-item').hide();
+
+            // Calculate start and end indices
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            // Show items for the current page
+            $('.product-item').slice(start, end).show();
+
+            // Update showing results text
+            const showingStart = start + 1;
+            const showingEnd = Math.min(end, totalItems);
+            $('#showing-results').text(`Showing ${showingStart}–${showingEnd} of ${totalItems} results`);
+
+            // Update pagination styles (active class)
+            $('.fr-pagination .page-link').removeClass('active');
+            $('.fr-pagination .page-link').eq(page - 1).addClass('active');
+
+            // Disable/enable previous button based on current page
+            if (page === 1) {
+                $('#prev-page').addClass('disabled');
+            } else {
+                $('#prev-page').removeClass('disabled');
+            }
+        }
+    });
+</script>
+
+
 </body>
 </html>
