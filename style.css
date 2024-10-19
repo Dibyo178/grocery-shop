@@ -135,8 +135,9 @@ img {
   bottom: 20px;
   right: 20px;
   z-index: 1;
-  display: none;
+  display: none; /* Initially hidden */
 }
+
 .scroll-area i {
   width: 45px;
   height: 45px;
@@ -149,6 +150,7 @@ img {
   font-size: 20px;
   border-radius: 50%;
 }
+
 /*
  * #-Header
 */
@@ -3366,7 +3368,7 @@ img {
   top: 0;
   left: 0;
   z-index: -1;
-  background: #679509b3;
+  background: #080d33b3;
 }
 .contact-form-info h2 {
   font-size: 30px;

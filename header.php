@@ -465,7 +465,7 @@
                     <div class="col-10">
                         <!-- Logo -->
                         <div class="logo mobile-bar-logo">
-                            <a href="index.html">
+                            <a href="index.php">
                                 <img src="assets/logo/mobile/logo.png" alt="img">
                             </a>
                         </div>
@@ -497,19 +497,15 @@
                         <div class="menu">
                             <nav>
                                 <ul>
-                                    <li class="menu-item-has-children">
-                                        <a href="index.html">Home</a>
-                                        <ul>
-                                            <li><a href="index.html">Home Style 01</a></li>
-                                            <li><a href="index2.html">Home Style 02</a></li>
-                                            <li><a href="index3.html">Home Style 03</a></li>
-                                        </ul>
+                                    <li>
+                                        <a href="index.php">Home</a>
+                                        
                                     </li>
-                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="about.php">About Us</a></li>
                                     <li>
                                         <a href="./shop.php"> Shop</a>
                                     </li>
-                                    <li class="menu-item-has-children">
+                                    <!-- <li class="menu-item-has-children">
                                         <a href="#">Page</a>
                                         <ul>
                                             <li><a href="team.html">Team</a></li>
@@ -521,19 +517,13 @@
                                             <li><a href="faq.html">Faq</a></li>
                                             <li><a href="404.html">404 Error</a></li>
                                         </ul>
-                                    </li>
+                                    </li> -->
 
-                                    <li class="menu-item-has-children">
-                                        <a href="#">Blog</a>
-                                        <ul>
-                                            <li><a href="blog.html">Blog</a></li>
-                                            <li><a href="blog-grid.html">Blog Grid</a></li>
-                                            <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                            <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                            <li><a href="single.html">Blog Details</a></li>
-                                        </ul>
+                                    <li>
+                                        <a href="./blog.php">Blog</a>
+                                        
                                     </li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -568,13 +558,9 @@
                 </div>
                 <div id="menu" class="text-left ">
                     <ul class="offcanvas_main_menu">
-                        <li class="menu-item-has-children active">
-                            <a href="#">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home Style 01</a></li>
-                                <li><a href="index2.html">Home Style 02</a></li>
-                                <li><a href="index3.html">Home Style 03</a></li>
-                            </ul>
+                        <li class="active">
+                            <a href="./index.php">Home</a>
+                        
                         </li>
                         <li class="menu-item-has-children">
                             <a href="about.html"> About Us</a>
@@ -598,15 +584,10 @@
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a href="#">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html">Blog</a></li>
-                                <li><a href="blog-grid.html">Blog Grid</a></li>
-                                <li><a href="blog-left-sidebar.html">Blog Left Sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">Blog Right Sidebar</a></li>
-                                <li><a href="single.html">Blog Details</a></li>
-                            </ul>
+                            <a href="blog.php"> Blog</a>
                         </li>
+
+                        
                         <li class="menu-item-has-children">
                             <a href="contact.html"> Contact Us</a>
                         </li>

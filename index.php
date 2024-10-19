@@ -52,7 +52,7 @@
                                 <h4>Organic and fresh food</h4>
                                 <h2>Teasty & Healthy Organic Food</h2>
                                 <div class="hero-btn">
-                                    <a class="button-1" href="shop.html">Shop Now</a>
+                                    <a class="button-1" href="shop.php">Shop Now</a>
                                     <a class="button-3" href="#category">Category</a>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <h4>Organic and fresh food</h4>
                                 <h2>Teasty & Healthy Organic Food</h2>
                                 <div class="hero-btn">
-                                    <a class="button-1" href="shop.html">Shop Now</a>
+                                    <a class="button-1" href="shop.php">Shop Now</a>
                                     <a class="button-3" href="#category">Category</a>
                                 </div>
                             </div>
@@ -103,7 +103,7 @@
             <div class="row">
                 <div class="col-lg-6 mb-30 d-flex">
                     <div class="lg-banner-item">
-                        <a href="shop.html">
+                        <a href="shop.php">
                             <img src="assets/Halal/banner1.png" alt="banner">
                         </a>
                     </div>
@@ -112,14 +112,14 @@
                     <div class="row">
                         <div class="col-lg-12 mb-30">
                             <div class="lg-banner-item">
-                                <a href="shop.html">
+                                <a href="shop.php">
                                     <img src="assets/Halal/b2.png" alt="banner">
                                 </a>
                             </div>
                         </div>
                         <div class="col-lg-12 mb-30">
                             <div class="lg-banner-item">
-                                <a href="shop.html">
+                                <a href="shop.php">
                                     <img src="assets/Halal/b3.png" alt="banner">
                                 </a>
                             </div>
@@ -1113,22 +1113,22 @@
                 <div class="col-lg-4 col-md-6 mb-30">
                     <div class="blog-item">
                         <div class="thumbnail">
-                            <a href="single.html">
+                            <!-- <a href="single.html"> -->
                                 <img src="assets/discount-images/bg-remove/guava-nutritional-fruit-600x450.jpg" alt="blog">
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="content">
                             <div class="meta">
                                 <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
                                 <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span>
                             </div>
-                            <h2 class="title"><a href="single.html">Healthiest Vegetables on Earth</a></h2>
+                            <h2 class="title"><a href="single.php">Healthiest Vegetables on Earth</a></h2>
                             <div class="btm-meta">
                                 <div class="date">
                                     <span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
                                 </div>
                                 <div class="read-more">
-                                    <a href="single.html">Read More</a>
+                                    <a href="single.php">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -1138,22 +1138,22 @@
                 <div class="col-lg-4 col-md-6 mb-30">
                     <div class="blog-item">
                         <div class="thumbnail">
-                            <a href="single.html">
+                            <!-- <a href="single.html"> -->
                                 <img src="assets/discount-images/bg-remove/la-monisa.png" alt="blog">
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="content">
                             <div class="meta">
                                 <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
                                 <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span>
                             </div>
-                            <h2 class="title"><a href="single.html">Healthiest Vegetables on Earth</a></h2>
+                            <h2 class="title"><a href="single.php">Healthiest Vegetables on Earth</a></h2>
                             <div class="btm-meta">
                                 <div class="date">
                                     <span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
                                 </div>
                                 <div class="read-more">
-                                    <a href="single.html">Read More</a>
+                                    <a href="single.php">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -1163,22 +1163,22 @@
                 <div class="col-lg-4 col-md-6 mb-30">
                     <div class="blog-item">
                         <div class="thumbnail">
-                            <a href="single.html">
+                            <!-- <a href="single.html"> -->
                                 <img src="assets/discount-images/bg-remove/marmite.png" alt="blog">
-                            </a>
+                            <!-- </a> -->
                         </div>
                         <div class="content">
                             <div class="meta">
                                 <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
                                 <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span>
                             </div>
-                            <h2 class="title"><a href="single.html">Healthiest Vegetables on Earth</a></h2>
+                            <h2 class="title"><a href="single.php">Healthiest Vegetables on Earth</a></h2>
                             <div class="btm-meta">
                                 <div class="date">
                                     <span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
                                 </div>
                                 <div class="read-more">
-                                    <a href="single.html">Read More</a>
+                                    <a href="single.php">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -1323,6 +1323,8 @@
     <script src="assets/js/script.js"></script>
 
     <script src="./assets/js/update.js"></script>
+
+    
 
     <script src="./assets/js/cart.js"></script>
 

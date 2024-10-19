@@ -154,3 +154,5 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
 
 //  spiner view cart
 
+// scroll part 
+

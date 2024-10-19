@@ -102,6 +102,7 @@
 	<script src="assets/js/ajax-form.js"></script>
 	<script src="assets/js/mobile-menu.js"></script>
 	<script src="assets/js/script.js"></script>
+	<script src="./assets/js/cart.js"></script>
 </body>
 
 </html>
