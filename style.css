@@ -281,7 +281,7 @@ img {
   list-style: none;
 }
 .header-top-right ul li.point a i {
-  font-size: 26px;
+  font-size: 20px;
   color: #4d4d4d;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease;
@@ -292,17 +292,18 @@ img {
 .header-top-right ul li.point a span {
   width: 28px;
   height: 18px;
-  background: #f6f6f6;
+  background:#679509;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50%;
+  border-radius: 5px;
   font-size: 10px;
-  color: black;
+  color: white;
   font-weight: 500;
   position: absolute;
   top: -13px;
   right: -11px;
+  /* padding: 10px; */
 }
 
 /*  End point */
@@ -1130,7 +1131,7 @@ img {
 .product-item .product-thumbnail img {
   width: 100%;
   height: 100%; /* Ensures all images have the same height */
-  object-fit: cover; /* Ensures images are cropped proportionally */
+  object-fit: contain; /* Ensures images are cropped proportionally */
   transition: all 0.5s ease;
 }
 .product-item:hover .product-thumbnail img {

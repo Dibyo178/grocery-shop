@@ -1,131 +1,567 @@
-<script>
-    let totalTax = 0; // Declare totalTax globally
-    let couponApplied = false; // Flag to track if a coupon has been applied
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Add more product items here -->
 
-    // Function to display cart items and calculate totals
-    function displayCartItems() {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartTableBody = document.getElementById('cart-items');
-        cartTableBody.innerHTML = ''; // Clear existing items
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        let subtotal = 0;
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        // Iterate through the cart items
-        cartItems.forEach(item => {
-            const quantity = parseInt(item.quantity || 1);
-            const itemPrice = parseFloat(item.price);
-            const itemTax = parseFloat(item.taxValue) || 0;
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-            const subtotalPrice = itemPrice * quantity;
-            subtotal += subtotalPrice;
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-            // Calculate total price with tax
-            const totalPriceWithTax = subtotalPrice + (itemTax * quantity); // Total price with tax
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td class="text-center"><img src="${item.image}" alt="${item.name}" width="80"></td>
-                <td class="text-center">${item.name}</td>
-                <td class="text-center">¥${itemPrice.toFixed(2)}</td>
-                <td class="text-center">
-                    <div class="quantity-container">
-                        <button class="decrement" data-id="${item.id}">-</button>
-                        <input type="text" value="${quantity}" class="quantity" data-id="${item.id}" readonly>
-                        <button class="increment" data-id="${item.id}">+</button>
-                    </div>
-                </td>
-                <td class="text-center">¥${totalPriceWithTax.toFixed(2)}</td>
-                <td class="text-center"><button class="remove" data-id="${item.id}"><i class="fas fa-trash"></i></button></td>
-            `;
-            cartTableBody.appendChild(row);
-        });
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        document.getElementById('subtotal').textContent = `¥${subtotal.toFixed(2)}`;
-        document.getElementById('tax').textContent = `¥${totalTax.toFixed(2)}`;
-        const grandTotal = subtotal + totalTax;
-        document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
-    }
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-    // Remove item from cart with SweetAlert confirmation
-    function removeItem(itemId) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-                cartItems = cartItems.filter(item => item.id !== itemId); // Filter out removed item
-                localStorage.setItem('cart', JSON.stringify(cartItems)); // Update local storage
-                displayCartItems(); // Refresh cart display
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                Swal.fire(
-                    'Deleted!',
-                    'Your item has been deleted.',
-                    'success'
-                );
-            }
-        });
-    }
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-    // Event listeners for increment, decrement, and remove buttons
-    document.addEventListener('click', function (event) {
-        const target = event.target;
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        if (target.classList.contains('increment')) {
-            const itemId = target.dataset.id; // Get item ID from the increment button
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cartItems.find(item => item.id === itemId); // Find the corresponding cart item
-            if (item) {
-                item.quantity = (parseInt(item.quantity) || 1) + 1; // Increment quantity
-                localStorage.setItem('cart', JSON.stringify(cartItems));
-                displayCartItems(); // Refresh cart display
-            }
-        } else if (target.classList.contains('decrement')) {
-            const itemId = target.dataset.id; // Get item ID from the decrement button
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cartItems.find(item => item.id === itemId); // Find the corresponding cart item
-            if (item && item.quantity > 1) {
-                item.quantity = (parseInt(item.quantity) || 1) - 1; // Decrement quantity
-                localStorage.setItem('cart', JSON.stringify(cartItems));
-                displayCartItems(); // Refresh cart display
-            }
-        } else if (target.closest('.remove') || target.closest('.fa-trash')) {
-            const itemId = target.closest('.remove').dataset.id; // Get item ID from the delete button
-            removeItem(itemId); // Remove item from cart with confirmation
-        }
-    });
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-    // Function to apply coupon code
-    document.getElementById('apply-coupon').addEventListener('click', function () {
-        const couponCode = document.getElementById('coupon-code').value.trim();
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-        // Check if coupon is valid and has not been applied already
-        if (couponCode === 'DISCOUNT10' && !couponApplied) {
-            const loadingIcon = document.getElementById('loading-icon');
-            loadingIcon.style.display = 'block'; // Show loading icon
-            setTimeout(() => {
-                loadingIcon.style.display = 'none'; // Hide loading icon
-                const fixedDiscountAmount = 10; // Fixed discount amount
-                const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('¥', '')) || 0;
-                const grandTotal = subtotal - fixedDiscountAmount + totalTax; // Calculate new grand total
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-                // Update totals
-                document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
-                document.getElementById('discount-message').textContent = 'Coupon applied successfully!';
-                document.getElementById('discount-message').style.display = 'block'; // Show success message
-                couponApplied = true; // Set flag to prevent reapplying the coupon
-            }, 1000); // Simulating a delay
-        } else {
-            document.getElementById('discount-message').textContent = 'Coupon code is invalid or already applied.';
-            document.getElementById('discount-message').style.display = 'block'; // Show error message
-        }
-    });
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
-    // Initial call to display cart items
-    displayCartItems();
-</script>
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
+                                        <div class="sale-badge"><span>new</span></div>
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                            </a>
+                                            <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <div class="pricing">
+                                                <span>¥150 <del>¥160</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥15</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>

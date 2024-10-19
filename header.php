@@ -354,6 +354,81 @@
                                                     </div>
                                                 </a>
                                                 <!-- Repeat as necessary for more items -->
+                                                <a href="#" style="color: black; text-decoration: none">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
+                                                                    alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" style="color: black; text-decoration: none">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
+                                                                    alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" style="color: black; text-decoration: none">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
+                                                                    alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" style="color: black; text-decoration: none">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
+                                                                    alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+
+                                                <a href="#" style="color: black; text-decoration: none">
+                                                    <div class="col-lg-6 border_part">
+                                                        <div class="search_part col-lg-12">
+                                                            <div class="search_img">
+                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
+                                                                    alt="TShirt Image">
+                                                            </div>
+                                                            <div class="search_des">
+                                                                <h3>TShirt</h3>
+                                                                <p>1900 BDT</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                                
                                             </li>
                                         </ul>
                                     </div>
@@ -368,12 +443,12 @@
                                     <span>+91 235 548 7548</span>
                                 </li>
                                 <li class="point">
-                                    <a href="wishlist.html" style="color:black"><i
-                                            class="fa-solid fa-yen-sign"></i>:0.05</a>
+                                  <span>Points</span>  <a href="wishlist.html" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
+                                            class="fa-solid fa-yen-sign"></i> :0.05</a>
                                 </li>
-                                <li class="wishlist">
+                                <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
-                                </li>
+                                </li> -->
                                 <li class="signin-option">
                                     <a href="login.html"><i class="far fa-user"></i></a>
                                 </li>
@@ -407,13 +482,13 @@
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
                                 <li class="point">
-                                    <a href="wishlist.html" style="color:black"><i style="font-size:large"
-                                            class="fa-solid fa-yen-sign"></i><span> 0.05 </span></a>
+                                  <span>Points</span> : <a href="wishlist.html" style="color:black"><i style="font-size:large"
+                                            class="fa-solid fa-yen-sign"> </i><span> 21321 </span></a>
                                 </li>
 
-                                <li class="wishlist">
+                                <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
-                                </li>
+                                </li> -->
                                 <li class="signin-option">
                                     <a href="login.html"><i class="far fa-user"></i></a>
                                 </li>
