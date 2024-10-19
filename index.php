@@ -995,7 +995,7 @@
                         <h2>Fresh Beef Available in Every Friday </h2>
 
                         <div class="dh-btn mt-30">
-                            <a class="button-3" href="shop.html" style="background-color:#679509;color:#fff">Shop Now</a>
+                            <a class="button-3" href="shop.php" style="background-color:#679509;color:#fff">Shop Now</a>
                         </div>
                     </div>
                 </div>
