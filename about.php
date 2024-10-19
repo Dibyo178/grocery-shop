@@ -66,8 +66,8 @@
 							E-mail:- zamanmd4316@gmail.com.</p> -->
 						<ul>
 							<li><i class="fas fa-check-circle"></i>Our Shop Address : <span style="font-weight:400">〒348-0044 Saitamaken, Hanyu City, Kamiiwase 545</span></li>
-							<li><i class="fas fa-check-circle"></i>Phone: 080-6554-4316</li>
-							<li><i class="fas fa-check-circle"></i> E-mail:- zamanmd4316@gmail.com.</li>
+							<li><i class="fas fa-check-circle"></i>Phone:<span style="font-weight:400"> 080-6554-4316 </span></li>
+							<li><i class="fas fa-check-circle"></i> E-mail: <span style="font-weight:400">zamanmd4316@gmail.com.</span></li>
 						</ul>
 						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus urna arcu, eu bibendum ante eleifend eu. Aliquam vitae nisi fringilla, gravida enim id, pharetra magna. Donec eu eleifend ex.</p> -->
 					</div>
