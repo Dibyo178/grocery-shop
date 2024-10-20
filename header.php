@@ -49,14 +49,6 @@
     <script src="lightbox-plus-jquery.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <!-- update js -->
-
-
-    <!-- update js -->
-
-
-
-
 </head>
 
 <style>
@@ -260,7 +252,7 @@
     #add-to-cart-alert {
         display: none;
         /* Initially hidden */
-        background-color: #4CAF50;
+        background-color: green;
         /* Green */
         color: white;
         padding: 15px;
@@ -273,26 +265,135 @@
     }
 
     #add-to-cart-alert.warning {
-        background-color: #f44336;
+        background-color:green;
         /* Red for warning */
     }
 
 
     /* responsive iphone 12 and se  */
 
-    @media only screen and (max-width: 390px) {
+   /* Responsive Styles */
+/* Media query for screens up to 768px */
+@media (max-width: 768px) {
+  .select-search-option {
+    flex-direction: column; /* Stack elements vertically */
+    width: 100%; /* Full width */
+  }
 
+  .select-search-option .select-category {
+    width: 100%; /* Full width */
+    margin-bottom: 10px; /* Space between elements */
+  }
 
+  .select-search-option .search-form form {
+    width: 100%; /* Full width */
+  }
 
-        .col-10 {
-            flex: 0 0 auto;
-            width: 100.333333%;
-        }
+  .header-top-right {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+    margin-top: 10px; /* Space above */
+  }
+
+  .header-top-right ul {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    padding: 0;
+    margin: 0;
+  }
+
+  .header-top-right ul li {
+    margin-left: 0; /* Reset margin */
+    margin-bottom: 10px; /* Space between items */
+  }
+
+  .header-top {
+    padding: 10px 0; /* Reduce padding */
+  }
+
+  .logo {
+    text-align: center; /* Center logo */
+    margin-bottom: 10px; /* Space below logo */
+  }
+
+  .header-mini-cart-icon {
+    justify-content: flex-end; /* Align to the end */
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Space above */
+  }
+}
+
+/* Media query for screens up to 576px */
+@media (max-width: 576px) {
+  .header-top-right ul li.call i,
+  .header-top-right ul li.need-help a i {
+    font-size: 18px; /* Smaller icon size */
+  }
+
+  .header-top-right ul li span,
+  .header-top-right ul li.need-help a {
+    font-size: 12px; /* Smaller font size */
+  }
+
+  .header-top-right ul li.point a {
+    padding: 0 5px; /* Further reduce padding */
+    display: flex; /* Ensure flex display for proper alignment */
+    margin-left: -20px; /* Adjust margin */
+  }
+
+  .header-top-right ul li.point{
+
+    margin-left: -60px;
+    margin-top: 10px;
+  }
+
+  .header-top-right ul li.point a i {
+    font-size: 16px; /* Smaller icon size for small screens */
+    margin-left: 20px;
+    margin-top: 10px;
+    display: none;
+
+  }
+
+  .header-top-right ul li.point a span {
+    width: 22px; /* Further reduce width */
+    height: 14px; /* Further reduce height */
+    font-size: 8px; /* Further reduce font size */
+    /* bottom: 8px; */
+    right: 50px; /* Adjust positioning */
+    margin-top: -5px;
+    padding:0 17px
+    
+  
+  }
+
+  .header-top-right ul li.signin-option a{
+
+    margin-top: -25px;
+
+     
+  }
+
+  .align-self-center{
+      margin-top: -15px;
+
+  }
+}
+
+@media (max-width: 390px) and (min-width: 375px) {
+
+    .canvas_open a {
+
+        width: 25px;
     }
+
+    .mobile-bar-logo {
+
+width: 100px;
+}
+}
+
 </style>
-
-
-
 
 <body>
     <!-- Preloader -->
@@ -443,7 +544,7 @@
                                     <span>+91 235 548 7548</span>
                                 </li>
                                 <li class="point">
-                                  <span>Points</span>  <a href="wishlist.html" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
+                                  <span>Points</span>  <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
                                             class="fa-solid fa-yen-sign"></i> :0.05</a>
                                 </li>
                                 <!-- <li class="wishlist">
@@ -482,8 +583,8 @@
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
                                 <li class="point">
-                                  <span>Points</span> : <a href="wishlist.html" style="color:black"><i style="font-size:large"
-                                            class="fa-solid fa-yen-sign"> </i><span> 21321 </span></a>
+                                  <span>Points:</span>  <a href="#" style="color:black"><i style="font-size:large"
+                                            class="fa-solid fa-yen-sign"> </i><span style="gap:2px;"><small>¥</small>  21321 </span></a>
                                 </li>
 
                                 <!-- <li class="wishlist">
@@ -583,7 +684,7 @@
                             </ul>
                         </li>
 
-                        <li class="menu-item-has-children">
+                        <li >
                             <a href="blog.php"> Blog</a>
                         </li>
 
@@ -620,7 +721,7 @@
             </div>
             <div class="minicart-bottom">
                 <div class="title">
-                    <h2>Total : <span id="total-price">$0.00</span></h2>
+                    <h2>Total : <span id="total-price">¥ 0.00</span></h2>
                 </div>
                 <div class="button-b">
                     <a class="button-2" id="view-cart" href="cart.php">
@@ -635,26 +736,26 @@
 
     <!-- End Mincart Section -->
 
-
-    <!-- alert -->
-
-    <!-- Progress Bar Alert -->
     <!-- Progress Bar Alert -->
     <div id="add-to-cart-alert" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 1000;">
         <div class="alert alert-success" style="width: 300px;">
-            <strong>Success!</strong> Product added to cart.
+        <i style="font-size:20px;color:#4CAF50;font-weight:700" class="fa-regular fa-circle-check"></i><strong> Success!</strong> Product added to cart.
             <div class="progress" style="height: 5px;">
                 <div class="progress-bar" role="progressbar" style="width: 100%; transition: width 2s;"></div>
             </div>
         </div>
     </div>
+    
+
+  
 
 
-    <!-- End Mincart Section -->
+
+
+
+
 
     <script src="./assets/js/update.js"></script>
-
-
 </body>
 
 </html>

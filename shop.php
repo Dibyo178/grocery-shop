@@ -170,7 +170,7 @@
                                 <div class="woo-product-shorting">
                                     <select name="sort">
                                         <option value="0">Default Sorting</option>
-                                        <option value="1">Sort by popularity</option>
+                                        <option value="1">Sort by discount items</option>
                                         <option value="2">Sort by new arrivals</option>
                                         <option value="3">Sort by price: low to high</option>
                                         <option value="4">Sort by price: high to low</option>
@@ -461,19 +461,19 @@
 	<!-- jQuery and JavaScript -->
 	<!-- jQuery and JavaScript -->
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			const itemsPerPage = 12; // Number of items to show per page
-			const totalItems = $('.product-item').length; // Total number of items
-			const totalPages = Math.ceil(totalItems / itemsPerPage); // Total pages needed
-			let currentPage = 1; // Track the current page
+<script>
+	$(document).ready(function () {
+    const itemsPerPage = 12; // Number of items to show per page
+    const totalItems = $('.product-item:visible').length; // Count only visible items
+    const totalPages = Math.ceil(totalItems / itemsPerPage); // Calculate total pages based on visible items
+    let currentPage = 1; // Track the current page
 
-			// Function to create pagination links
-			function createPagination() {
-				$('.fr-pagination ul').empty(); // Clear existing pagination links
+    // Function to create pagination links
+    function createPagination() {
+        $('.fr-pagination ul').empty(); // Clear existing pagination links
 
-				// Create Previous button
-				$('.fr-pagination ul').append(`
+        // Create Previous button
+        $('.fr-pagination ul').append(`
             <li>
                 <a href="#" class="page-link prev-page ${currentPage === 1 ? 'disabled' : ''}" id="prev-page">
                     <i class="fas fa-angle-left"></i>
@@ -481,72 +481,73 @@
             </li>
         `);
 
-				// Create individual page numbers
-				for (let i = 1; i <= totalPages; i++) {
-					$('.fr-pagination ul').append(`
+        // Create individual page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            $('.fr-pagination ul').append(`
                 <li>
                     <a href="#" class="page-link ${currentPage === i ? 'active' : ''}">${i}</a>
                 </li>
             `);
-				}
+        }
 
-				// Create Next button
-				$('.fr-pagination ul').append(`
+        // Create Next button
+        $('.fr-pagination ul').append(`
             <li>
                 <a href="#" class="page-link next-page ${currentPage === totalPages ? 'disabled' : ''}" id="next-page">
                     <i class="fas fa-angle-right"></i>
                 </a>
             </li>
         `);
-			}
+    }
 
-			// Function to show the current page of product items
-			function showPage(page) {
-				// Hide all product items
-				$('.product-item').hide();
+    // Function to show the current page of product items
+    function showPage(page) {
+        // Hide all product items
+        $('.product-item').hide();
 
-				// Calculate start and end index
-				const start = (page - 1) * itemsPerPage;
-				const end = start + itemsPerPage;
+        // Calculate start and end index
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
 
-				// Show products for the current page
-				$('.product-item').slice(start, end).show();
+        // Show products for the current page
+        $('.product-item').slice(start, end).show();
 
-				// Update showing results text
-				const showingStart = start + 1;
-				const showingEnd = Math.min(end, totalItems);
-				$('#showing-results').text(`Showing ${showingStart}–${showingEnd} of ${totalItems} results`);
+        // Update showing results text
+        const showingStart = start + 1;
+        const showingEnd = Math.min(end, totalItems);
+        $('#showing-results').text(`Showing ${showingStart}–${showingEnd} of ${totalItems} results`);
 
-				// Update pagination links
-				createPagination();
-			}
+        // Update pagination links
+        createPagination();
+    }
 
-			// Initialize pagination and show the first page
-			createPagination();
-			showPage(currentPage);
+    // Initialize pagination and show the first page
+    createPagination();
+    showPage(currentPage);
 
-			// Handle pagination clicks
-			$('.fr-pagination').on('click', '.page-link', function(e) {
-				e.preventDefault();
+    // Handle pagination clicks
+    $('.fr-pagination').on('click', '.page-link', function (e) {
+        e.preventDefault();
 
-				// Ignore if the button is disabled
-				if ($(this).hasClass('disabled')) return;
+        // Ignore if the button is disabled
+        if ($(this).hasClass('disabled')) return;
 
-				// Check if it's a prev or next button click
-				if ($(this).hasClass('prev-page')) {
-					currentPage--; // Go to the previous page
-				} else if ($(this).hasClass('next-page')) {
-					currentPage++; // Go to the next page
-				} else {
-					// Click on page number
-					currentPage = parseInt($(this).text()); // Update to the clicked page number
-				}
+        // Check if it's a prev or next button click
+        if ($(this).hasClass('prev-page')) {
+            currentPage--; // Go to the previous page
+        } else if ($(this).hasClass('next-page')) {
+            currentPage++; // Go to the next page
+        } else {
+            // Click on page number
+            currentPage = parseInt($(this).text()); // Update to the clicked page number
+        }
 
-				// Show the current page
-				showPage(currentPage);
-			});
-		});
-	</script>
+        // Show the current page
+        showPage(currentPage);
+    });
+});
+
+</script>
 
 
 

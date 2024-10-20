@@ -25,6 +25,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css" rel="stylesheet">
+
+
     <!-- update link -->
 
 
@@ -150,12 +153,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/bens-dry-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Beans & Dry Fruit </a></h4>
                             <!-- <span>(24 item)</span> -->
                         </div>
@@ -165,12 +168,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/beef-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">Beef </a></h4>
+                            <h4><a href="shop.php">Beef </a></h4>
                             <!-- <span>(94 item)</span> -->
                         </div>
                     </div>
@@ -179,12 +182,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/chicken-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Chicken </a></h4>
                             <!-- <span>(11 item)</span> -->
                         </div>
@@ -195,12 +198,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/masla-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Masala & Spices </a></h4>
                             <!-- <span>(11 item)</span> -->
                         </div>
@@ -210,14 +213,14 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="./assets/Halal/bg-remove/Bangladeshi-food.png" alt="img">
 
 
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Bangladeshi Food </a></h4>
                             <!-- <span>(78 item)</span> -->
                         </div>
@@ -228,12 +231,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/frozen_and_dry-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Frozen & Dry Fish </a></h4>
                             <!-- <span>(99 item)</span> -->
                         </div>
@@ -243,12 +246,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/indonetian-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Indonesian Food </a></h4>
                             <!-- <span>(32 item)</span> -->
                         </div>
@@ -259,12 +262,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/Cos-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
                                     Cosmetics </a></h4>
                             <!-- <span>(11 item)</span> -->
                         </div>
@@ -275,12 +278,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/mutton-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
                                     Mutton </a></h4>
                             <!-- <span>(11 item)</span> -->
@@ -291,12 +294,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/meat-fish-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
                                     Meat & Fish </a></h4>
                             <!-- <span>(11 item)</span> -->
@@ -307,12 +310,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/srilankan-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
                                     Srilankan Food </a></h4>
                             <!-- <span>(11 item)</span> -->
@@ -323,12 +326,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/OIL-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
                                     Oil and Ghee </a></h4>
                             <!-- <span>(11 item)</span> -->
@@ -339,12 +342,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/meat-fish-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
                                     Meat & Fish </a></h4>
                             <!-- <span>(11 item)</span> -->
@@ -355,12 +358,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/Nepal-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
 
                                     Nepali Food </a></h4>
@@ -372,12 +375,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/ramadan-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
 
                                     Ramadan Food </a></h4>
@@ -391,12 +394,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/snaks-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
 
 
@@ -410,12 +413,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/Bangladeshi-food.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
 
 
@@ -430,12 +433,12 @@
                 <div class="col-lg-3 col-6 mb-30">
                     <div class="s2-cate-item">
                         <div class="thumbn">
-                            <a href="shop.html">
+                            <a href="shop.php">
                                 <img src="assets/Halal/bg-remove/pakistani-removebg-preview.png" alt="img">
                             </a>
                         </div>
                         <div class="con">
-                            <h4><a href="shop.html">
+                            <h4><a href="shop.php">
 
 
                                     Pakistani Food </a></h4>
@@ -1198,7 +1201,7 @@
     <!-- End Footer Area -->
 
     <!-- Start Quick View Modal Content -->
-    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModal" aria-hidden="true">
+    <div class="modal fade" id="quickViewModal"  tabindex="-1" aria-labelledby="quickViewModal" aria-hidden="true">
         <div class="modal-dialog quick-view-modal">
             <div class="modal-content quick-view-modal-content">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1308,6 +1311,12 @@
     </div>
 
 
+
+    <!-- banner modal -->
+
+    <?php include './banner_modal.php' ?>
+
+
     <!-- Js File -->
     <script src="aseets/js/update.js"></script>
     <script src="assets/js/modernizr.min.js"></script>
@@ -1342,6 +1351,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+
+
 
 
 </body>
