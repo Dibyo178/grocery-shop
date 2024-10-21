@@ -265,134 +265,198 @@
     }
 
     #add-to-cart-alert.warning {
-        background-color:green;
+        background-color: green;
         /* Red for warning */
     }
 
 
     /* responsive iphone 12 and se  */
 
-   /* Responsive Styles */
-/* Media query for screens up to 768px */
-@media (max-width: 768px) {
-  .select-search-option {
-    flex-direction: column; /* Stack elements vertically */
-    width: 100%; /* Full width */
-  }
+    /* Responsive Styles */
+    /* Media query for screens up to 768px */
+    @media (max-width: 768px) {
+        .select-search-option {
+            flex-direction: column;
+            /* Stack elements vertically */
+            width: 100%;
+            /* Full width */
+        }
 
-  .select-search-option .select-category {
-    width: 100%; /* Full width */
-    margin-bottom: 10px; /* Space between elements */
-  }
+        .select-search-option .select-category {
+            width: 100%;
+            /* Full width */
+            margin-bottom: 10px;
+            /* Space between elements */
+        }
 
-  .select-search-option .search-form form {
-    width: 100%; /* Full width */
-  }
+        .select-search-option .search-form form {
+            width: 100%;
+            /* Full width */
+        }
 
-  .header-top-right {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start */
-    margin-top: 10px; /* Space above */
-  }
+        .header-top-right {
+            flex-direction: column;
+            /* Stack items vertically */
+            align-items: flex-start;
+            /* Align items to the start */
+            margin-top: 10px;
+            /* Space above */
+        }
 
-  .header-top-right ul {
-    display: flex;
-    flex-direction: column; /* Stack items vertically */
-    padding: 0;
-    margin: 0;
-  }
+        .header-top-right ul {
+            display: flex;
+            flex-direction: column;
+            /* Stack items vertically */
+            padding: 0;
+            margin: 0;
+        }
 
-  .header-top-right ul li {
-    margin-left: 0; /* Reset margin */
-    margin-bottom: 10px; /* Space between items */
-  }
+        .header-top-right ul li {
+            margin-left: 0;
+            /* Reset margin */
+            margin-bottom: 10px;
+            /* Space between items */
+        }
 
-  .header-top {
-    padding: 10px 0; /* Reduce padding */
-  }
+        .header-top {
+            padding: 10px 0;
+            /* Reduce padding */
+        }
 
-  .logo {
-    text-align: center; /* Center logo */
-    margin-bottom: 10px; /* Space below logo */
-  }
+        .logo {
+            text-align: center;
+            /* Center logo */
+            margin-bottom: 10px;
+            /* Space below logo */
+        }
 
-  .header-mini-cart-icon {
-    justify-content: flex-end; /* Align to the end */
-    width: 100%; /* Full width */
-    margin-top: 10px; /* Space above */
-  }
-}
-
-/* Media query for screens up to 576px */
-@media (max-width: 576px) {
-  .header-top-right ul li.call i,
-  .header-top-right ul li.need-help a i {
-    font-size: 18px; /* Smaller icon size */
-  }
-
-  .header-top-right ul li span,
-  .header-top-right ul li.need-help a {
-    font-size: 12px; /* Smaller font size */
-  }
-
-  .header-top-right ul li.point a {
-    padding: 0 5px; /* Further reduce padding */
-    display: flex; /* Ensure flex display for proper alignment */
-    margin-left: -20px; /* Adjust margin */
-  }
-
-  .header-top-right ul li.point{
-
-    margin-left: -60px;
-    margin-top: 10px;
-  }
-
-  .header-top-right ul li.point a i {
-    font-size: 16px; /* Smaller icon size for small screens */
-    margin-left: 20px;
-    margin-top: 10px;
-    display: none;
-
-  }
-
-  .header-top-right ul li.point a span {
-    width: 22px; /* Further reduce width */
-    height: 14px; /* Further reduce height */
-    font-size: 8px; /* Further reduce font size */
-    /* bottom: 8px; */
-    right: 50px; /* Adjust positioning */
-    margin-top: -5px;
-    padding:0 17px
-    
-  
-  }
-
-  .header-top-right ul li.signin-option a{
-
-    margin-top: -25px;
-
-     
-  }
-
-  .align-self-center{
-      margin-top: -15px;
-
-  }
-}
-
-@media (max-width: 390px) and (min-width: 375px) {
-
-    .canvas_open a {
-
-        width: 25px;
+        .header-mini-cart-icon {
+            justify-content: flex-end;
+            /* Align to the end */
+            width: 100%;
+            /* Full width */
+            margin-top: 10px;
+            /* Space above */
+        }
     }
 
-    .mobile-bar-logo {
+    /* Media query for screens up to 576px */
+    @media (max-width: 576px) {
 
-width: 100px;
-}
-}
+        .header-top-right ul li.call i,
+        .header-top-right ul li.need-help a i {
+            font-size: 18px;
+            /* Smaller icon size */
+        }
 
+        .header-top-right ul li span,
+        .header-top-right ul li.need-help a {
+            font-size: 12px;
+            /* Smaller font size */
+        }
+
+        .header-top-right ul li.point a {
+            padding: 0 5px;
+            /* Further reduce padding */
+            display: flex;
+            /* Ensure flex display for proper alignment */
+            margin-left: -20px;
+            /* Adjust margin */
+        }
+
+        .header-top-right ul li.point {
+
+            margin-left: -60px;
+            margin-top: 10px;
+        }
+
+        .header-top-right ul li.point a i {
+            font-size: 0px;
+            /* Smaller icon size for small screens */
+
+            display: none;
+
+        }
+
+        .header-top-right ul li.point a span {
+            width: 22px;
+            /* Further reduce width */
+            height: 14px;
+            /* Further reduce height */
+            font-size: 8px;
+            /* Further reduce font size */
+            /* bottom: 8px; */
+            right: 47px;
+            /* Adjust positioning */
+            margin-top: -5px;
+            padding: 0 17px
+        }
+
+        .header-top-right ul li.signin-option a {
+
+            margin-top: -25px;
+
+
+        }
+
+        .align-self-center {
+            margin-top: -15px;
+
+        }
+    }
+
+    @media (max-width: 390px) and (min-width: 375px) {
+
+        .canvas_open a {
+
+            width: 25px;
+        }
+
+        .mobile-bar-logo {
+
+            width: 100px;
+        }
+    }
+
+
+    /* Optional: Adjust the icon and dropdown styles */
+    .signin-option .nav-link {
+        color: #333;
+        /* Set icon color */
+        font-size: 18px;
+        /* Adjust icon size */
+        padding: 5px 10px;
+        /* Adjust spacing */
+    }
+
+    .signin-option .dropdown-menu {
+        min-width: 150px;
+        /* Set minimum width for dropdown */
+    }
+
+    .signin-option .dropdown-menu a {
+        display: flex;
+        align-items: center;
+    }
+
+    .signin-option .dropdown-menu a i {
+        font-size: 16px;
+        /* Icon size inside dropdown */
+    }
+
+    @media (max-width: 576px) {
+        .signin-option .nav-link {
+            font-size: 16px;
+            /* Smaller icon size */
+            padding: 5px;
+            /* Less padding for small screens */
+        }
+
+        .signin-option .dropdown-menu a {
+            font-size: 14px;
+            /* Smaller text size */
+        }
+    }
 </style>
 
 <body>
@@ -529,7 +593,7 @@ width: 100px;
                                                         </div>
                                                     </div>
                                                 </a>
-                                                
+
                                             </li>
                                         </ul>
                                     </div>
@@ -544,7 +608,7 @@ width: 100px;
                                     <span>+91 235 548 7548</span>
                                 </li>
                                 <li class="point">
-                                  <span>Points</span>  <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
+                                    <span style="font-weight: 700;">Points</span> <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
                                             class="fa-solid fa-yen-sign"></i> :0.05</a>
                                 </li>
                                 <!-- <li class="wishlist">
@@ -553,8 +617,26 @@ width: 100px;
                                 <li class="signin-option">
                                     <a href="login.html"><i class="far fa-user"></i></a>
                                 </li>
+
+
+                                <!-- if session_name exist -->
+
+
+
+                                <li>
+
+
+
+                                </li>
+
+
+
+
+                                <!-- end session_name exist -->
+
                             </ul>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -583,8 +665,8 @@ width: 100px;
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
                                 <li class="point">
-                                  <span>Points:</span>  <a href="#" style="color:black"><i style="font-size:large"
-                                            class="fa-solid fa-yen-sign"> </i><span style="gap:2px;"><small>¥</small>  21321 </span></a>
+                                    <span style="font-weight:700">Points:</span> <a href="#" style="color:black"><i style="font-size:large"
+                                            class="fa-solid fa-yen-sign"> </i><span style="gap:2px;"><small>¥</small> 21321 </span></a>
                                 </li>
 
                                 <!-- <li class="wishlist">
@@ -600,7 +682,7 @@ width: 100px;
                                 <ul>
                                     <li>
                                         <a href="index.php">Home</a>
-                                        
+
                                     </li>
                                     <li><a href="about.php">About Us</a></li>
                                     <li>
@@ -622,7 +704,7 @@ width: 100px;
 
                                     <li>
                                         <a href="./blog.php">Blog</a>
-                                        
+
                                     </li>
                                     <li><a href="contact.php">Contact Us</a></li>
                                 </ul>
@@ -661,7 +743,7 @@ width: 100px;
                     <ul class="offcanvas_main_menu">
                         <li class="active">
                             <a href="./index.php">Home</a>
-                        
+
                         </li>
                         <li class="menu-item-has-children">
                             <a href="about.html"> About Us</a>
@@ -684,11 +766,11 @@ width: 100px;
                             </ul>
                         </li>
 
-                        <li >
+                        <li>
                             <a href="blog.php"> Blog</a>
                         </li>
 
-                        
+
                         <li class="menu-item-has-children">
                             <a href="contact.html"> Contact Us</a>
                         </li>
@@ -739,18 +821,40 @@ width: 100px;
     <!-- Progress Bar Alert -->
     <div id="add-to-cart-alert" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 1000;">
         <div class="alert alert-success" style="width: 300px;">
-        <i style="font-size:20px;color:#4CAF50;font-weight:700" class="fa-regular fa-circle-check"></i><strong> Success!</strong> Product added to cart.
+            <i style="font-size:20px;color:#4CAF50;font-weight:700" class="fa-regular fa-circle-check"></i><strong> Success!</strong> Product added to cart.
             <div class="progress" style="height: 5px;">
                 <div class="progress-bar" role="progressbar" style="width: 100%; transition: width 2s;"></div>
             </div>
         </div>
     </div>
+
+
+
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the dropdown list element
+    var signinOption = document.getElementById('signinDropdown');
     
+    // Add a click event listener to the whole <li>
+    signinOption.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        // Toggle the dropdown
+        var dropdownMenu = signinOption.querySelector('.dropdown-menu');
+        dropdownMenu.classList.toggle('show');
+    });
+    
+    // Close the dropdown if clicked outside
+    document.addEventListener('click', function(event) {
+        if (!signinOption.contains(event.target)) {
+            var dropdownMenu = signinOption.querySelector('.dropdown-menu');
+            dropdownMenu.classList.remove('show');
+        }
+    });
+});
 
-  
-
-
-
+  </script>
 
 
 
