@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -608,18 +609,24 @@
                                     <span>+91 235 548 7548</span>
                                 </li>
                                 <li class="point">
-                                    <span style="font-weight: 700;">Points</span> <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
-                                            class="fa-solid fa-yen-sign"></i> :0.05</a>
+                                    <span style="font-weight: 700;">Points :</span> <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
+                                            class="fa-solid fa-yen-sign"></i> 0.05</a>
                                 </li>
                                 <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
                                 </li> -->
                                 <li class="signin-option">
-                                    <a href="login.html"><i class="far fa-user"></i></a>
+                                    <a href="login.php"><i class="far fa-user"></i></a>
                                 </li>
 
 
+
+
                                 <!-- if session_name exist -->
+
+                                <li class="signin-option">
+                                    <a href="./account.php"><i class="far fa-user"></i></a>
+                                </li>
 
 
 
@@ -672,8 +679,14 @@
                                 <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
                                 </li> -->
-                                <li class="signin-option">
+                                <li class="signin-option" style="display:none">
                                     <a href="login.html"><i class="far fa-user"></i></a>
+                                </li>
+
+                                <!-- if session_name exist -->
+
+                                <li class="signin-option">
+                                    <a href="./account.php"><i class="far fa-user"></i></a>
                                 </li>
                             </ul>
                         </div>
@@ -810,7 +823,7 @@
                         <span>View Cart</span>
                         <i class="fa-solid fa-spinner fa-spin" id="loading-spinner" style="display:none;"></i>
                     </a>
-                    <a class="button-1" href="checkout.html">Proceed Checkout</a>
+                    <a class="button-1" href="checkout.php">Proceed Checkout</a>
                 </div>
             </div>
         </div>
