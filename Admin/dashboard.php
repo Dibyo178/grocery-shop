@@ -1,59 +1,57 @@
 <?php
- 
+
 //header.php file include
 
-  include_once 'connectdb.php';
-  
-  session_start();
+include_once 'connectdb.php';
+
+session_start();
 
 // if may which is not provide cridential page redirect index.php file show
 
- if($_SESSION['username']=="" OR $_SESSION['role']==""){
-      
-      header("location:index.php");
-  }
- 
- $select= $pdo->prepare("select sum(id) as t from place_order");
- 
- $select->execute();
+if ($_SESSION['username'] == "" or $_SESSION['role'] == "") {
 
- $row=$select->fetch(PDO::FETCH_OBJ);
+    header("location:index.php");
+}
+
+$select = $pdo->prepare("select sum(id) as t from place_order");
+
+$select->execute();
+
+$row = $select->fetch(PDO::FETCH_OBJ);
 
 
-$total_order=$row->t;
+$total_order = $row->t;
 
 // $net_total=$row->t;
 
 
 
 
-           
-    $select=$pdo->prepare("select date, price from place_order group by date LIMIT 30");
-    
-            
-    $select->execute();
-                  
-     $ttl=[];
-     $date=[];              
-            
-while($row=$select->fetch(PDO::FETCH_ASSOC)  ){
-    
+
+$select = $pdo->prepare("select date, price from place_order group by date LIMIT 30");
+
+
+$select->execute();
+
+$ttl = [];
+$date = [];
+
+while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+
     extract($row);
-    
-    $ttl[]=$total;
-    $date[]=$order_date;
-    
-} 
+
+    $ttl[] = $total;
+    $date[] = $order_date;
+}
 
 
 
-   if($_SESSION['role']=="Admin"){
-      
-      include_once 'header.php';
-  }
-else{
-    
-     include_once 'headeruser.php';
+if ($_SESSION['role'] == "Admin") {
+
+    include_once 'header.php';
+} else {
+
+    include_once 'headeruser.php';
 }
 
 
@@ -62,22 +60,21 @@ else{
 ?>
 
 <style>
+    .small-box>.inner {
+        padding: 20px !important;
+    }
 
-.small-box>.inner {
-    padding: 20px !important;
-}
+    .skin-blue .main-header .navbar,
+    .logo {
 
-.skin-blue .main-header .navbar,.logo{
-    
-    background: #fff !important;
-}
+        background: #fff !important;
+    }
 
 
-.main-header .sidebar-toggle:hover{
-    
-    background: none !important;
-}
+    .main-header .sidebar-toggle:hover {
 
+        background: none !important;
+    }
 </style>
 
 
@@ -112,48 +109,45 @@ else{
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3 style="font-size: 30px"><?php if($total_order){
+                            <h3 style="font-size: 30px"><?php if ($total_order) {
 
-                              echo $total_order;
+                                                            echo $total_order;
+                                                        } else {
 
-                            }
+                                                            echo 0;
+                                                        }
 
-                            else{
-                                 
-                                 echo 0;
-                            }
-                            
-                            
-                            ?></h3>
+
+                                                        ?></h3>
 
                             <p>Total Orders</p>
 
-                            
+
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag" style="font-size:76px"></i>
                         </div>
-<!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+                        <!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
                     </div>
                 </div>
 
                 <!-- ./col -->
 
-                <?php   
-           
-          $select= $pdo->prepare("select count(id) as p from product_cart where category !='popular' ");
- 
- $select->execute();
+                <?php
 
- $row=$select->fetch(PDO::FETCH_OBJ);
+                $select = $pdo->prepare("select count(id) as p from product_cart where category !='popular' ");
+
+                $select->execute();
+
+                $row = $select->fetch(PDO::FETCH_OBJ);
 
 
-$total_product=$row->p;
+                $total_product = $row->p;
 
- 
-          
-          
-     ?>
+
+
+
+                ?>
 
 
 
@@ -161,44 +155,42 @@ $total_product=$row->p;
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3 style="font-size: 30px"><?php 
-                            
-                            if($total_product){
+                            <h3 style="font-size: 30px"><?php
 
-                                echo $total_product;
-                            }
+                                                        if ($total_product) {
 
-                            else{
+                                                            echo $total_product;
+                                                        } else {
 
-                                echo 0;
-                            }
-                            
-                            ?></h3>
+                                                            echo 0;
+                                                        }
+
+                                                        ?></h3>
 
                             <p> Total Product </p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-shopping-cart" style="font-size:70px"></i>
                         </div>
-<!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+                        <!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
                     </div>
                 </div>
-                
-                  <?php   
-          
-          $select= $pdo->prepare("select count(category) as cat from tbl_category");
- 
- $select->execute();
 
- $row=$select->fetch(PDO::FETCH_OBJ);
+                <?php
+
+                $select = $pdo->prepare("select count(category) as cat from tbl_category");
+
+                $select->execute();
+
+                $row = $select->fetch(PDO::FETCH_OBJ);
 
 
-$total_category=$row->cat;
+                $total_category = $row->cat;
 
- 
-          
-          
-     ?>
+
+
+
+                ?>
 
 
 
@@ -207,141 +199,118 @@ $total_category=$row->cat;
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3 style="font-size: 30px"><?php 
+                            <h3 style="font-size: 30px"><?php
 
-                            if($total_category){
+                                                        if ($total_category) {
 
-                                echo $total_category;
-                            }
+                                                            echo $total_category;
+                                                        } else {
 
-                            else{
+                                                            echo 0;
+                                                        }
 
-                                 echo 0;
-                            }
-                            
-                            
-                            ?></h3>
+
+                                                        ?></h3>
 
                             <p>Total Category</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph" style="font-size:80px"></i>
                         </div>
-<!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+                        <!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
                     </div>
                 </div>
                 <!-- ./col -->
             </div>
-            
-            
-            
-            <div class="box box-danger">
-            
-
-                <div class="box-header with-border">
-                    <h3 class="box-title">Earning By Date</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
 
 
 
+        
 
-                <div class="box-body">
-                <div class="chart">
 
-                        <canvas id="earningbydate" style="height:250px"></canvas>
+            <!-- below dashboard graph-->
 
+
+            <div class="col-md-12">
+
+                <div class="box box-danger">
+
+
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Recent Orders</h3>
                     </div>
-                
-                </div>
-                
-                </div>
-                
-                
-          <!-- below dashboard graph-->
-               
-
-                <div class="col-md-12">
-                    
-                     <div class="box box-danger">
-            
-
-                <div class="box-header with-border">
-                    <h3 class="box-title">Recent Orders</h3>
-                </div>
-                <!-- /.box-header -->
-                <!-- form start -->
+                    <!-- /.box-header -->
+                    <!-- form start -->
 
 
 
 
-                <div class="box-body">
-                
-                 <table id="recentorderlist" class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Invoice ID</th>
-                                <th>Name</th>
-                                <th>Date</th>
-                                <th>Total</th>
-                                <th>Pay</th>
-                                
-                                
-                                
-                            </tr>
-                        </thead>
+                    <div class="box-body">
 
-                        <tbody>
+                        <table id="recentorderlist" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Invoice ID</th>
+                                    <th>Name</th>
+                                    <th>Date</th>
+                                    <th>Total</th>
+                                    <th>Pay</th>
 
-                            <?php 
-                              
-                              $index=1; //default 1 count
-                              
-              $select=$pdo->prepare("select * from place_order  order by id desc LIMIT 20");
-                              
-                              $select->execute();
-                              
-                              while($row=$select->fetch(PDO::FETCH_OBJ)){
-                                  
-                                echo '
+
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <?php
+
+                                $index = 1; //default 1 count
+
+                                $select = $pdo->prepare("select * from place_order  order by id desc LIMIT 20");
+
+                                $select->execute();
+
+                                while ($row = $select->fetch(PDO::FETCH_OBJ)) {
+
+                                    echo '
                                 
                                   <tr>
-                                <td><a href="editorder.php?id='.$row->id.'">'.$index.'</a></td>
+                                <td><a href="editorder.php?id=' . $row->id . '">' . $index . '</a></td>
                                   
                                   
-      <td>'.$row->name.'</td>
-    <td>'.$row->date.'</td>
-    <td><span class="label label-danger"><span>&#2547;  </span>'.$row->price.'</td>
+      <td>' . $row->name . '</td>
+    <td>' . $row->date . '</td>
+    <td><span class="label label-danger"><span>&#2547;  </span>' . $row->price . '</td>
     
     
-    <td>'.$row->pmode.'</td>';
-                                  
-                                  
-                                  
-                            
-                                  
-                                  $index++;
-                              }
-                              
-                              
-                              
-                              ?>
-                        </tbody>
-                    </table>
-                
+    <td>' . $row->pmode . '</td>';
+
+
+
+
+
+                                    $index++;
+                                }
+
+
+
+                                ?>
+                            </tbody>
+                        </table>
+
+                    </div>
+
                 </div>
-                
-                </div>
-                    
-                </div>
-            </div>   
-                
-                
+
+            </div>
         </div>
 
-    </section>
-    <!-- /.content -->
+
+</div>
+
+</section>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 
@@ -358,19 +327,18 @@ $total_category=$row->cat;
 
         // The data for our dataset
         data: {
-            labels: <?php  echo json_encode($date); ?>,
+            labels: <?php echo json_encode($date); ?>,
             datasets: [{
                 label: 'Total Earning',
                 backgroundColor: 'rgb(255, 99, 255)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: <?php  echo json_encode($ttl); ?>
+                data: <?php echo json_encode($ttl); ?>
             }]
         },
 
         // Configuration options go here
         options: {}
     });
-
 </script>
 
 
@@ -397,8 +365,8 @@ $total_category=$row->cat;
 -->
 
 
-<?php 
- 
-  include_once 'footer.php';
-  
+<?php
+
+include_once 'footer.php';
+
 ?>

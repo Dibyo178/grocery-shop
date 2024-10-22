@@ -148,7 +148,7 @@ if (isset($_POST['btndelete'])) {
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>Area</h1>
+        <h1>Add Delivery Area</h1>
     </section>
 
     <!-- Main content -->

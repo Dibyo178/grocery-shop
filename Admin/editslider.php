@@ -32,7 +32,7 @@ else{
 
 $id=$_GET['id'];
 
-$select=$pdo->prepare("select * from addfood where id=$id");
+$select=$pdo->prepare("select * from tbl_slider where id=$id");
 $select->execute();
 $row=$select->fetch(PDO::FETCH_ASSOC);
 
@@ -40,12 +40,22 @@ $row=$select->fetch(PDO::FETCH_ASSOC);
 
 $id_db=$row['id'];
 
+$name_db=$row['text1'];
+
+$price_db=$row['text2'];
+
 $logo_db=$row['image'];
 
 
 
 
 if(isset($_POST['btnupdate'])){
+
+
+    $username=$_POST['txtname'];
+    
+    $price=$_POST['txtprice'];
+
 
 
     
@@ -64,7 +74,7 @@ $f_extension = explode('.',$f_name);
     
   $f_newfile =  uniqid().'.'. $f_extension;   
   
-    $store = "FoodImages/".$f_newfile;
+    $store = "slider-image/".$f_newfile;
     
     
 if($f_extension=='jpg' || $f_extension=='jpeg' ||  $f_extension=='png' || $f_extension=='gif'){
@@ -100,10 +110,15 @@ swal({
            $f_newfile;
             if(!isset($error)){
      
-$update=$pdo->prepare("update addfood set image=:logo where id = $id");
+$update=$pdo->prepare("update tbl_slider set image=:logo,text1=:username,text2=:password  where id = $id");
         
   
-   
+
+ $update->bindParam(':username',$username);
+
+ $update->bindParam(':password', $price);
+
+
  $update->bindParam(':logo',$f_newfile);
         
      
@@ -134,7 +149,7 @@ jQuery(function validation(){
 
 swal({
   title: "ERROR!",
-  text: "Edit Food Offer Fail",
+  text: "Edit Product Offer Fail",
   icon: "error",
   button: "Ok",
 });
@@ -148,7 +163,13 @@ swal({
     
  } 
            
+           
+           
+           
+           
        } 
+        
+        
         
     }   
     
@@ -182,7 +203,11 @@ swal({
     }
     else{
         
-        $update=$pdo->prepare("update addfood set image=:logo where id = $id");
+        $update=$pdo->prepare("update  tbl_slider set  image=:logo, text1=:username ,text2=:password  where id = $id");
+        
+        $update->bindParam(':username',$username);
+      
+         $update->bindParam(':password', $price);
         
         
          $update->bindParam(':logo',$logo_db);
@@ -195,7 +220,7 @@ jQuery(function validation(){
 
 
 swal({
-  title: "Food Offer Update Successfuly",
+  title: "Product Offer Update Successfuly",
   text: "Update",
   icon: "success",
   button: "Ok",
@@ -238,9 +263,15 @@ swal({
 }
 
 
-$select=$pdo->prepare("select * from addfood where id =$id");
+$select=$pdo->prepare("select * from tbl_slider where id =$id");
 $select->execute();
 $row=$select->fetch(PDO::FETCH_ASSOC);
+
+
+
+$name_db=$row['text1'];
+
+$passaword_db=$row['text2'];
 
 $logo_db=$row['image'];
 
@@ -279,18 +310,38 @@ $logo_db=$row['image'];
             <div class="col-md-6">
 
 
+                <!-- <div class="form-group">
+                  <label >View link</label></label>
+                  <input type="text" class="form-control" name="link1" 
+                value="<?php echo  $link_db ?>"   placeholder="Enter Link" required>
+                </div> -->
+
+                <div class="form-group">
+                  <label >Name</label>
+                  <input type="Name" name="txtname" value="<?php echo  $name_db; ?>"  class="form-control" id="exampleInputName" placeholder="Enter a name" required>
+                </div>
+                  
+                 
+                <div class="form-group">
+                  <label>Price</label>
+                  <input type="text" name='txtprice' value="<?php echo  $price_db; ?>" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                </div>
+
+
                 <div class="form-group">
                   <label >Images</label>
                   
-                  <img src = "FoodImages/<?php echo $logo_db; ?>" class="img-responsive" width="50px" height="50px"/>  
+                  <img src = "slider-image/<?php echo $logo_db; ?>" class="img-responsive" width="50px" height="50px"/>  
                   
                   <input type="file" class="input-group" name="myfile" >
-                  <p>upload image</p>
+                  <p>upload logo</p>
                 </div>    
+
                      
                  </div>      
                 
            
+            
             
         
              </div>
@@ -300,7 +351,7 @@ $logo_db=$row['image'];
              
                   
                     
-         <button type="submit" class="btn btn-warning" name="btnupdate">Edit Details</button>  
+        <button type="submit" class="btn btn-warning" name="btnupdate">Edit Details</button>  
                   
                    
                    

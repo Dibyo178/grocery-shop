@@ -18,7 +18,8 @@ if ($_SESSION['role'] == "Admin") {
 
 // Add Product Offer
 if (isset($_POST['btnaddproduct'])) {
- 
+    $username = $_POST['txtname'];
+    $price = $_POST['txtprice'];
 
     // Upload image
     $f_name = $_FILES['myfile']['name'];
@@ -27,7 +28,7 @@ if (isset($_POST['btnaddproduct'])) {
     $f_extension = explode('.', $f_name);
     $f_extension = strtolower(end($f_extension));
     $f_newfile = uniqid() . '.' . $f_extension;
-    $store = "FoodImages/" . $f_newfile;
+    $store = "slider-image/" . $f_newfile;
 
     if (in_array($f_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
         if ($f_size >= 1000000) {
@@ -45,9 +46,10 @@ if (isset($_POST['btnaddproduct'])) {
             if (move_uploaded_file($f_tmp, $store)) {
                 $productimage = $f_newfile;
                 if (!isset($error)) {
-                    $insert = $pdo->prepare("INSERT INTO addfood(image) VALUES(:logo)");
+                    $insert = $pdo->prepare("INSERT INTO tbl_slider(image, text1, text2) VALUES(:logo, :text1, :text2)");
                     $insert->bindParam(':logo', $productimage);
-             
+                    $insert->bindParam(':text1', $username);
+                    $insert->bindParam(':text2', $price);
 
                     if ($insert->execute()) {
                         echo '<script type="text/javascript">
@@ -91,12 +93,12 @@ if (isset($_POST['btnaddproduct'])) {
 
 // Delete functionality
 if (isset($_GET['deleteid'])) {
-    $delete = $pdo->prepare("DELETE FROM addfood WHERE id=" . $_GET['deleteid']);
+    $delete = $pdo->prepare("DELETE FROM tbl_slider WHERE id=" . $_GET['deleteid']);
     if ($delete->execute()) {
         echo '<script type="text/javascript">
         jQuery(function validation(){
             swal({
-              title: "Product Offer Deleted!",
+              title: "Product Deleted!",
               text: "Deleted",
               icon: "warning",
               button: "Ok",
@@ -129,10 +131,21 @@ if (isset($_GET['deleteid'])) {
             <!-- Form start -->
             <form role="formproduct" action="" method="post" enctype="multipart/form-data">
                 <div class="box-body">
-                 
+                    <div class="col-md-4">
+                        <label style="margin-top: -5px;color:red">* Optoinal Text1 and Text 2 *</label>
+                        <div class="form-group">
+                            <label>Text1</label>
+                            <input type="text" name="txtname" class="form-control" id="exampleInputName" placeholder="Enter a Text 1" >
+                        </div>
+
+                        <div class="form-group">
+                            <label>Text2</label>
+                            <input type="text" name='txtprice' class="form-control" id="exampleInputPrice" placeholder="Enter a Text 2" >
+                        </div>
+                    </div>
 
                     <div class="form-group">
-                        <label>Proiduct Offer Image</label>
+                        <label>Food Image</label>
                         <input type="file" name="myfile" class="input-group" required>
                         <p>Image</p>
                     </div>
@@ -146,6 +159,9 @@ if (isset($_GET['deleteid'])) {
                             <thead>
                                 <tr>
                                     <th>#</th>
+                                    <th>Text 1</th>
+                                    <th>Text 2</th>
+                                    
                                     <th>Image</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -154,17 +170,18 @@ if (isset($_GET['deleteid'])) {
                             <tbody>
                                 <?php
                                 $index = 1;
-                                $select = $pdo->prepare("SELECT * FROM addfood ORDER BY id ASC");
+                                $select = $pdo->prepare("SELECT * FROM tbl_slider ORDER BY id ASC");
                                 $select->execute();
                                 while ($row = $select->fetch(PDO::FETCH_OBJ)) {
                                     echo '
                                     <tr>
                                         <td>' . $index . '</td>
-                                       
+                                        <td>' . $row->text1 . '</td>
+                                        <td>' . $row->text2 . '</td>
                                       
-                                        <td><img src="FoodImages/' . $row->image . '" class="img-rounded" width="40px" height="40px"/></td>
+                                        <td><img src="slider-image/' . $row->image . '" class="img-rounded" width="40px" height="40px"/></td>
                                         <td>
-                                            <a href="EditFood.php?id=' . $row->id . '" class="btn btn-info" role="button">
+                                            <a href="editslider.php?id=' . $row->id . '" class="btn btn-info" role="button">
                                                 <span class="fa fa-pencil-square" style="color:#ffffff" data-toggle="tooltip" title="Edit Product"></span>
                                             </a>
                                         </td>

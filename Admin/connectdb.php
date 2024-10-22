@@ -4,7 +4,7 @@
      
      //php database object
 
-$pdo= new PDO('mysql:host=localhost;dbname=bazar7','root','');
+$pdo= new PDO('mysql:host=localhost;dbname=grocery-shop','root','');
 
 //echo "Connection Succesfull";
      

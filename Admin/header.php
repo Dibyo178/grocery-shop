@@ -91,7 +91,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Bazar</title>
+  <title>Zaman Halal Food</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
-  <link rel="shortcut icon" href="./images/Bazar-Logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="../assets/logo/favicon.png" type="image/x-icon">
 
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- Font Awesome -->
@@ -266,10 +266,10 @@ desired effect
       <!-- Logo -->
       <a href="dashboard.php" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><span class="logo-lg"><img style="width:50px;height:35px" src="./images/Bazar-Logo.png" alt=""></span>
+        <span class="logo-mini"><span class="logo-lg"><img style="width:100px;height:35px" src="../assets/logo/favicon.png" alt=""></span>
         </span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><img style="width:100px;height:60px" src="./images/Bazar-Logo.png" alt=""></span>
+        <span class="logo-lg"><img style="width:120px;height:60px" src="../assets/logo/Zaman-Halal-Food-Logo-Main.png" alt=""></span>
       </a>
 
       <!-- Header Navbar -->
@@ -460,10 +460,10 @@ desired effect
 
           
 
+          <li class="active"><a href="category.php"> <i class="fa-solid fa-cart-plus"></i> <span>Product Category</span></a></li>
 
-
-         <li class="treeview">
-          <a href="#">
+         <!-- <li class="treeview">
+          <a href="category.php">
           <i class="fa-solid fa-cart-plus"></i> <span>Product Category</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
@@ -473,13 +473,15 @@ desired effect
           <li><a href="category.php"><i class="fa fa-list-alt"></i> <span>Add Product Category</span></a></li>
           <li><a href="Subcategory.php"><i class="fa fa-list-alt"></i> <span>Add Product SubCategory</span></a></li>
           </ul>
-        </li> 
+        </li>  -->
 
 
+        <li><a href="./slider.php"><i class="fa-solid fa-sliders"></i><span> Add Slider</span></a></li>
 
           <li><a href="addArea.php"><i class="fa-solid fa-truck"></i> <span>Add Delivery Area</span></a></li>
 
 
+           
 
           <li><a href="addProductOffer.php"><i class="fa-solid fa-bag-shopping"></i><span> Add Products Offer </span></a></li>
 
