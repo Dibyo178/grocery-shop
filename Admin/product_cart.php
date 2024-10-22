@@ -18,13 +18,106 @@ if ($_SESSION['role'] == "Admin") {
 
 // Add product logic
 if (isset($_POST['btnaddproduct'])) {
-    // Add product logic...
+  $category = $_POST['txtselect_option'];
+  $username = $_POST['txtname'];
+  $price = $_POST['txtprice'];
+  $txtpreviousprice = $_POST['txtpreviousprice'];
+  $discount = $_POST['txtdiscountprice'];
+  $product_type = $_POST['product_type'];
+
+  // File upload logic
+  $f_name = $_FILES['myfile']['name'];
+  $f_tmp = $_FILES['myfile']['tmp_name'];
+  $f_size = $_FILES['myfile']['size'];
+  $f_extension = strtolower(pathinfo($f_name, PATHINFO_EXTENSION));
+  $f_newfile = uniqid() . '.' . $f_extension;
+  $store = "FoodImages/" . $f_newfile;
+
+  if (in_array($f_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
+      if ($f_size >= 1000000) {
+          echo '<script>
+              jQuery(function validation(){
+                  swal({
+                      title: "Error!",
+                      text: "Max file size should be 1MB!",
+                      icon: "warning",
+                      button: "Ok",
+                  });
+              });
+          </script>';
+      } else {
+          if (move_uploaded_file($f_tmp, $store)) {
+              $productimage = $f_newfile;
+
+              $insert = $pdo->prepare("INSERT INTO product_cart (image, name, price, previous_price, category, product_type, txtdiscountprice) 
+              VALUES (:logo, :name, :price, :previous_price, :category, :product_type, :txtdiscountprice)");
+
+              $insert->bindParam(':logo', $productimage);
+              $insert->bindParam(':name', $username);
+              $insert->bindParam(':price', $price);
+              $insert->bindParam(':previous_price', $txtpreviousprice);
+              $insert->bindParam(':category', $category);
+              $insert->bindParam(':product_type', $product_type);
+              $insert->bindParam(':txtdiscountprice', $discount);
+
+              if ($insert->execute()) {
+                  echo '<script>
+                      jQuery(function validation(){
+                          swal({
+                              title: "Success!",
+                              text: "Product added successfully!",
+                              icon: "success",
+                              button: "Ok",
+                          });
+                      });
+                  </script>';
+              } else {
+                  echo '<script>
+                      jQuery(function validation(){
+                          swal({
+                              title: "ERROR!",
+                              text: "Failed to add product!",
+                              icon: "error",
+                              button: "Ok",
+                          });
+                      });
+                  </script>';
+              }
+          }
+      }
+  } else {
+      echo '<script>
+          jQuery(function validation(){
+              swal({
+                  title: "Warning!",
+                  text: "Only jpg, jpeg, png, and gif files are allowed!",
+                  icon: "error",
+                  button: "Ok",
+              });
+          });
+      </script>';
+  }
 }
 
 // Delete product
 if (isset($_GET['deleteid'])) {
-    // Delete product logic...
+  $delete = $pdo->prepare("DELETE FROM product_cart WHERE id = :id");
+  $delete->bindParam(':id', $_GET['deleteid']);
+
+  if ($delete->execute()) {
+      echo '<script>
+          jQuery(function validation(){
+              swal({
+                  title: "Product Deleted!",
+                  text: "The product has been removed.",
+                  icon: "warning",
+                  button: "Ok",
+              });
+          });
+      </script>';
+  }
 }
+
 
 // Set all products to available
 if (isset($_POST['btnallavailable'])) {
@@ -163,15 +256,23 @@ if (isset($_POST['btnallavailable'])) {
                     <td><img src="FoodImages/<?php echo $data['image']; ?>" width="100" height="70"></td>
                     <td>
                     <?php
-                    if ($status == 1) {
-                      echo '<a href="status.php?tid=' . $data['id'] . '&status=0" class="btn btn-success">Available</a>';
+                    if ($data['status'] == 1) {
+                        echo '<p><a href="status.php?tid=' . $data['id'] . '&status=0" class="btn btn-success">Available</a></p>';
                     } else {
-                      echo '<a href="status.php?tid=' . $data['id'] . '&status=1" class="btn btn-danger">Unavailable</a>';
+                        echo '<p><a href="status.php?tid=' . $data['id'] . '&status=1" class="btn btn-danger">Unavailable</a></p>';
                     }
                     ?>
-                  </td>
-                  <td><a href="editproduct_cart.php?id=<?php echo $data['id']; ?>" class="btn btn-info"><i class="fa fa-pencil"></i></a></td>
-                  <td><button type="button" id="<?php echo $data['id']; ?>" class="btn btn-danger btndelete"><span class="glyphicon glyphicon-trash" style="color:#ffffff" data-toggle="modal" data-target="#deletemodal"></span></button></td>
+                </td>
+                <td>
+                    <a href="editproduct_cart.php?id=<?php echo $data['id']; ?>" class="btn btn-info" role="button">
+                        <span class="fa fa-pencil-square" style="color:#ffffff" data-toggle="tooltip" title="Edit Product"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="product_cart.php?deleteid=<?php echo $data['id']; ?>" class="btn btn-danger" role="button">
+                        <span class="glyphicon glyphicon-trash" title="delete"></span>
+                    </a>
+                </td>
                   </tr>
                   <?php
                   $index++;
@@ -185,6 +286,15 @@ if (isset($_POST['btnallavailable'])) {
     </div>
   </section>
 </div>
+
+<script>
+  $('.productid').select2();
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true
+    });
+    
+</script> 
 
 <script>
   function toggleDiscountField() {
