@@ -10,7 +10,7 @@
     <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
     <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20"> -->
 
-    <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
 
      
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">

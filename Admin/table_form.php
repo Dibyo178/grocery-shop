@@ -122,7 +122,7 @@ if ($_SESSION['role'] == "Admin") {
 
                                 <td>' . $row->phone . '</td>
 
-                               s
+                               
 
                                 <td>' . $row->description . '</td>
 

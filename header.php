@@ -12,7 +12,7 @@
     <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20"> -->
 
 
-    <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
     <!-- #region  link-->
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
@@ -44,6 +44,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- jquery cdn -->
 
@@ -606,7 +608,7 @@
                             <ul>
                                 <li class="call">
                                     <i class="bi bi-telephone-inbound"></i>
-                                    <span>+91 235 548 7548</span>
+                                    <span><a href="tel:080-6554-4316" style="color:black">080-6554-4316</a></span>
                                 </li>
                                 <li class="point">
                                     <span style="font-weight: 700;">Points :</span> <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
@@ -819,11 +821,11 @@
                     <h2>Total : <span id="total-price">¥ 0.00</span></h2>
                 </div>
                 <div class="button-b">
-                    <a class="button-2" id="view-cart" href="cart.php">
+                    <!-- <a class="button-2" id="view-cart" href="cart.php">
                         <span>View Cart</span>
                         <i class="fa-solid fa-spinner fa-spin" id="loading-spinner" style="display:none;"></i>
-                    </a>
-                    <a class="button-1" href="checkout.php">Proceed Checkout</a>
+                    </a> -->
+                    <a class="button-1 " href="cart.php"><i class="fa-solid fa-cart-shopping"></i> Checkout</a>
                 </div>
             </div>
         </div>

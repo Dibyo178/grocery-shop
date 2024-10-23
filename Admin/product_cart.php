@@ -218,28 +218,28 @@ if (isset($_POST['btnallavailable'])) {
 
           </form>
 
+          <!-- All Available Button Form -->
+<form method="post" class="col-md-8">
+    <button type="submit" name="btnallavailable" class="btn btn-warning">All Available</button>
+</form>
+
           <!-- Display Products Table -->
           <div class="col-md-8" style="overflow-x:auto;">
             <table id="example1" class="table table-bordered table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Price</th>
-                  <th>Category</th>
-                  <th>Product Type</th>
-                  <th>Discount</th>
-                  <th>Image</th>
-                  <th>Status</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-                <tr>
-                  <form method="post">
-                    <button type="submit" name="btnallavailable" class="btn btn-warning">All Available</button>
-                  </form>
-                </tr>
-              </thead>
+            <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+            <th>Product Type</th>
+            <th>Discount</th>
+            <th>Image</th>
+            <th>Status</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
               <tbody>
                 <?php
                 $index = 1;
@@ -295,6 +295,20 @@ if (isset($_POST['btnallavailable'])) {
     });
     
 </script> 
+
+<script>
+ $(function() {
+    $('#example1').DataTable({
+        'paging': true,
+        'lengthChange': false,
+        'searching': true, // Enable searching
+        'ordering': true,  // Enable column ordering
+        'info': true,
+        'autoWidth': false
+    });
+});
+
+</script>
 
 <script>
   function toggleDiscountField() {

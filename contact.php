@@ -4,10 +4,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Fruits - Grocery Store and Food eCommerce HTML5 Template</title>
-	<link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="16x16">
-	<link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
-	<link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20">
+	<title>Zaman Halal Food</title>
+	<link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
 
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap-icons.css">

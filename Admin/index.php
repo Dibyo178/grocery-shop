@@ -174,7 +174,7 @@ if(isset($_POST['btn_login'])){
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
-    <link rel="icon" type="image" href="../assets/logo/mobile/favicon.png">
+    <link rel="icon" type="image" href="../assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
@@ -201,7 +201,7 @@ if(isset($_POST['btn_login'])){
     <div class="login-container">
         <div class="login-box">
             <div class="login-logo">
-                <img src="../assets/logo/favicon.png" alt="Bazar Logo" class="logo-img">
+                <img src="../assets/logo/final_logo/Zaman-Halal-Food-Icon.png" style="width: 150px;" alt="Bazar Logo" class="logo-img">
             </div>
 
             <div class="login-box-body">
@@ -229,7 +229,7 @@ if(isset($_POST['btn_login'])){
                 </form>
             </div>
 
-          
+            
         </div>
     </div>
 

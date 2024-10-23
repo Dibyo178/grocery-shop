@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Zaman Halal Food</title>
 
-	 <link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
+	 <link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
 
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap-icons.css">
@@ -95,9 +95,9 @@
 									<div class="input-field">
 										<label>Delivery Area <span style="color:red">*</span> </label>
 										<select name="country">
-											<option value="0">United Kingdom</option>
-											<option value="1">China</option>
-											<option value="2">United Arab Emirates</option>
+											<option value="20">United Kingdom</option>
+											<option value="20">China</option>
+											<option value="40">United Arab Emirates</option>
 											<option value="3">Germany</option>
 											<option value="4">France</option>
 											<option value="5">Japan</option>
@@ -110,8 +110,8 @@
 								</div>
 								<div class="col-12">
 									<div class="input-field">
-										<label>Zip <span style="color:red">*</span> </label>
-										<input type="text" name="zip" >
+										<label>Time Slot <span style="color:red">*</span> </label>
+										<input type="time" name="zip" width="200px" >
 									</div>
 								</div>
 								<!-- <div class="col-12">
@@ -138,11 +138,12 @@
 					<div class="checkout-summery mb-30">
 						<h2>Checkout summary</h2>
 						<ul>
-							<li>Subtotal <span>$530.00</span></li>
-							<li>Shipping <span>$530.00</span></li>
-							<li>Coupon <span>$0.00</span></li>
-							<li>Total <span>$530.00</span></li>
-							<li><b>Payable Total</b><span><b>$530.00</b></span></li>
+							<li>Subtotal <span>¥530.00</span></li>
+							<li>Shipping <span>¥530.00</span></li>
+							<li>Total Tax <span>¥530.00</span></li>
+							<li>Coupon <span>¥0.00</span></li>
+							<li>Total <span>¥530.00</span></li>
+							<li><b>Payable Total</b><span><b>¥530.00</b></span></li>
 						</ul>
 					</div>
 					<div class="checkout-summery">

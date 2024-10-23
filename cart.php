@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Zaman Halal Food</title>
-     <link rel="shortcut icon" href="./assets/logo/mobile/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
@@ -18,9 +18,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      <!-- Include SweetAlert CSS -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    
+    <!-- Include SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <!-- Include SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
@@ -125,13 +125,19 @@
                                     <h6 class="me-2 text-body">Taxes</h6>
                                     <span class="text-end" id="tax">¥ 0.00</span>
                                 </li>
+
+                                <li class="d-flex justify-content-between align-items-center mb-2">
+                                    <h6 class="me-2 text-body">Coupon Code</h6>
+                                    <span class="coupon-value">¥0.00</span>
+                                </li>
+
                                 <li class="d-flex justify-content-between align-items-center border-top pt-3 mt-3">
                                     <h6 class="me-2">Grand Total</h6>
                                     <span class="text-end text-dark" id="grand-total">¥ 0.00</span>
                                 </li>
                             </ul>
                             <div class="d-grid gap-2 pt-10 mx-auto">
-                                <a class="button-1" href="checkout.html">PROCEED TO CHECKOUT</a>
+                                <a class="button-1" href="checkout.php">PROCEED TO CHECKOUT</a>
                             </div>
                         </div>
                     </div>
@@ -184,140 +190,149 @@
     <script src="assets/js/modernizr.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script>
-    let totalTax = 0; // Declare totalTax globally
-    let couponApplied = false; // Flag to track if a coupon has been applied
+        let totalTax = 0; // Declare totalTax globally
+        let couponApplied = false; // Flag to track if a coupon has been applied
+        let couponValue = 0; // Coupon value to be displayed
 
-    // Function to display cart items and calculate totals
-    function displayCartItems() {
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-        const cartTableBody = document.getElementById('cart-items');
-        cartTableBody.innerHTML = ''; // Clear existing items
+        // Function to display cart items and calculate totals
+        function displayCartItems() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartTableBody = document.getElementById('cart-items');
+            cartTableBody.innerHTML = ''; // Clear existing items
 
-        let subtotal = 0;
-        totalTax = 0; // Reset total tax for recalculation
+            let subtotal = 0;
+            totalTax = 0; // Reset total tax for recalculation
 
-        // Iterate through the cart items
-        cartItems.forEach(item => {
-            const quantity = parseInt(item.quantity || 1);
-            const itemPrice = parseFloat(item.price);
-            const itemTax = parseFloat(item.taxValue) || 0;
+            // Iterate through the cart items
+            cartItems.forEach(item => {
+                const quantity = parseInt(item.quantity || 1);
+                const itemPrice = parseFloat(item.price);
+                const itemTax = parseFloat(item.taxValue) || 0;
 
-            const subtotalPrice = itemPrice * quantity;
-            subtotal += subtotalPrice;
+                const subtotalPrice = itemPrice * quantity;
+                subtotal += subtotalPrice;
 
-            // Calculate total price with tax for each item
-            const totalPriceWithTax = subtotalPrice + (itemTax * quantity); // Total price with tax
+                // Calculate total price with tax for each item
+                const totalPriceWithTax = subtotalPrice + (itemTax * quantity); // Total price with tax
 
-            totalTax += itemTax * quantity; // Accumulate total tax
+                totalTax += itemTax * quantity; // Accumulate total tax
 
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td class="text-center"><img src="${item.image}" alt="${item.name}" width="80"></td>
-                <td class="text-center">${item.name}</td>
-                <td class="text-center">¥${itemPrice.toFixed(2)}</td>
-                <td class="text-center">
-                    <div class="quantity-container">
-                        <button class="decrement" data-id="${item.id}">-</button>
-                        <input type="text" value="${quantity}" class="quantity" data-id="${item.id}" readonly>
-                        <button class="increment" data-id="${item.id}">+</button>
-                    </div>
-                </td>
-                <td class="text-center">¥${totalPriceWithTax.toFixed(2)}</td>
-                <td class="text-center"><button class="remove" data-id="${item.id}"><i class="fas fa-trash"></i></button></td>
-            `;
-            cartTableBody.appendChild(row);
+                const row = document.createElement('tr');
+                row.innerHTML = `
+            <td class="text-center"><img src="${item.image}" alt="${item.name}" width="80"></td>
+            <td class="text-center">${item.name}</td>
+            <td class="text-center">¥${itemPrice.toFixed(2)}</td>
+            <td class="text-center">
+                <div class="quantity-container">
+                    <button class="decrement" data-id="${item.id}">-</button>
+                    <input type="text" value="${quantity}" class="quantity" data-id="${item.id}" readonly>
+                    <button class="increment" data-id="${item.id}">+</button>
+                </div>
+            </td>
+            <td class="text-center">¥${totalPriceWithTax.toFixed(2)}</td>
+            <td class="text-center"><button class="remove" data-id="${item.id}"><i class="fas fa-trash"></i></button></td>
+        `;
+                cartTableBody.appendChild(row);
+            });
+
+            // Update subtotal and grand total
+            document.getElementById('subtotal').textContent = `¥${subtotal.toFixed(2)}`;
+            document.getElementById('tax').textContent = `¥${totalTax.toFixed(2)}`;
+            const grandTotal = subtotal + totalTax - couponValue; // Apply coupon value only once
+            document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
+
+            // Update coupon value display
+            document.querySelector('.coupon-value').textContent = `¥${couponValue.toFixed(2)}`;
+        }
+
+        // Remove item from cart with SweetAlert confirmation
+        function removeItem(itemId) {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                    cartItems = cartItems.filter(item => item.id !== itemId); // Filter out removed item
+                    localStorage.setItem('cart', JSON.stringify(cartItems)); // Update local storage
+                    displayCartItems(); // Refresh cart display
+
+                    Swal.fire(
+                        'Deleted!',
+                        'Your item has been deleted.',
+                        'success'
+                    );
+                }
+            });
+        }
+
+        // Event listeners for increment, decrement, and remove buttons
+        document.addEventListener('click', function(event) {
+            const target = event.target;
+
+            if (target.classList.contains('increment')) {
+                const itemId = target.dataset.id; // Get item ID from the increment button
+                const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                const item = cartItems.find(item => item.id === itemId); // Find the corresponding cart item
+                if (item) {
+                    item.quantity = (parseInt(item.quantity) || 1) + 1; // Increment quantity
+                    localStorage.setItem('cart', JSON.stringify(cartItems));
+                    displayCartItems(); // Refresh cart display
+                }
+            } else if (target.classList.contains('decrement')) {
+                const itemId = target.dataset.id; // Get item ID from the decrement button
+                const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+                const item = cartItems.find(item => item.id === itemId); // Find the corresponding cart item
+                if (item && item.quantity > 1) {
+                    item.quantity = (parseInt(item.quantity) || 1) - 1; // Decrement quantity
+                    localStorage.setItem('cart', JSON.stringify(cartItems));
+                    displayCartItems(); // Refresh cart display
+                }
+            } else if (target.closest('.remove') || target.closest('.fa-trash')) {
+                const itemId = target.closest('.remove').dataset.id; // Get item ID from the delete button
+                removeItem(itemId); // Remove item from cart with confirmation
+            }
         });
 
-        // Update subtotal and grand total
-        document.getElementById('subtotal').textContent = `¥${subtotal.toFixed(2)}`;
-        document.getElementById('tax').textContent = `¥${totalTax.toFixed(2)}`;
-        const grandTotal = subtotal + totalTax;
-        document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
-    }
+        // Function to apply coupon code
+        document.getElementById('apply-coupon').addEventListener('click', function() {
+            const couponCode = document.getElementById('coupon-code').value.trim();
 
-    // Remove item from cart with SweetAlert confirmation
-    function removeItem(itemId) {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-                cartItems = cartItems.filter(item => item.id !== itemId); // Filter out removed item
-                localStorage.setItem('cart', JSON.stringify(cartItems)); // Update local storage
-                displayCartItems(); // Refresh cart display
+            // Check if coupon is valid and has not been applied already
+            if (couponCode === 'DISCOUNT10' && !couponApplied) {
+                const loadingIcon = document.getElementById('loading-icon');
+                loadingIcon.style.display = 'block'; // Show loading icon
+                setTimeout(() => {
+                    loadingIcon.style.display = 'none'; // Hide loading icon
+                    couponValue = 10; // Fixed discount amount for valid coupon
+                    const grandTotal = parseFloat(document.getElementById('subtotal').textContent.replace('¥', '')) + totalTax - couponValue; // Calculate new grand total
 
-                Swal.fire(
-                    'Deleted!',
-                    'Your item has been deleted.',
-                    'success'
-                );
+                    // Update totals
+                    document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
+                    document.getElementById('discount-message').textContent = 'Coupon applied successfully!';
+                    document.getElementById('discount-message').style.display = 'block'; // Show success message
+                    couponApplied = true; // Set flag to prevent reapplying the coupon
+                    displayCartItems(); // Update cart items display
+                }, 1000); // Simulating a delay
+            } else if (couponApplied) {
+                document.getElementById('discount-message').textContent = 'Coupon already applied.';
+                document.getElementById('discount-message').style.display = 'block'; // Show error message for repeated application
+            } else {
+                document.getElementById('discount-message').textContent = 'Invalid coupon code.';
+                document.getElementById('discount-message').style.display = 'block'; // Show error message for invalid code
             }
         });
-    }
 
-    // Event listeners for increment, decrement, and remove buttons
-    document.addEventListener('click', function (event) {
-        const target = event.target;
+        // Initial call to display cart items
+        displayCartItems();;
+    </script>
 
-        if (target.classList.contains('increment')) {
-            const itemId = target.dataset.id; // Get item ID from the increment button
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cartItems.find(item => item.id === itemId); // Find the corresponding cart item
-            if (item) {
-                item.quantity = (parseInt(item.quantity) || 1) + 1; // Increment quantity
-                localStorage.setItem('cart', JSON.stringify(cartItems));
-                displayCartItems(); // Refresh cart display
-            }
-        } else if (target.classList.contains('decrement')) {
-            const itemId = target.dataset.id; // Get item ID from the decrement button
-            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
-            const item = cartItems.find(item => item.id === itemId); // Find the corresponding cart item
-            if (item && item.quantity > 1) {
-                item.quantity = (parseInt(item.quantity) || 1) - 1; // Decrement quantity
-                localStorage.setItem('cart', JSON.stringify(cartItems));
-                displayCartItems(); // Refresh cart display
-            }
-        } else if (target.closest('.remove') || target.closest('.fa-trash')) {
-            const itemId = target.closest('.remove').dataset.id; // Get item ID from the delete button
-            removeItem(itemId); // Remove item from cart with confirmation
-        }
-    });
 
-    // Function to apply coupon code
-    document.getElementById('apply-coupon').addEventListener('click', function () {
-        const couponCode = document.getElementById('coupon-code').value.trim();
-
-        // Check if coupon is valid and has not been applied already
-        if (couponCode === 'DISCOUNT10' && !couponApplied) {
-            const loadingIcon = document.getElementById('loading-icon');
-            loadingIcon.style.display = 'block'; // Show loading icon
-            setTimeout(() => {
-                loadingIcon.style.display = 'none'; // Hide loading icon
-                const fixedDiscountAmount = 10; // Fixed discount amount
-                const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace('¥', '')) || 0;
-                const grandTotal = subtotal - fixedDiscountAmount + totalTax; // Calculate new grand total
-
-                // Update totals
-                document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
-                document.getElementById('discount-message').textContent = 'Coupon applied successfully!';
-                document.getElementById('discount-message').style.display = 'block'; // Show success message
-                couponApplied = true; // Set flag to prevent reapplying the coupon
-            }, 1000); // Simulating a delay
-        } else {
-            document.getElementById('discount-message').textContent = 'Coupon code is invalid or already applied.';
-            document.getElementById('discount-message').style.display = 'block'; // Show error message
-        }
-    });
-
-    // Initial call to display cart items
-    displayCartItems();
-</script>
 
 
 

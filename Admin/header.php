@@ -308,7 +308,7 @@ desired effect
               ?>
 
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="fa fa-bell-o"></i>
+                  <i class="fa fa-bell-o" style="color:black"></i>
                   <span class="label label-warning" id="count"><?php echo $unread_count; ?></span>
 
                 </a>
@@ -538,9 +538,9 @@ desired effect
 
 
 
-          <li><a href="table_form.php"><i class="fa-solid fa-table-list"></i> <span>Table Form</span></a></li>
+          <li><a href="table_form.php"><i class="fa-solid fa-table-list"></i> <span>Contact List</span></a></li>
 
-          <li><a href="gallery.php"><i class="fa-solid fa-file-image"></i> <span> Gallery</span></a></li>
+          <!-- <li><a href="gallery.php"><i class="fa-solid fa-file-image"></i> <span> Gallery</span></a></li> -->
 
           <li><a href="registration.php"><i class="fa fa-user-circle"></i> <span>Registration</span></a></li>
 

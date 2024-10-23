@@ -1,57 +1,59 @@
 <?php
-
+ 
 //header.php file include
 
-include_once 'connectdb.php';
-
-session_start();
+  include_once 'connectdb.php';
+  
+  session_start();
 
 // if may which is not provide cridential page redirect index.php file show
 
-if ($_SESSION['username'] == "" or $_SESSION['role'] == "") {
+ if($_SESSION['username']=="" OR $_SESSION['role']==""){
+      
+      header("location:index.php");
+  }
+ 
+ $select= $pdo->prepare("select count(id) as t from orders");
+ 
+ $select->execute();
 
-    header("location:index.php");
-}
-
-$select = $pdo->prepare("select sum(id) as t from place_order");
-
-$select->execute();
-
-$row = $select->fetch(PDO::FETCH_OBJ);
+ $row=$select->fetch(PDO::FETCH_OBJ);
 
 
-$total_order = $row->t;
+$total_order=$row->t;
 
 // $net_total=$row->t;
 
 
 
 
-
-$select = $pdo->prepare("select date, price from place_order group by date LIMIT 30");
-
-
-$select->execute();
-
-$ttl = [];
-$date = [];
-
-while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
-
+           
+    $select=$pdo->prepare("select order_date, amount_paid from orders group by order_date LIMIT 30");
+    
+            
+    $select->execute();
+                  
+     $ttl=[];
+     $date=[];              
+            
+while($row=$select->fetch(PDO::FETCH_ASSOC)  ){
+    
     extract($row);
+    
+    $ttl[]=$amount_paid;
+    $date[]=$order_date;
+    
+} 
 
-    $ttl[] = $total;
-    $date[] = $order_date;
-}
 
 
-
-if ($_SESSION['role'] == "Admin") {
-
-    include_once 'header.php';
-} else {
-
-    include_once 'headeruser.php';
+   if($_SESSION['role']=="Admin"){
+      
+      include_once 'header.php';
+  }
+else{
+    
+     include_once 'headeruser.php';
 }
 
 
@@ -60,21 +62,22 @@ if ($_SESSION['role'] == "Admin") {
 ?>
 
 <style>
-    .small-box>.inner {
-        padding: 20px !important;
-    }
 
-    .skin-blue .main-header .navbar,
-    .logo {
+.small-box>.inner {
+    padding: 20px !important;
+}
 
-        background: #fff !important;
-    }
+.skin-blue .main-header .navbar,.logo{
+    
+    background: #fff !important;
+}
 
 
-    .main-header .sidebar-toggle:hover {
+.main-header .sidebar-toggle:hover{
+    
+    background: none !important;
+}
 
-        background: none !important;
-    }
 </style>
 
 
@@ -109,45 +112,48 @@ if ($_SESSION['role'] == "Admin") {
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3 style="font-size: 30px"><?php if ($total_order) {
+                            <h3 style="font-size: 30px"><?php if($total_order){
 
-                                                            echo $total_order;
-                                                        } else {
+                              echo $total_order;
 
-                                                            echo 0;
-                                                        }
+                            }
 
-
-                                                        ?></h3>
+                            else{
+                                 
+                                 echo 0;
+                            }
+                            
+                            
+                            ?></h3>
 
                             <p>Total Orders</p>
 
-
+                            
                         </div>
                         <div class="icon">
                             <i class="ion ion-bag" style="font-size:76px"></i>
                         </div>
-                        <!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
                     </div>
                 </div>
 
                 <!-- ./col -->
 
-                <?php
+                <?php   
+           
+          $select= $pdo->prepare("select count(id) as p from product_cart where category !='popular' ");
+ 
+ $select->execute();
 
-                $select = $pdo->prepare("select count(id) as p from product_cart where category !='popular' ");
-
-                $select->execute();
-
-                $row = $select->fetch(PDO::FETCH_OBJ);
-
-
-                $total_product = $row->p;
+ $row=$select->fetch(PDO::FETCH_OBJ);
 
 
+$total_product=$row->p;
 
-
-                ?>
+ 
+          
+          
+     ?>
 
 
 
@@ -155,42 +161,44 @@ if ($_SESSION['role'] == "Admin") {
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3 style="font-size: 30px"><?php
+                            <h3 style="font-size: 30px"><?php 
+                            
+                            if($total_product){
 
-                                                        if ($total_product) {
+                                echo $total_product;
+                            }
 
-                                                            echo $total_product;
-                                                        } else {
+                            else{
 
-                                                            echo 0;
-                                                        }
-
-                                                        ?></h3>
+                                echo 0;
+                            }
+                            
+                            ?></h3>
 
                             <p> Total Product </p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-shopping-cart" style="font-size:70px"></i>
                         </div>
-                        <!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
                     </div>
                 </div>
+                
+                  <?php   
+          
+          $select= $pdo->prepare("select count(category) as cat from tbl_category");
+ 
+ $select->execute();
 
-                <?php
-
-                $select = $pdo->prepare("select count(category) as cat from tbl_category");
-
-                $select->execute();
-
-                $row = $select->fetch(PDO::FETCH_OBJ);
-
-
-                $total_category = $row->cat;
+ $row=$select->fetch(PDO::FETCH_OBJ);
 
 
+$total_category=$row->cat;
 
-
-                ?>
+ 
+          
+          
+     ?>
 
 
 
@@ -199,118 +207,141 @@ if ($_SESSION['role'] == "Admin") {
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3 style="font-size: 30px"><?php
+                            <h3 style="font-size: 30px"><?php 
 
-                                                        if ($total_category) {
+                            if($total_category){
 
-                                                            echo $total_category;
-                                                        } else {
+                                echo $total_category;
+                            }
 
-                                                            echo 0;
-                                                        }
+                            else{
 
-
-                                                        ?></h3>
+                                 echo 0;
+                            }
+                            
+                            
+                            ?></h3>
 
                             <p>Total Category</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph" style="font-size:80px"></i>
                         </div>
-                        <!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
+<!--                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>-->
                     </div>
                 </div>
                 <!-- ./col -->
             </div>
+            
+            
+            
+            <div class="box box-danger">
+            
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">Earning By Date</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
 
 
 
-        
 
+                <div class="box-body">
+                <div class="chart">
 
-            <!-- below dashboard graph-->
+                        <canvas id="earningbydate" style="height:250px"></canvas>
 
-
-            <div class="col-md-12">
-
-                <div class="box box-danger">
-
-
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Recent Orders</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
+                
+                </div>
+                
+                </div>
+                
+                
+          <!-- below dashboard graph-->
+               
+
+                <div class="col-md-12">
+                    
+                     <div class="box box-danger">
+            
+
+                <div class="box-header with-border">
+                    <h3 class="box-title">Recent Orders</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
 
 
 
 
-                    <div class="box-body">
+                <div class="box-body">
+                
+                 <table id="recentorderlist" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Name</th>
+                                <th>Date</th>
+                                <th>Total</th>
+                                <th>Pay</th>
+                                
+                                
+                                
+                            </tr>
+                        </thead>
 
-                        <table id="recentorderlist" class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th>Invoice ID</th>
-                                    <th>Name</th>
-                                    <th>Date</th>
-                                    <th>Total</th>
-                                    <th>Pay</th>
+                        <tbody>
 
-
-
-                                </tr>
-                            </thead>
-
-                            <tbody>
-
-                                <?php
-
-                                $index = 1; //default 1 count
-
-                                $select = $pdo->prepare("select * from place_order  order by id desc LIMIT 20");
-
-                                $select->execute();
-
-                                while ($row = $select->fetch(PDO::FETCH_OBJ)) {
-
-                                    echo '
+                            <?php 
+                              
+                              $index=1; //default 1 count
+                              
+              $select=$pdo->prepare("select * from orders order by id desc LIMIT 20");
+                              
+                              $select->execute();
+                              
+                              while($row=$select->fetch(PDO::FETCH_OBJ)){
+                                  
+                                echo '
                                 
                                   <tr>
-                                <td><a href="editorder.php?id=' . $row->id . '">' . $index . '</a></td>
+                                <td><a href="editorder.php?id='.$row->id.'">'.$index.'</a></td>
                                   
                                   
-      <td>' . $row->name . '</td>
-    <td>' . $row->date . '</td>
-    <td><span class="label label-danger"><span>&#2547;  </span>' . $row->price . '</td>
+      <td>'.$row->name.'</td>
+    <td>'.$row->order_date.'</td>
+    <td><span class="label label-danger"><span>&#2547;  </span>'.$row->amount_paid.'</td>
     
     
-    <td>' . $row->pmode . '</td>';
-
-
-
-
-
-                                    $index++;
-                                }
-
-
-
-                                ?>
-                            </tbody>
-                        </table>
-
-                    </div>
-
+    <td>'.$row->pmode.'</td>';
+                                  
+                                  
+                                  
+                            
+                                  
+                                  $index++;
+                              }
+                              
+                              
+                              
+                              ?>
+                        </tbody>
+                    </table>
+                
                 </div>
-
-            </div>
+                
+                </div>
+                    
+                </div>
+            </div>   
+                
+                
         </div>
 
-
-</div>
-
-</section>
-<!-- /.content -->
+    </section>
+    <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 
@@ -327,18 +358,19 @@ if ($_SESSION['role'] == "Admin") {
 
         // The data for our dataset
         data: {
-            labels: <?php echo json_encode($date); ?>,
+            labels: <?php  echo json_encode($date); ?>,
             datasets: [{
                 label: 'Total Earning',
                 backgroundColor: 'rgb(255, 99, 255)',
                 borderColor: 'rgb(255, 99, 132)',
-                data: <?php echo json_encode($ttl); ?>
+                data: <?php  echo json_encode($ttl); ?>
             }]
         },
 
         // Configuration options go here
         options: {}
     });
+
 </script>
 
 
@@ -365,8 +397,8 @@ if ($_SESSION['role'] == "Admin") {
 -->
 
 
-<?php
-
-include_once 'footer.php';
-
+<?php 
+ 
+  include_once 'footer.php';
+  
 ?>
