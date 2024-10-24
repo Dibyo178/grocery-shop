@@ -1,3 +1,24 @@
+<?php
+
+include './connectdb.php';
+
+include './connection.php';
+
+
+ 
+$index = 1;
+
+$view = mysqli_query($con, "select * from  discount ");
+
+$data = mysqli_fetch_assoc($view);
+
+$disciount_name = $data['token'];
+
+$price = $data['price'];
+
+ ?>
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -103,11 +124,11 @@
             </div>
             <div class="row">
                 <div class="col-6">
-                    <a class="button-1" href="shop.html">Continue Shopping</a>
+                    <a class="button-1" href="shop.php">Continue Shopping</a>
                 </div>
-                <div class="col-6 update-cart text-right">
+                <!-- <div class="col-6 update-cart text-right">
                     <a class="button-1" href="#">Update Cart</a>
-                </div>
+                </div> -->
             </div>
             <div class="row cart-page-check-out-area flex-row-reverse pt-4">
                 <div class="col-md-6 col-lg-4">
@@ -300,36 +321,32 @@
         });
 
         // Function to apply coupon code
-        document.getElementById('apply-coupon').addEventListener('click', function() {
-            const couponCode = document.getElementById('coupon-code').value.trim();
+      // Apply coupon code functionality
+    document.getElementById('apply-coupon').addEventListener('click', function() {
+        const couponCode = document.getElementById('coupon-code').value.trim();
 
-            // Check if coupon is valid and has not been applied already
-            if (couponCode === 'DISCOUNT10' && !couponApplied) {
-                const loadingIcon = document.getElementById('loading-icon');
-                loadingIcon.style.display = 'block'; // Show loading icon
-                setTimeout(() => {
-                    loadingIcon.style.display = 'none'; // Hide loading icon
-                    couponValue = 10; // Fixed discount amount for valid coupon
-                    const grandTotal = parseFloat(document.getElementById('subtotal').textContent.replace('¥', '')) + totalTax - couponValue; // Calculate new grand total
+        // Check if the coupon code matches the discount token from the database
+        if (couponCode === '<?php echo $disciount_name; ?>') {
+            couponValue = parseFloat('<?php echo $price; ?>'); // Apply the discount price
+            couponApplied = true;
 
-                    // Update totals
-                    document.getElementById('grand-total').textContent = `¥${grandTotal.toFixed(2)}`;
-                    document.getElementById('discount-message').textContent = 'Coupon applied successfully!';
-                    document.getElementById('discount-message').style.display = 'block'; // Show success message
-                    couponApplied = true; // Set flag to prevent reapplying the coupon
-                    displayCartItems(); // Update cart items display
-                }, 1000); // Simulating a delay
-            } else if (couponApplied) {
-                document.getElementById('discount-message').textContent = 'Coupon already applied.';
-                document.getElementById('discount-message').style.display = 'block'; // Show error message for repeated application
-            } else {
-                document.getElementById('discount-message').textContent = 'Invalid coupon code.';
-                document.getElementById('discount-message').style.display = 'block'; // Show error message for invalid code
-            }
-        });
-
-        // Initial call to display cart items
-        displayCartItems();;
+            // Display success message
+            document.getElementById('discount-message').style.display = 'block';
+            document.getElementById('discount-message').textContent = `Coupon applied successfully! Discount: ¥${couponValue.toFixed(2)}`;
+            displayCartItems(); // Refresh the cart display with the discount applied
+        } else {
+            // Display error message if the coupon code is invalid
+            Swal.fire({
+                icon: 'error',
+                title: 'Invalid Coupon',
+                text: 'Please enter a valid coupon code.'
+            });
+        }
+    });
+ // Initialize the cart display when the page loads
+ document.addEventListener('DOMContentLoaded', function() {
+        displayCartItems(); // Display the cart items and calculate totals on page load
+    });
     </script>
 
 

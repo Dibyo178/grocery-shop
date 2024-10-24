@@ -542,6 +542,9 @@ desired effect
 
           <!-- <li><a href="gallery.php"><i class="fa-solid fa-file-image"></i> <span> Gallery</span></a></li> -->
 
+          <li><a href="adddiscount.php"><i class="fa-solid fa-file-image"></i> <span>Add Discount</span></a></li>
+
+
           <li><a href="registration.php"><i class="fa fa-user-circle"></i> <span>Registration</span></a></li>
 
           <!-- <li><a href="send_msg.php"><i class="fa-solid fa-message"></i> <span>Message</span></a></li> -->
