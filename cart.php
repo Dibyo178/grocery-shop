@@ -126,12 +126,12 @@ $price = $data['price'];
                 <div class="col-6">
                     <a class="button-1" href="shop.php">Continue Shopping</a>
                 </div>
-                <!-- <div class="col-6 update-cart text-right">
-                    <a class="button-1" href="#">Update Cart</a>
-                </div> -->
+                <div class="col-6 update-cart text-right">
+                    <a class="button-1" href="">Update Cart</a>
+                </div>
             </div>
             <div class="row cart-page-check-out-area flex-row-reverse pt-4">
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4"  style="display: none;" id="checkout-area">
                     <div class="card">
                         <div class="card-header py-3">
                             <h6 class="m-0 mb-1">Order Total</h6>
@@ -163,7 +163,7 @@ $price = $data['price'];
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-8">
+                <div class="col-md-6 col-lg-8"  style="display: none;" id="checkout-cupon">
                     <div class="card">
                         <div class="card-header bg-transparent py-3">
                             <h6 class="m-0">Use Coupon Code</h6>
@@ -210,6 +210,9 @@ $price = $data['price'];
     <script src="assets/js/mobile-menu.js"></script>
     <script src="assets/js/modernizr.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="./assets/js/cart.js"></script>
+ 
+
     <script>
         let totalTax = 0; // Declare totalTax globally
         let couponApplied = false; // Flag to track if a coupon has been applied
@@ -250,7 +253,7 @@ $price = $data['price'];
                     <button class="increment" data-id="${item.id}">+</button>
                 </div>
             </td>
-            <td class="text-center">¥${totalPriceWithTax.toFixed(2)}</td>
+            <td class="text-center">¥${subtotalPrice.toFixed(2)}</td>
             <td class="text-center"><button class="remove" data-id="${item.id}"><i class="fas fa-trash"></i></button></td>
         `;
                 cartTableBody.appendChild(row);
@@ -351,12 +354,216 @@ $price = $data['price'];
 
 
 
+ <!-- Add SweetAlert Library -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
+<!-- previous code of update cart -->
 
 
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const updateCartButton = document.querySelector('.update-cart a');
+
+    if (updateCartButton) {
+        updateCartButton.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Gather data for each item in the cart
+            let cartItems = [];
+            document.querySelectorAll('#cart-items tr').forEach(row => {
+                let productNameElement = row.querySelector('td:nth-child(2)');
+                let priceElement = row.querySelector('td:nth-child(3)');
+                let qtyElement = row.querySelector('input.quantity');
+
+                if (productNameElement && priceElement && qtyElement) {
+                    let productName = productNameElement.innerText;
+                    let price = parseFloat(priceElement.innerText.replace('¥', ''));
+                    let qty = parseInt(qtyElement.value);
+
+                    // Calculate subtotal for each item
+                    let subtotal = price * qty;
+
+                    // Generate a single random ID for this update
+                    let randomId = Math.floor(Math.random() * 1000000); 
+
+                    // Push item data to cartItems array
+                    cartItems.push({
+                        product_name: productName,
+                        price: price,
+                        qty: qty,
+                        subtotal: subtotal,
+                        random_id: randomId // Assign the same random ID to all items
+                    });
+                }
+            });
+
+            // Send cart items to update_cart.php
+            fetch('update_cart.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cartItems)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cart Updated',
+                        text: 'Your cart has been updated successfully!',
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        // Display the checkout area
+                        document.getElementById('checkout-area').style.display = 'block';
+                        // Show coupon code area
+                        document.getElementById('checkout-cupon').style.display = 'block';
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message,
+                        confirmButtonText: 'Try Again'
+                    });
+                }
+            })
+            .catch(error => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Unable to connect to the server.',
+                    confirmButtonText: 'Try Again'
+                });
+                console.error('Error:', error);
+            });
+        });
+    }
+});
+
+</script> -->
 
 
+<!-- end previous code  -->
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const updateCartButton = document.querySelector('.update-cart a');
+    const proceedToCheckoutButton = document.querySelector('.button-1[href="checkout.php"]'); // Checkout button
+
+    let latestRandomId; // To store the latest random_id
+
+    if (updateCartButton) {
+        updateCartButton.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            let cartItems = [];
+            document.querySelectorAll('#cart-items tr').forEach(row => {
+                let productNameElement = row.querySelector('td:nth-child(2)');
+                let priceElement = row.querySelector('td:nth-child(3)');
+                let qtyElement = row.querySelector('input.quantity');
+
+                if (productNameElement && priceElement && qtyElement) {
+                    let productName = productNameElement.innerText;
+                    let price = parseFloat(priceElement.innerText.replace('¥', ''));
+                    let qty = parseInt(qtyElement.value);
+
+                    cartItems.push({
+                        product_name: productName,
+                        price: price,
+                        qty: qty,
+                        subtotal: price * qty,
+                    });
+                }
+            });
+
+            fetch('update_cart.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(cartItems)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Store the random_id returned from the server
+                    latestRandomId = data.random_id;
+
+                    // Display checkout areas
+                    document.getElementById('checkout-area').style.display = 'block';
+                    document.getElementById('checkout-cupon').style.display = 'block';
+
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Cart Updated',
+                        text: 'Your cart has been updated successfully!',
+                        confirmButtonText: 'OK'
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message,
+                        confirmButtonText: 'Try Again'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Unable to connect to the server.',
+                    confirmButtonText: 'Try Again'
+                });
+            });
+        });
+    }
+
+    // Handle "Proceed to Checkout" button click
+    if (proceedToCheckoutButton) {
+        proceedToCheckoutButton.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Send checkout details with latestRandomId
+            const checkoutData = {
+                random_id: latestRandomId,
+                discount: parseFloat(document.querySelector('.coupon-value').innerText.replace('¥', '') || '0'),
+                tax: parseFloat(document.getElementById('tax').innerText.replace('¥', '') || '0'),
+                subtotal: parseFloat(document.getElementById('subtotal').innerText.replace('¥', '') || '0'),
+                grand_total: parseFloat(document.getElementById('grand-total').innerText.replace('¥', '') || '0')
+            };
+
+            fetch('proceed_checkout.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(checkoutData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    window.location.href = 'checkout.php';
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Checkout Error',
+                        text: data.message,
+                        confirmButtonText: 'Try Again'
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Unable to proceed to checkout.',
+                    confirmButtonText: 'Try Again'
+                });
+            });
+        });
+    }
+});
+
+</script>
 </body>
 
 </html>

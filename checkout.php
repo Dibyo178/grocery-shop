@@ -110,7 +110,7 @@
 								</div>
 								<div class="col-12">
 									<div class="input-field">
-										<label>Time Slot <span style="color:red">*</span> </label>
+										<label>Delivery Time <span style="color:red">*</span> </label>
 										<input type="time" name="zip" width="200px" >
 									</div>
 								</div>
