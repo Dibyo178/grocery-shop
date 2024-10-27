@@ -23,7 +23,7 @@
 </head>
 <body>
 
-   <?php include './header.php'; ?>
+  
 	<!-- End Mincart Section -->
 
 	<!-- Start Breadcrumb Area -->
@@ -35,12 +35,12 @@
 						<h2 style="color:black
 					">Checkout</h2>
 						<ul>
-							<li><a href="index.html" style="color:black
-					">Home</a></li>
-							<li><i class="fas fa-angle-double-right" style="color:black
-					"></i></li>
-							<li style="color:black
-					">Checkout</li>
+							<!-- <li><a href="index.html" style="color:black
+					">Home</a></li> -->
+							<!-- <li><i class="fas fa-angle-double-right" style="color:black
+					"></i></li> -->
+							<!-- <li style="color:black
+					">Checkout</li> -->
 						</ul>
 					</div>
 				</div>

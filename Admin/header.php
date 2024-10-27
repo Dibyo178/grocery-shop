@@ -476,7 +476,7 @@ desired effect
         </li>  -->
 
 
-        <li><a href="./slider.php"><i class="fa-solid fa-sliders"></i><span> Add Slider</span></a></li>
+        <li><a href="./slider.php"><i class="fa-solid fa-sliders"></i><span> Add Homepage Slider</span></a></li>
 
           <li><a href="addArea.php"><i class="fa-solid fa-truck"></i> <span>Add Delivery Area</span></a></li>
 
@@ -489,6 +489,9 @@ desired effect
 
 
           <li><a href="product_cart.php"><i class="fa-solid fa-cart-shopping"></i><span> Product Cart</span></a></li>
+
+          <li><a href="addblogs.php"><i class="fa-regular fa-file-lines"></i><span> Add Blogs </span></a></li>
+
 
 
 

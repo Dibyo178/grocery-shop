@@ -34,7 +34,7 @@
 					<div class="breadcrumb-content">
 						<h2>Blog Details</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 							<li><i class="fas fa-angle-double-right"></i></li>
 							<li>Blog Details</li>
 						</ul>
@@ -58,14 +58,14 @@
 								<img src="assets/img/blog/1.jpg" alt="blog">
 							</div>
 							<div class="content">
-								<div class="cate">
+								<!-- <div class="cate">
 									<a href="#">Food</a>
 									<a href="#">Health</a>
-								</div>
+								</div> -->
 								<h2 class="title">Lorem ipsum dolor sit amet, consecte cing elit, sed do eiusmod tempor.</h2>
 								<div class="meta mb-20">
-									<span><i class="far fa-eye"></i> 206 Views</span>
-									<span><i class="far fa-comments"></i> 05 Comments</span>
+									<!-- <span><i class="far fa-eye"></i> 206 Views</span> -->
+									<!-- <span><i class="far fa-comments"></i> 05 Comments</span> -->
 									<span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
 								</div>
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
@@ -76,61 +76,13 @@
 								
 							</div>
 						</div>
-						<div class="comments-list-full mb-30">
-							<h2>03 Comments</h2>
-							<ul>
-								<li class="single-comment">
-									<div class="thum">
-										<img src="assets/img/author.jpg" alt="thumb">
-									</div>
-									<div class="content">
-										<h4><a href="#">Jonathom Doe</a></h4>
-										<span> September 19, 2021 at 11:25 am </span>
-										<p>Aenean volutpat sed lacus eu faucibus. Quisque nunc dui, finibus at bibendum et, egestas eget lectus. Ut iaculis tempor risus a dictum. Aenean volutpat sed lacus eu faucibus. Quisque nunc dui, finibus at bibendum et, egestas eget lectus. Ut iaculis tempor risus a dictum.</p>
-										<a class="reply" href="#">Reply</a>
-									</div>
-									<ul class="comment-reply">
-										<li>
-											<div class="thum">
-												<img src="assets/img/author.jpg" alt="thumb">
-											</div>
-											<div class="content">
-												<h4><a href="#">Jonathom Doe</a></h4>
-												<span> September 19, 2021 at 11:25 am </span>
-												<p>Aenean volutpat sed lacus eu faucibus. Quisque nunc dui, finibus at bibendum et, egestas eget lectus. Ut iaculis tempor risus a dictum. </p>
-												<a class="reply" href="#">Reply</a>
-											</div>
-										</li>
-									</ul>
-								</li>
-								<li class="single-comment">
-									<div class="thum">
-										<img src="assets/img/author.jpg" alt="thumb">
-									</div>
-									<div class="content">
-										<h4><a href="#">Jonathom Doe</a></h4>
-										<span> September 19, 2021 at 11:25 am </span>
-										<p>Aenean volutpat sed lacus eu faucibus. Quisque nunc dui, finibus at bibendum et, egestas eget lectus. Ut iaculis tempor risus a dictum. </p>
-										<a class="reply" href="#">Reply</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="comments-form-full">
-							<h2>Leave your Comment here </h2>
-							<form action="#">
-								<textarea name="message" placeholder="Write Comment" spellcheck="false"></textarea>
-								<input type="text" name="name" placeholder="Your Name">
-								<input type="email" name="email" placeholder="Your Email">
-								<input type="text" name="subjects" placeholder="Your Subjects">
-								<button type="submit" class="button-1">Submit Comment</button>
-							</form>
-						</div>
+				
+				
 					</div>
 				</div>
 				<div class="col-lg-4">
 					<!-- Single -->
-					<div class="widgets-single mb-30">
+					<!-- <div class="widgets-single mb-30">
 						<h2>Search Objects</h2>
 						<div class="wi-search-form">
 							<form action="#">
@@ -138,12 +90,12 @@
 								<button type="submit"><i class="bi bi-search"></i></button>
 							</form>
 						</div>
-					</div>
+					</div> -->
 					<!-- Single -->
 				
 					<!-- Single -->
 					<div class="widgets-single mb-30">
-						<h2>Popular Blog</h2>
+						<h2>Other Blogs</h2>
 						<div class="popular-blog-full">
 							<!-- single -->
 							<div class="item">
@@ -154,7 +106,7 @@
 								</div>
 								<div class="content">
 									<h4><a href="single.html">Lorem ipsum dolor sit cing elit, sed do.</a></h4>
-									<span><i class="far fa-comments"></i> 05 Comments</span>
+									
 								</div>
 							</div>
 							<!-- single -->
@@ -166,7 +118,7 @@
 								</div>
 								<div class="content">
 									<h4><a href="single.html">Lorem ipsum dolor sit cing elit, sed do.</a></h4>
-									<span><i class="far fa-comments"></i> 05 Comments</span>
+									
 								</div>
 							</div>
 							<!-- single -->
@@ -178,7 +130,7 @@
 								</div>
 								<div class="content">
 									<h4><a href="single.html">Lorem ipsum dolor sit cing elit, sed do.</a></h4>
-									<span><i class="far fa-comments"></i> 05 Comments</span>
+									
 								</div>
 							</div>
 							<!-- single -->
@@ -190,7 +142,7 @@
 								</div>
 								<div class="content">
 									<h4><a href="single.html">Lorem ipsum dolor sit cing elit, sed do.</a></h4>
-									<span><i class="far fa-comments"></i> 05 Comments</span>
+									
 								</div>
 							</div>
 							<!-- single -->
@@ -202,7 +154,7 @@
 								</div>
 								<div class="content">
 									<h4><a href="single.html">Lorem ipsum dolor sit cing elit, sed do.</a></h4>
-									<span><i class="far fa-comments"></i> 05 Comments</span>
+									
 								</div>
 							</div>
 						</div>
@@ -211,7 +163,7 @@
 				
 					<!-- Single -->
 					<div class="widgets-single mb-30">
-						<h2>Top Rated Product</h2>
+						<h2>Recent Products</h2>
 						<div class="wi-top-rated-p">
 							<!-- Single -->
 							<div class="single mb-20">

@@ -134,6 +134,7 @@ $price = $data['price'];
                 ?>
 
                     <div class="col-6 text-right">
+                    
                         <a class="button-1" href="./login.php">Update Cart</a>
                     </div>
 
@@ -141,8 +142,12 @@ $price = $data['price'];
                 } else {
 
                 ?>
+           
 
                     <div class="col-6 update-cart text-right">
+
+                    <p style="color:red">***NB: Please complete all your shopping and then update cart. </p><br>
+                    
                         <a class="button-1" href="">Update Cart</a>
                     </div>
 
@@ -184,6 +189,7 @@ $price = $data['price'];
                                 </li>
                             </ul>
                             <div class="d-grid gap-2 pt-10 mx-auto">
+                                
                                 <a class="button-1" href="checkout.php">PROCEED TO CHECKOUT</a>
                             </div>
                         </div>

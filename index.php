@@ -1,3 +1,13 @@
+<?php
+
+
+include_once "./connectdb.php";
+
+include_once "./connection.php";
+
+
+
+?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -12,7 +22,7 @@
 
     <link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
 
-     
+
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/bootstrap-icons.css">
     <link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
@@ -137,7 +147,7 @@
 
 
     <!-- Start Shop Category -->
-    <section class="shop-category pt-20 pb-20" >
+    <section class="shop-category pt-20 pb-20">
         <div class="container">
             <!-- Section Headding -->
             <div class="row">
@@ -474,7 +484,7 @@
                 <div class="col-lg-12">
                     <div class="feature-product-slider owl-carousel">
 
-                    <div class="product-item feature" data-id="3" data-name="Raddish Vegetable" data-price="200">
+                        <div class="product-item feature" data-id="3" data-name="Raddish Vegetable" data-price="200">
                             <div class="sale-badge"><span>Discount</span></div>
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
@@ -791,7 +801,7 @@
                 <div class="col-lg-12">
                     <div class="feature-product-slider owl-carousel">
 
-                    <div class="product-item" data-id="1" data-name="Raddish Vegetable" data-price="200">
+                        <div class="product-item" data-id="1" data-name="Raddish Vegetable" data-price="200">
                             <div class="sale-badge"><span>new</span></div>
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
@@ -819,7 +829,7 @@
                             </div>
                         </div>
                         <!-- Single -->
-                      
+
                         <!-- Single -->
                         <div class="product-item">
                             <div class="sale-badge"><span>new</span></div>
@@ -1113,80 +1123,64 @@
             </div>
             <div class="row">
                 <!-- Single -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="blog-item">
-                        <div class="thumbnail">
-                            <!-- <a href="single.html"> -->
-                                <img src="assets/discount-images/bg-remove/guava-nutritional-fruit-600x450.jpg" alt="blog">
-                            <!-- </a> -->
-                        </div>
-                        <div class="content">
-                            <div class="meta">
-                                <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
-                                <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span>
+
+                <?php
+
+                $index = 1;
+
+                $view = mysqli_query($con, "SELECT * FROM blog ORDER BY id DESC LIMIT 3");
+
+
+                while ($data = mysqli_fetch_assoc($view)) {
+
+
+                    $name = $data['name'];
+
+                    $description = $data['description'];
+
+                    $date = $data['date'];
+
+
+
+                    $image = $data['image'];
+
+
+                ?>
+
+                    <div class="col-lg-4 col-md-6 mb-30">
+                        <div class="blog-item">
+                            <div class="thumbnail">
+                                <a href="blog.php">
+                                <img src="./Admin/blogimage/<?php echo $image; ?>" alt="blog">
+                                </a>
                             </div>
-                            <h2 class="title"><a href="single.php">Healthiest Vegetables on Earth</a></h2>
-                            <div class="btm-meta">
-                                <div class="date">
-                                    <span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
+                            <div class="content">
+                                <div class="meta">
+                                    <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
+                                    <!-- <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span> -->
                                 </div>
-                                <div class="read-more">
-                                    <a href="single.php">Read More</a>
+                                <h2 class="title"><a href="blog.php"><?php echo $name;?></a></h2>
+                                <div class="btm-meta">
+                                    <div class="date">
+                                        <span><i class="far fa-calendar-alt"></i> <?php echo $date;?></span>
+                                    </div>
+                                    <div class="read-more">
+                                        <a href="blog.php">Read More</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                <?php
+
+                    $index++;
+                };
+                ?>
+
+
                 <!-- Single -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="blog-item">
-                        <div class="thumbnail">
-                            <!-- <a href="single.html"> -->
-                                <img src="assets/discount-images/bg-remove/la-monisa.png" alt="blog">
-                            <!-- </a> -->
-                        </div>
-                        <div class="content">
-                            <div class="meta">
-                                <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
-                                <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span>
-                            </div>
-                            <h2 class="title"><a href="single.php">Healthiest Vegetables on Earth</a></h2>
-                            <div class="btm-meta">
-                                <div class="date">
-                                    <span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
-                                </div>
-                                <div class="read-more">
-                                    <a href="single.php">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-4 col-md-6 mb-30">
-                    <div class="blog-item">
-                        <div class="thumbnail">
-                            <!-- <a href="single.html"> -->
-                                <img src="assets/discount-images/bg-remove/marmite.png" alt="blog">
-                            <!-- </a> -->
-                        </div>
-                        <div class="content">
-                            <div class="meta">
-                                <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
-                                <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span>
-                            </div>
-                            <h2 class="title"><a href="single.php">Healthiest Vegetables on Earth</a></h2>
-                            <div class="btm-meta">
-                                <div class="date">
-                                    <span><i class="far fa-calendar-alt"></i> 16 October 2021</span>
-                                </div>
-                                <div class="read-more">
-                                    <a href="single.php">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -1201,7 +1195,7 @@
     <!-- End Footer Area -->
 
     <!-- Start Quick View Modal Content -->
-    <div class="modal fade" id="quickViewModal"  tabindex="-1" aria-labelledby="quickViewModal" aria-hidden="true">
+    <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModal" aria-hidden="true">
         <div class="modal-dialog quick-view-modal">
             <div class="modal-content quick-view-modal-content">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1333,24 +1327,24 @@
 
     <script src="./assets/js/update.js"></script>
 
-    
+
 
     <script src="./assets/js/cart.js"></script>
 
     <!-- Add this script at the end of your HTML or in your JavaScript file -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const categoryButton = document.querySelector('.button-3'); // Assuming this class is used for the category button
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButton = document.querySelector('.button-3'); // Assuming this class is used for the category button
 
-    categoryButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent the default anchor click behavior
-        const targetSection = document.getElementById('category'); // Target the category section
-        targetSection.scrollIntoView({
-            behavior: 'smooth' // Smooth scroll
+            categoryButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent the default anchor click behavior
+                const targetSection = document.getElementById('category'); // Target the category section
+                targetSection.scrollIntoView({
+                    behavior: 'smooth' // Smooth scroll
+                });
+            });
         });
-    });
-});
-</script>
+    </script>
 
 
 

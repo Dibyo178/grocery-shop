@@ -748,7 +748,7 @@ error_reporting(E_ERROR | E_PARSE);
                                     </li> -->
 
                                     <li>
-                                        <a href="./blog.php">Blog</a>
+                                        <a href="blogpage.php">Blog</a>
 
                                     </li>
                                     <li><a href="contact.php">Contact Us</a></li>
@@ -797,22 +797,10 @@ error_reporting(E_ERROR | E_PARSE);
                         <li>
                             <a href="./shop.php"> Shop</a>
                         </li>
-                        <li class="menu-item-has-children">
-                            <a href="#">Page</a>
-                            <ul class="sub-menu">
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="account.html">My Account</a></li>
-                                <li><a href="login.html">Login Account</a></li>
-                                <li><a href="register.html">Register Account</a></li>
-                                <li><a href="faq.html">Faq</a></li>
-                                <li><a href="404.html">404 Error</a></li>
-                            </ul>
-                        </li>
+                     
 
                         <li>
-                            <a href="blog.php"> Blog</a>
+                            <a href="blogpage.php"> Blog</a>
                         </li>
 
 
