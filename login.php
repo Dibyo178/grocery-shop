@@ -1,3 +1,8 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
 <!DOCTYPE html>
 <html  class="no-js" lang="en">
 <head>
@@ -25,7 +30,56 @@
 </head>
 <body>
 
- <?php include './header.php'; ?>
+ <?php 
+ include './header.php'; 
+
+ include_once './connectdb.php';
+include_once "./connection.php";
+
+error_reporting(E_ERROR | E_PARSE);
+session_start();
+
+if (isset($_POST['btn_login'])) {
+    $username = $_POST['number'];
+
+    // Prepare and execute the query
+    $select = $pdo->prepare("SELECT * FROM login WHERE mobile = :mobile");
+    $select->bindParam(':mobile', $username, PDO::PARAM_STR);
+    $select->execute();
+    $row = $select->fetch(PDO::FETCH_ASSOC);
+
+    // Check if user exists and handle login
+    if ($row && $row['mobile'] === $username) {
+        $_SESSION['id'] = $row['id'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['mobile'] = $row['mobile'];
+
+        echo '<script type="text/javascript">
+            jQuery(function validation() {
+                swal({
+                    title: "Successfully Logged in!",
+                    text: "Welcome, ' . $_SESSION['name'] . '!",
+                    icon: "success",
+                    button: "Ok",
+                }).then(() => {
+                    window.location.href = "index.php"; // Redirect after alert
+                });
+            });
+        </script>';
+    } else {
+        echo '<script type="text/javascript">
+            jQuery(function validation() {
+                swal({
+                    title: "Incorrect Contact Number!",
+                    text: "Please try again.",
+                    icon: "error",
+                    button: "OK",
+                });
+            });
+        </script>';
+    }
+}
+ ?>
 
 	<!-- Start Login Register Content -->
 	<div class="lr-page pt-100 pb-100">
@@ -35,9 +89,9 @@
 					<div class="lr-user-holder">
 						<div class="lr-user-holder-form">
 							<h2>Log in to Your Account</h2>
-							<form action="#">
+							<form action="" method="post">
 								<div class="single-field">
-									<input type="number" name="name" placeholder="Mobile Number">
+									<input type="number" name="number" placeholder="Mobile Number">
 									<i class="fa-solid fa-phone"></i>
 								</div>
 								<!-- <div class="single-field">
@@ -45,7 +99,7 @@
 									<i class="fas fa-lock"></i>
 								</div> -->
 								<div class="single-field mb-0">
-									<button class="button-1" type="submit">Login In</button>
+									<button class="button-1" name="btn_login" type="submit">Login In</button>
 								</div>
 							</form>
 						</div>

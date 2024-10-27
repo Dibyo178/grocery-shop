@@ -1,4 +1,13 @@
+<?php
 
+
+session_start();
+
+
+error_reporting(E_ERROR | E_PARSE);
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -45,7 +54,9 @@
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- jquery cdn -->
 
@@ -611,24 +622,42 @@
                                     <span><a href="tel:080-6554-4316" style="color:black">080-6554-4316</a></span>
                                 </li>
                                 <li class="point">
-                                    <span style="font-weight: 700;">Points :</span> <a href="#" style="color:white;background:#7ca440;padding:10px"><i style="font-size:15px;color:white"
-                                            class="fa-solid fa-yen-sign"></i> 0.05</a>
+                                    <span style="font-weight: 700;">Points :</span> <a href="#"
+                                        style="color:white;background:#7ca440;padding:10px"><i
+                                            style="font-size:15px;color:white" class="fa-solid fa-yen-sign"></i>
+                                        0.05</a>
                                 </li>
                                 <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
                                 </li> -->
-                                <li class="signin-option">
-                                    <a href="login.php"><i class="far fa-user"></i></a>
-                                </li>
+
+                                <?php
+
+                                if (!$_SESSION['name']) {
+
+                                    ?>
+                                    <li class="signin-option">
+                                        <a href="login.php"><i class="far fa-user"></i></a>
+                                    </li>
+
+                                    <?php
+                                } else {
+
+                                    ?>
 
 
 
+                                    <!-- if session_name exist -->
 
-                                <!-- if session_name exist -->
+                                    <li class="signin-option">
+                                        <a href="./account.php"><i class="far fa-user"></i></a>
+                                    </li>
+                                    <?php
 
-                                <li class="signin-option">
-                                    <a href="./account.php"><i class="far fa-user"></i></a>
-                                </li>
+
+                                }
+
+                                ?>
 
 
 
@@ -645,7 +674,7 @@
 
                             </ul>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -674,8 +703,9 @@
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
                                 <li class="point">
-                                    <span style="font-weight:700">Points:</span> <a href="#" style="color:black"><i style="font-size:large"
-                                            class="fa-solid fa-yen-sign"> </i><span style="gap:2px;"><small>¥</small> 21321 </span></a>
+                                    <span style="font-weight:700">Points:</span> <a href="#" style="color:black"><i
+                                            style="font-size:large" class="fa-solid fa-yen-sign"> </i><span
+                                            style="gap:2px;"><small>¥</small> 21321 </span></a>
                                 </li>
 
                                 <!-- <li class="wishlist">
@@ -836,7 +866,8 @@
     <!-- Progress Bar Alert -->
     <div id="add-to-cart-alert" style="display: none; position: fixed; top: 20px; right: 20px; z-index: 1000;">
         <div class="alert alert-success" style="width: 300px;">
-            <i style="font-size:20px;color:#4CAF50;font-weight:700" class="fa-regular fa-circle-check"></i><strong> Success!</strong> Product added to cart.
+            <i style="font-size:20px;color:#4CAF50;font-weight:700" class="fa-regular fa-circle-check"></i><strong>
+                Success!</strong> Product added to cart.
             <div class="progress" style="height: 5px;">
                 <div class="progress-bar" role="progressbar" style="width: 100%; transition: width 2s;"></div>
             </div>
@@ -847,29 +878,29 @@
 
 
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // Get the dropdown list element
-    var signinOption = document.getElementById('signinDropdown');
-    
-    // Add a click event listener to the whole <li>
-    signinOption.addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default link behavior
-        // Toggle the dropdown
-        var dropdownMenu = signinOption.querySelector('.dropdown-menu');
-        dropdownMenu.classList.toggle('show');
-    });
-    
-    // Close the dropdown if clicked outside
-    document.addEventListener('click', function(event) {
-        if (!signinOption.contains(event.target)) {
-            var dropdownMenu = signinOption.querySelector('.dropdown-menu');
-            dropdownMenu.classList.remove('show');
-        }
-    });
-});
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the dropdown list element
+            var signinOption = document.getElementById('signinDropdown');
 
-  </script>
+            // Add a click event listener to the whole <li>
+            signinOption.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default link behavior
+                // Toggle the dropdown
+                var dropdownMenu = signinOption.querySelector('.dropdown-menu');
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close the dropdown if clicked outside
+            document.addEventListener('click', function (event) {
+                if (!signinOption.contains(event.target)) {
+                    var dropdownMenu = signinOption.querySelector('.dropdown-menu');
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        });
+
+    </script>
 
 
 
