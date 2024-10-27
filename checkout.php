@@ -21,10 +21,28 @@ $data = mysqli_fetch_assoc($view);
 
 $address = $data['address'];
 
+// fetch value from temporary data
+
+$view1 = mysqli_query($con, "select * from temporary_cart where mobile =  '$mobile' ");
+
+$data1 = mysqli_fetch_assoc($view1);
+
+
+$random_id = $data1['random_id'];
+
+$discount = $data1['discount'];
+
+$tax = $data1['tax'];
+$subtotal = $data1['subtotal'];
+
+$grand_total = $data1['grand_total'];
+
+
+
 
 if ($_SESSION['name']) {
 
-	?>
+?>
 
 	<!DOCTYPE html>
 	<html class="no-js" lang="en">
@@ -90,10 +108,22 @@ if ($_SESSION['name']) {
 								<h2>Billing details</h2>
 								<form action="#">
 									<div class="row">
+
+										<!-- random id -->
+
+										<div class="col-md-6" style="display:none">
+											<div class="input-field">
+												<label>random id<span style="color:red">*</span> </label>
+												<input type="text" required="required" value="<?php echo $random_id; ?>"
+													name="namme" readonly>
+											</div>
+										</div>
+
 										<div class="col-md-6">
 											<div class="input-field">
 												<label>Name <span style="color:red">*</span> </label>
-												<input type="text" required="required" value="<?php echo $username; ?>" name="namme" readonly>
+												<input type="text" required="required" value="<?php echo $username; ?>"
+													name="namme" readonly>
 											</div>
 										</div>
 
@@ -101,7 +131,7 @@ if ($_SESSION['name']) {
 										<div class="col-12">
 											<div class="input-field">
 												<label>Home Address <span style="color:red">*</span></label>
-												<input type="text" value="<?php echo $address; ?>"   name="address" readonly>
+												<input type="text" value="<?php echo $address; ?>" name="address" readonly>
 											</div>
 										</div>
 
@@ -135,9 +165,9 @@ if ($_SESSION['name']) {
 														$area = $data['area'];
 														$price = $data['price'];
 
-														?>
+													?>
 														<option value="<?php echo $price; ?>"><?php echo $area; ?></option>
-														<?php
+													<?php
 														$index++;
 													} ?>
 												</select>
@@ -166,19 +196,19 @@ if ($_SESSION['name']) {
 									</div>
 								</div> -->
 									</div>
-								</form>
+
 							</div>
 						</div>
 						<div class="col-lg-4 mb-30">
 							<div class="checkout-summery mb-30">
 								<h2>Checkout summary</h2>
 								<ul>
-									<li>Subtotal <span>¥530.00</span></li>
-									<li>Shipping <span>¥530.00</span></li>
-									<li>Total Tax <span>¥530.00</span></li>
-									<li>Coupon <span>¥0.00</span></li>
-									<li>Total <span>¥530.00</span></li>
-									<li><b>Payable Total</b><span><b>¥530.00</b></span></li>
+									<li>Subtotal <span>¥<?php echo $subtotal;?></span></li>
+									<li>Shipping <span>¥0.00</span></li>
+									<li>Total Tax <span>¥<?php echo $tax;?></span></li>
+									<li>Coupon <span>¥<?php echo $discount;?></span></li>
+
+									<li><b>Payable Total</b><span><b>¥<?php echo $grand_total;?></b></span></li>
 								</ul>
 							</div>
 							<div class="checkout-summery">
@@ -186,7 +216,7 @@ if ($_SESSION['name']) {
 								<div class="form-check">
 									<label class="inline">
 										<input class="form-check-input" type="checkbox">
-										<span class="input"></span>Direct bank transfer
+										<span class="input"></span>Use Points
 									</label>
 								</div>
 								<div class="form-check">
@@ -195,24 +225,16 @@ if ($_SESSION['name']) {
 										<span class="input"></span>Cash on delivery
 									</label>
 								</div>
-								<div class="form-check">
-									<label class="inline">
-										<input class="form-check-input" type="checkbox">
-										<span class="input"></span>Check payments
-									</label>
-								</div>
-								<div class="form-check">
-									<label class="inline">
-										<input class="form-check-input" type="checkbox">
-										<span class="input"></span>PayPal
-									</label>
-								</div>
+								
+								
 								<button type="submit" class="button-1 mt-10">Place Order</button>
 							</div>
 						</div>
-					</div>
-				</div>
-			</section>
+
+		</form>
+		</div>
+		</div>
+		</section>
 
 		</form>
 
@@ -248,7 +270,7 @@ if ($_SESSION['name']) {
 
 	</html>
 
-	<?php
+<?php
 
 } else {
 

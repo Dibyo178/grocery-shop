@@ -1,5 +1,11 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
 session_start();
+
+$username = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
+$mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
+
+
 header('Content-Type: application/json');
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -25,7 +31,7 @@ if ($data) {
         $qty = $db->real_escape_string($item['qty']);
         $subtotal = $db->real_escape_string($item['subtotal']);
 
-        $sql = "INSERT INTO final_cart (product_name, price, qty, subtotal, random_id) VALUES ('$product_name', '$price', '$qty', '$subtotal', '$current_random_id')";
+        $sql = "INSERT INTO final_cart (product_name, price, qty, subtotal, random_id,name,mobile) VALUES ('$product_name', '$price', '$qty', '$subtotal', '$current_random_id','$username','$mobile')";
 
         if (!$db->query($sql)) {
             echo json_encode(["success" => false, "message" => "Error inserting data. SQL Error: " . $db->error]);

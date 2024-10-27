@@ -1,4 +1,10 @@
 <?php
+error_reporting(E_ERROR | E_PARSE);
+session_start();
+
+$username = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
+$mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
+
 header('Content-Type: application/json');
 $data = json_decode(file_get_contents("php://input"), true);
 
@@ -16,8 +22,8 @@ if ($data) {
     $subtotal = $db->real_escape_string($data['subtotal']);
     $grand_total = $db->real_escape_string($data['grand_total']);
 
-    $sql = "INSERT INTO temporary_cart (discount, tax, subtotal, grand_total, random_id) 
-            VALUES ('$discount', '$tax', '$subtotal', '$grand_total', '$random_id')";
+    $sql = "INSERT INTO temporary_cart (discount, tax, subtotal, grand_total, random_id,name,mobile) 
+            VALUES ('$discount', '$tax', '$subtotal', '$grand_total', '$random_id','$username','$mobile')";
 
     if ($db->query($sql)) {
         echo json_encode(["success" => true, "message" => "Proceed to checkout successful."]);
