@@ -1,8 +1,22 @@
 <?php
+
+include './connectdb.php';
+
+include './connection.php';
+
+
 error_reporting(E_ERROR | E_PARSE);
 session_start();
 $username = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
 $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
+
+$view = mysqli_query($con, "select * from login where mobile =  '$mobile' ");
+
+$data = mysqli_fetch_assoc($view);
+
+
+	$address= $data['address'];
+
 ?>
 
 
@@ -12,12 +26,9 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Zaman Halal Food</title>
 
 	<link rel="shortcut icon" href="./assets/logo/favicon.png" type="image/x-icon">
-
-
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/bootstrap-icons.css">
 	<link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
@@ -29,17 +40,13 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 	<link rel="stylesheet" href="assets/css/normalize.css">
 	<link rel="stylesheet" href="style.css">
 	<link rel="stylesheet" href="assets/css/responsive.css">
-
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Include SweetAlert2 -->
 </head>
 
 <body>
 	<!-- Preloader -->
 	<?php include './header.php'; ?>
-
-
-
 
 	<section class="section-padding">
 		<div class="container">
@@ -53,7 +60,6 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 							<li class="nav-item" role="presentation">
 								<a href="#" class="nav-link" id="order-tab" data-bs-toggle="tab" data-bs-target="#order" role="tab" aria-controls="order" aria-selected="false">Orders <i class="far fa-file-alt"></i></a>
 							</li>
-
 							<li class="nav-item" role="presentation">
 								<a href="#" class="nav-link" id="address-tab" data-bs-toggle="tab" data-bs-target="#address" role="tab" aria-controls="address" aria-selected="false">address <i class="fas fa-map-marker-alt"></i></a>
 							</li>
@@ -79,7 +85,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 								<div class="my-account-main-content-item">
 									<h2>Orders</h2>
 									<div class="table-responsive text-center">
-										<table class="table table-bordered  table-hover">
+										<table class="table table-bordered table-hover">
 											<thead>
 												<tr>
 													<th>Order</th>
@@ -99,19 +105,16 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 													<td><a href="pdf.php" class="btn btn-warning"><i style="color:#fff" class="fa-solid fa-eye"></i></a></td>
 													<td><a href="#" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i></a></td>
 												</tr>
-
-
 											</tbody>
 										</table>
 									</div>
 								</div>
 							</div>
-
 							<div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
 								<div class="my-account-main-content-item">
 									<h2>Billing Address</h2>
-									<p>1355 Market St, Suite 900 <br>San Francisco, CA 94103</p>
-									<p><strong>Mobile:</strong> (123) 456-7890</p>
+									<p><?php echo $address; ?></p>
+									<p><strong>Mobile:</strong><?php echo $mobile;?></p>
 								</div>
 							</div>
 							<div class="tab-pane fade" id="acdetails" role="tabpanel" aria-labelledby="acdetails-tab">
@@ -124,7 +127,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 										</div>
 										<div class="single-field">
 											<label>Address</label>
-											<input type="text" id="address"  name="address" placeholder="Enter Your Address" required>
+											<input type="text" id="address" name="address" value="<?php echo $address;?>" placeholder="Enter Your Address" required>
 										</div>
 										<div class="single-field">
 											<label>Mobile</label>
@@ -143,21 +146,15 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 		</div>
 	</section>
 
-	<!-- Start Subscribe Form -->
-
-	<!-- End Subscribe Form -->
-
 	<!-- Start Footer Area -->
-	<?php include 'footer.php'; ?> ?>
+	<?php include 'footer.php'; ?>
 	<!-- End Footer Area -->
 
 	<div class="scroll-area">
 		<i class="fa fa-angle-up"></i>
 	</div>
 
-
-	<!-- Js File -->
-	<!-- Js File -->
+	<!-- Js Files -->
 	<script src="./assets/js/cart.js"></script>
 	<script src="assets/js/modernizr.min.js"></script>
 	<script src="assets/js/jquery-3.5.1.min.js"></script>
@@ -173,35 +170,39 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
 	<script>
 		// JavaScript to handle form submission with AJAX
-		document.getElementById("accountForm").addEventListener("submit", function(event) {
-			event.preventDefault();
-			const formData = new FormData(this);
+		document.addEventListener("DOMContentLoaded", function () {
+			const accountForm = document.getElementById("accountForm");
+			if (accountForm) {
+				accountForm.addEventListener("submit", function(event) {
+					event.preventDefault();
+					const formData = new FormData(this);
 
-			fetch("save_account.php", {
-					method: "POST",
-					body: formData
-				})
-				.then(response => response.json())
-				.then(data => {
-					if (data.success) {
-						Swal.fire({
-							icon: "success",
-							title: "Saved!",
-							text: "Your account details have been saved successfully.",
-							confirmButtonText: "OK"
-						});
-					} else {
-						Swal.fire({
-							icon: "error",
-							title: "Error!",
-							text: data.message || "There was an issue saving your details.",
-							confirmButtonText: "OK"
-						});
-					}
-				})
-				.catch(error => console.error("Error:", error));
+					fetch("save_account.php", {
+							method: "POST",
+							body: formData
+						})
+						.then(response => response.json())
+						.then(data => {
+							if (data.success) {
+								Swal.fire({
+									icon: "success",
+									title: "Saved!",
+									text: "Your account details have been saved successfully.",
+									confirmButtonText: "OK"
+								});
+							} else {
+								Swal.fire({
+									icon: "error",
+									title: "Error!",
+									text: data.message || "There was an issue saving your details.",
+									confirmButtonText: "OK"
+								});
+							}
+						})
+						.catch(error => console.error("Error:", error));
+				});
+			}
 		});
 	</script>
 </body>
-
 </html>

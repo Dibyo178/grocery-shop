@@ -3,7 +3,10 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "your_database_name"; // replace with your actual database name
+$dbname = "grocery-shop"; // replace with your actual database name
+
+error_reporting(E_ERROR | E_PARSE);
+session_start();
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -17,14 +20,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mobile = $conn->real_escape_string($_POST['mobile']);
 
     // Query to check if user already exists (assuming unique identifier, like user_id from a session variable)
-    $user_id = 1; // Replace with dynamic user_id from session or authentication mechanism
+    $user_id = $_SESSION['id']; // Replace with dynamic user_id from session or authentication mechanism
 
-    $checkQuery = "SELECT * FROM users WHERE user_id = '$user_id'";
+    $checkQuery = "SELECT * FROM login WHERE id = '$user_id'";
     $result = $conn->query($checkQuery);
 
     if ($result->num_rows > 0) {
         // Update existing user details
-        $updateQuery = "UPDATE users SET name = '$name', address = '$address', mobile = '$mobile' WHERE user_id = '$user_id'";
+        $updateQuery = "UPDATE login SET name = '$name', address = '$address', mobile = '$mobile' WHERE id = '$user_id'";
         if ($conn->query($updateQuery) === TRUE) {
             echo json_encode(["success" => true]);
         } else {
