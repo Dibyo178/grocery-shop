@@ -1,10 +1,19 @@
 <?php
 
 
+include './connectdb.php';
+
+include './connection.php';
+
+
 session_start();
 
 
 error_reporting(E_ERROR | E_PARSE);
+
+$username = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
+$mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
+
 
 
 ?>
@@ -395,7 +404,7 @@ error_reporting(E_ERROR | E_PARSE);
         .header-top-right ul li.point a span {
             width: 22px;
             /* Further reduce width */
-            height: 14px;
+            height: 18px;
             /* Further reduce height */
             font-size: 8px;
             /* Further reduce font size */
@@ -621,12 +630,37 @@ error_reporting(E_ERROR | E_PARSE);
                                     <i class="bi bi-telephone-inbound"></i>
                                     <span><a href="tel:080-6554-4316" style="color:black">080-6554-4316</a></span>
                                 </li>
+
+                                <?php
+
+                                // Fetch user data
+                                $view = mysqli_query($con, "SELECT * FROM login WHERE mobile = '$mobile'");
+                                if (!$view) {
+                                    die("Database query failed: " . mysqli_error($con));
+                                }
+
+                                $data = mysqli_fetch_assoc($view);
+
+                                // Check if data is retrieved
+                                if ($data) {
+                                    $points = isset($data['points']) ? $data['points'] : 0; // Set to 0 if not set
+                                } else {
+                                    $points = 0; // Default to 0 if no user found
+                                }
+
+                                echo '
+
                                 <li class="point">
-                                    <span style="font-weight: 700;">Points :</span> <a href="#"
-                                        style="color:white;background:#7ca440;padding:10px"><i
-                                            style="font-size:15px;color:white" class="fa-solid fa-yen-sign"></i>
-                                        0.05</a>
-                                </li>
+                                    <span style="font-weight: 700;">Points :</span>
+                                    <a href="#" style="color:white;background:#7ca440;padding:10px">
+                                        <i style="font-size:15px;color:white" class="fa-solid fa-yen-sign"></i>
+                                        ' . $points . ' 
+                                    </a>
+                                </li>';
+
+                                ?>
+
+
                                 <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
                                 </li> -->
@@ -635,15 +669,15 @@ error_reporting(E_ERROR | E_PARSE);
 
                                 if (!$_SESSION['name']) {
 
-                                    ?>
+                                ?>
                                     <li class="signin-option">
                                         <a href="login.php"><i class="far fa-user"></i></a>
                                     </li>
 
-                                    <?php
+                                <?php
                                 } else {
 
-                                    ?>
+                                ?>
 
 
 
@@ -652,7 +686,7 @@ error_reporting(E_ERROR | E_PARSE);
                                     <li class="signin-option">
                                         <a href="./account.php"><i class="far fa-user"></i></a>
                                     </li>
-                                    <?php
+                                <?php
 
 
                                 }
@@ -702,11 +736,31 @@ error_reporting(E_ERROR | E_PARSE);
                         </div>
                         <div class="mobile-bar-wishlist-or-sign header-top-right">
                             <ul>
+                                <?php
+
+                                // Fetch user data
+                                $view = mysqli_query($con, "SELECT * FROM login WHERE mobile = '$mobile'");
+                                if (!$view) {
+                                    die("Database query failed: " . mysqli_error($con));
+                                }
+
+                                $data = mysqli_fetch_assoc($view);
+
+                                // Check if data is retrieved
+                                if ($data) {
+                                    $points = isset($data['points']) ? $data['points'] : 0; // Set to 0 if not set
+                                } else {
+                                    $points = 0; // Default to 0 if no user found
+                                }
+
+                                echo '
                                 <li class="point">
                                     <span style="font-weight:700">Points:</span> <a href="#" style="color:black"><i
                                             style="font-size:large" class="fa-solid fa-yen-sign"> </i><span
-                                            style="gap:2px;"><small>¥</small> 21321 </span></a>
-                                </li>
+                                            style="gap:2px;"><small>¥</small> ' . $points . '  </span></a>
+                                </li>';
+
+                                ?>
 
                                 <!-- <li class="wishlist">
                                     <a href="wishlist.html"><i class="bi bi-suit-heart"></i> <span>2</span></a>
@@ -797,7 +851,7 @@ error_reporting(E_ERROR | E_PARSE);
                         <li>
                             <a href="./shop.php"> Shop</a>
                         </li>
-                     
+
 
                         <li>
                             <a href="blogpage.php"> Blog</a>
@@ -867,12 +921,12 @@ error_reporting(E_ERROR | E_PARSE);
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Get the dropdown list element
             var signinOption = document.getElementById('signinDropdown');
 
             // Add a click event listener to the whole <li>
-            signinOption.addEventListener('click', function (event) {
+            signinOption.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 // Toggle the dropdown
                 var dropdownMenu = signinOption.querySelector('.dropdown-menu');
@@ -880,14 +934,13 @@ error_reporting(E_ERROR | E_PARSE);
             });
 
             // Close the dropdown if clicked outside
-            document.addEventListener('click', function (event) {
+            document.addEventListener('click', function(event) {
                 if (!signinOption.contains(event.target)) {
                     var dropdownMenu = signinOption.querySelector('.dropdown-menu');
                     dropdownMenu.classList.remove('show');
                 }
             });
         });
-
     </script>
 
 
