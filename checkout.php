@@ -152,21 +152,21 @@ if ($_SESSION['name']) {
 
 									<div class="col-md-6">
 										<div class="input-field">
-											<label>Name</label>
+											<label>Name <span style="color:red">*</span></label>
 											<input type="text" required="required" value="<?php echo $username; ?>" readonly>
 										</div>
 									</div>
 
 									<div class="col-12">
 										<div class="input-field">
-											<label>Home Address</label>
+											<label>Home Address <span style="color:red">*</span></label>
 											<input type="text" value="<?php echo $address; ?>" readonly>
 										</div>
 									</div>
 
 									<div class="col-12">
 										<div class="input-field">
-											<label>Phone</label>
+											<label>Phone <span style="color:red">*</span></label>
 											<input type="text" value="<?php echo $mobile; ?>" readonly>
 										</div>
 									</div>
@@ -198,7 +198,7 @@ if ($_SESSION['name']) {
 
 									<div class="col-12">
 										<div class="input-field">
-											<label>Delivery Time</label>
+											<label>Delivery Time <span style="color:red">*</span></label>
 											<input type="time" name="zip">
 										</div>
 									</div>
