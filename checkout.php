@@ -331,7 +331,6 @@ if ($_SESSION['name']) {
 				});
 			});
 		</script>
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const usePointsCheckbox = document.getElementById('usePoints');
@@ -339,6 +338,7 @@ if ($_SESSION['name']) {
         const payableTotalElement = document.getElementById('payableTotal');
         const usedPointsElement = document.getElementById('usedPoints');
         const pointsValue = 100; // Amount to deduct for points usage
+        let pointsUsed = false; // Track if points have been used
 
         // Function to parse the payable total to a number
         function getPayableTotal() {
@@ -350,10 +350,14 @@ if ($_SESSION['name']) {
             const currentTotal = getPayableTotal();
             let updatedTotal = currentTotal;
 
-            if (usePointsCheckbox.checked) {
+            // Check if points can be used (if checked and sufficient points exist)
+            if (usePointsCheckbox.checked && !pointsUsed) {
                 updatedTotal -= pointsValue; // Deduct the points value
                 usedPointsElement.textContent = `¥${pointsValue}`; // Display the used points
-            } else {
+                pointsUsed = true; // Set flag to true indicating points have been used
+                usePointsCheckbox.disabled = true; // Disable the checkbox after using points
+            } else if (!usePointsCheckbox.checked) {
+                pointsUsed = false; // Reset the flag if points checkbox is unchecked
                 usedPointsElement.textContent = `¥00`; // Reset used points display
             }
 
@@ -363,23 +367,33 @@ if ($_SESSION['name']) {
 
         // Handle using points checkbox change
         usePointsCheckbox.addEventListener('change', function() {
-            cashOnDeliveryCheckbox.checked = false; // Uncheck cash on delivery
-            updatePayableTotal(); // Update totals when checkbox state changes
+            if (usePointsCheckbox.checked) {
+                cashOnDeliveryCheckbox.checked = false; // Uncheck cash on delivery if using points
+                updatePayableTotal(); // Update totals when checkbox state changes
+            } 
         });
 
         // Handle cash on delivery checkbox change
         cashOnDeliveryCheckbox.addEventListener('change', function() {
             if (cashOnDeliveryCheckbox.checked) {
-                usePointsCheckbox.checked = false; // Uncheck use points
+                usePointsCheckbox.checked = false; // Uncheck use points if cash on delivery is selected
                 usedPointsElement.textContent = `¥00`; // Reset used points display
-                updatePayableTotal(); // Recalculate total when changing payment method
+                pointsUsed = false; // Reset points used flag
+                usePointsCheckbox.disabled = false; // Re-enable points checkbox
             }
+
+			location.reload();
+			
+            updatePayableTotal(); // Recalculate total when changing payment method
         });
 
         // Initial calculation on page load
         updatePayableTotal();
     });
 </script>
+
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {

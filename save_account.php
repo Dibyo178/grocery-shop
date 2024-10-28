@@ -1,47 +1,49 @@
 <?php
-// Database connection
+// save_account.php
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "grocery-shop"; // replace with your actual database name
+$dbname = "grocery-shop";
 
-error_reporting(E_ERROR | E_PARSE);
 session_start();
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    echo json_encode(["success" => false, "message" => "Connection failed: " . $conn->connect_error]);
+    exit;
 }
 
-// Check if POST data exists
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = $conn->real_escape_string($_POST['name']);
     $address = $conn->real_escape_string($_POST['address']);
     $mobile = $conn->real_escape_string($_POST['mobile']);
 
-    // Query to check if user already exists (assuming unique identifier, like user_id from a session variable)
-    $user_id = $_SESSION['id']; // Replace with dynamic user_id from session or authentication mechanism
-
-    $checkQuery = "SELECT * FROM login WHERE id = '$user_id'";
-    $result = $conn->query($checkQuery);
-
-    if ($result->num_rows > 0) {
-        // Update existing user details
-        $updateQuery = "UPDATE login SET name = '$name', address = '$address', mobile = '$mobile' WHERE id = '$user_id'";
-        if ($conn->query($updateQuery) === TRUE) {
-            echo json_encode(["success" => true]);
-        } else {
-            echo json_encode(["success" => false, "message" => "Update failed."]);
-        }
-    } else {
-        // Insert new user details
-        $insertQuery = "INSERT INTO users (user_id, name, address, mobile) VALUES ('$user_id', '$name', '$address', '$mobile')";
-        if ($conn->query($insertQuery) === TRUE) {
-            echo json_encode(["success" => true]);
-        } else {
-            echo json_encode(["success" => false, "message" => "Insert failed."]);
-        }
+    // Verify user session
+    if (!isset($_SESSION['mobile'])) {
+        echo json_encode(["success" => false, "message" => "User not logged in."]);
+        exit;
     }
+
+    $user_id = $_SESSION['mobile'];
+
+    // Ensure all fields are filled
+    if(empty($name) || empty($address) || empty($mobile)) {
+        echo json_encode(["success" => false, "message" => "All fields are required."]);
+        exit;
+    }
+
+    // Prepare and execute update statement
+    $stmt = $conn->prepare("UPDATE login SET name = ?, address = ?, mobile = ? WHERE mobile = ?");
+    $stmt->bind_param("sssi", $name, $address, $mobile, $user_id);
+
+    if ($stmt->execute()) {
+        echo json_encode(["success" => true]);
+    } else {
+        error_log("SQL Error on Update: " . $stmt->error);
+        echo json_encode(["success" => false, "message" => "Update failed. SQL Error: " . $stmt->error]);
+    }
+
+    $stmt->close();
 }
 
 $conn->close();
