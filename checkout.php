@@ -24,9 +24,71 @@ $tax = $data1['tax'];
 $subtotal = $data1['subtotal'];
 $grand_total = $data1['grand_total'];
 
+// insert data
+
+
+if(isset($_POST['placeorder'])){
+    
+    $random_id=$_POST['random_id'];
+    
+    $name=$_POST["name"];
+//    $tax=$_POST['txttax'];
+    $address=$_POST['address'];
+    $mobile=$_POST['mobile'];
+    $country=$_POST['country'];
+    $text_select=$_POST['text_select'];
+    $time=$_POST['time'];
+    $subtotal=$_POST['subtotal'];
+    $shippingCost=$_POST['shippingCost'];
+    
+    $tax=$_POST['tax'];
+    
+    $discount=$_POST['discount'];
+
+    $usedPoints=$_POST['usedPoints'];
+
+    $grand_total=$_POST['grand_total'];
+
+    $form_check_input=$_POST['form_check_input'];
+
+    
+
+    // Prepare and execute insert statement for the orders table
+    $insert = $pdo->prepare("INSERT INTO orders(phone, address, delivery, country, random_id, amount, tax, coupon, amount_paid) 
+                             VALUES(:phone, :address, :delivery, :country, :random_id, :amount, :tax, :coupon, :amount_paid)");
+
+    $insert->bindParam(':phone', $mobile);
+    $insert->bindParam(':address', $address);
+    $insert->bindParam(':delivery', $text_select);
+    $insert->bindParam(':country', $country);
+    $insert->bindParam(':random_id', $random_id);
+    $insert->bindParam(':amount', $subtotal);
+    $insert->bindParam(':tax', $tax);
+    $insert->bindParam(':coupon', $discount);
+    $insert->bindParam(':amount_paid', $grand_total);
+
+    $insert->execute();
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+}        
+        
+   
+
 if ($_SESSION['name']) {
 
-?>
+	?>
 
 	<!DOCTYPE html>
 	<html class="no-js" lang="en">
@@ -136,7 +198,8 @@ if ($_SESSION['name']) {
 								<div class="col-md-6" style="display:none">
 									<div class="input-field">
 										<label>Points</label>
-										<input type="text" required="required" value="<?php echo $points; ?>" readonly>
+										<input type="text" name="points" required="required" value="<?php echo $points; ?>"
+											readonly>
 									</div>
 								</div>
 
@@ -145,7 +208,8 @@ if ($_SESSION['name']) {
 									<div class="col-md-6" style="display:none">
 										<div class="input-field">
 											<label>Random ID</label>
-											<input type="text" required="required" value="<?php echo $random_id; ?>" readonly>
+											<input type="text" name="random_id" required="required"
+												value="<?php echo $random_id; ?>" readonly>
 										</div>
 									</div>
 
@@ -153,43 +217,44 @@ if ($_SESSION['name']) {
 									<div class="col-md-6">
 										<div class="input-field">
 											<label>Name <span style="color:red">*</span></label>
-											<input type="text" required="required" value="<?php echo $username; ?>" readonly>
+											<input type="text" name="name" required="required"
+												value="<?php echo $username; ?>" readonly>
 										</div>
 									</div>
 
 									<div class="col-12">
 										<div class="input-field">
 											<label>Home Address <span style="color:red">*</span></label>
-											<input type="text" value="<?php echo $address; ?>" readonly>
+											<input type="text" name="address" value="<?php echo $address; ?>" readonly>
 										</div>
 									</div>
 
 									<div class="col-12">
 										<div class="input-field">
 											<label>Phone <span style="color:red">*</span></label>
-											<input type="text" value="<?php echo $mobile; ?>" readonly>
+											<input type="text" name="mobile" value="<?php echo $mobile; ?>" readonly>
 										</div>
 									</div>
 									<div class="col-12">
 										<div class="input-field">
 											<label>Country</label>
-											<input type="text" value="Japan" readonly>
+											<input type="text" name="country" value="Japan" readonly>
 										</div>
 									</div>
 									<!-- Delivery Area Dropdown -->
 									<div class="col-12">
 										<div class="input-field">
 											<label>Delivery Area <span style="color:red">*</span> </label>
-											<select name="country" id="deliveryArea">
+											<select name="text_select" id="deliveryArea">
 												<?php
 												$index = 1;
 												$view = mysqli_query($con, "select * from area ");
 												while ($data = mysqli_fetch_assoc($view)) {
 													$area = $data['area'];
 													$price = $data['price'];
-												?>
+													?>
 													<option value="<?php echo $price; ?>"><?php echo $area; ?></option>
-												<?php
+													<?php
 													$index++;
 												} ?>
 											</select>
@@ -199,7 +264,7 @@ if ($_SESSION['name']) {
 									<div class="col-12">
 										<div class="input-field">
 											<label>Delivery Time <span style="color:red">*</span></label>
-											<input type="time" name="zip">
+											<input type="time" name="time">
 										</div>
 									</div>
 								</div>
@@ -215,17 +280,29 @@ if ($_SESSION['name']) {
 									<li>Shipping <span id="shippingCost">¥0.00</span></li>
 									<li>Total Tax <span>¥<?php echo $tax; ?></span></li>
 									<li>Coupon <span>¥<?php echo $discount; ?></span></li>
-									
-									<li>Use Points <small style="font-weight:700">(-)</small><span id="usedPoints"> ¥00</span></li>
-									<li><b>Payable Total</b><span><b id="payableTotal">¥<?php echo $grand_total; ?></b></span></li>
+
+									<li>Use Points <small style="font-weight:700">(-)</small><span id="usedPoints">
+											¥00</span></li>
+									<li><b>Payable Total</b><span><b
+												id="payableTotal">¥<?php echo $grand_total; ?></b></span></li>
 								</ul>
 							</div>
+
+
+							<!-- Hidden fields for form submission -->
+							<input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>">
+							<input type="hidden" name="shippingCost" id="hiddenShippingCost" value="0.00">
+							<input type="hidden" name="tax" value="<?php echo $tax; ?>">
+							<input type="hidden" name="discount" value="<?php echo $discount; ?>">
+							<input type="hidden" name="usedPoints" id="hiddenUsedPoints" value="0">
+							<input type="hidden" name="grand_total" id="hiddenPayableTotal"
+								value="<?php echo $grand_total; ?>">
 
 							<div class="checkout-summery">
 								<h2>Payment method</h2>
 								<div class="form-check">
 									<label class="inline">
-										<input class="form-check-input" checked type="checkbox" id="cashOnDelivery">
+										<input class="form-check-input" name="form_check_input" checked type="checkbox" id="cashOnDelivery">
 										<span class="input"></span>Cash on delivery
 									</label>
 								</div>
@@ -236,22 +313,22 @@ if ($_SESSION['name']) {
 
 
 
-								?>
+									?>
 
 									<div class="form-check">
 										<label class="inline">
-											<input class="form-check-input" type="checkbox" id="usePoints">
+											<input class="form-check-input" name="form_check_input" type="checkbox" id="usePoints">
 											<span class="input"></span>Use Points
 										</label>
 									</div>
 
-								<?php
+									<?php
 
 								} else {
 
 
 
-								?>
+									?>
 
 									<div class="form-check">
 										<label class="inline">
@@ -261,7 +338,7 @@ if ($_SESSION['name']) {
 									</div>
 
 
-								<?php
+									<?php
 
 								}
 
@@ -270,7 +347,7 @@ if ($_SESSION['name']) {
 
 								<input style="display: none;" id="user-points" type="" name="use-points" value="">
 
-								<button type="submit" class="button-1 mt-10">Place Order</button>
+								<button type="submit" name="placeorder" class="button-1 mt-10">Place Order</button>
 							</div>
 						</div>
 					</div>
@@ -301,7 +378,7 @@ if ($_SESSION['name']) {
 
 		<!-- JavaScript to update Shipping and Payable Total values dynamically -->
 		<script>
-			document.addEventListener("DOMContentLoaded", function() {
+			document.addEventListener("DOMContentLoaded", function () {
 				const deliveryAreaSelect = document.getElementById('deliveryArea');
 				const shippingCostElement = document.getElementById('shippingCost');
 				const payableTotalElement = document.getElementById('payableTotal');
@@ -324,103 +401,103 @@ if ($_SESSION['name']) {
 		</script>
 
 		<script>
-			$(document).ready(function() {
+			$(document).ready(function () {
 				$('#deliveryArea').select2({
 					minimumResultsForSearch: Infinity, // Disable search box
 					width: '100%' // Make the dropdown full width
 				});
 			});
 		</script>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const usePointsCheckbox = document.getElementById('usePoints');
-        const cashOnDeliveryCheckbox = document.getElementById('cashOnDelivery');
-        const payableTotalElement = document.getElementById('payableTotal');
-        const usedPointsElement = document.getElementById('usedPoints');
-        const pointsValue = 100; // Amount to deduct for points usage
-        let pointsUsed = false; // Track if points have been used
+		<script>
+			document.addEventListener("DOMContentLoaded", function () {
+				const usePointsCheckbox = document.getElementById('usePoints');
+				const cashOnDeliveryCheckbox = document.getElementById('cashOnDelivery');
+				const payableTotalElement = document.getElementById('payableTotal');
+				const usedPointsElement = document.getElementById('usedPoints');
+				const pointsValue = 100; // Amount to deduct for points usage
+				let pointsUsed = false; // Track if points have been used
 
-        // Function to parse the payable total to a number
-        function getPayableTotal() {
-            return parseFloat(payableTotalElement.textContent.replace('¥', '').replace(',', ''));
-        }
+				// Function to parse the payable total to a number
+				function getPayableTotal() {
+					return parseFloat(payableTotalElement.textContent.replace('¥', '').replace(',', ''));
+				}
 
-        // Update the displayed total with points deduction
-        function updatePayableTotal() {
-            const currentTotal = getPayableTotal();
-            let updatedTotal = currentTotal;
+				// Update the displayed total with points deduction
+				function updatePayableTotal() {
+					const currentTotal = getPayableTotal();
+					let updatedTotal = currentTotal;
 
-            // Check if points can be used (if checked and sufficient points exist)
-            if (usePointsCheckbox.checked && !pointsUsed) {
-                updatedTotal -= pointsValue; // Deduct the points value
-                usedPointsElement.textContent = `¥${pointsValue}`; // Display the used points
-                pointsUsed = true; // Set flag to true indicating points have been used
-                usePointsCheckbox.disabled = true; // Disable the checkbox after using points
-            } else if (!usePointsCheckbox.checked) {
-                pointsUsed = false; // Reset the flag if points checkbox is unchecked
-                usedPointsElement.textContent = `¥00`; // Reset used points display
-            }
+					// Check if points can be used (if checked and sufficient points exist)
+					if (usePointsCheckbox.checked && !pointsUsed) {
+						updatedTotal -= pointsValue; // Deduct the points value
+						usedPointsElement.textContent = `¥${pointsValue}`; // Display the used points
+						pointsUsed = true; // Set flag to true indicating points have been used
+						usePointsCheckbox.disabled = true; // Disable the checkbox after using points
+					} else if (!usePointsCheckbox.checked) {
+						pointsUsed = false; // Reset the flag if points checkbox is unchecked
+						usedPointsElement.textContent = `¥00`; // Reset used points display
+					}
 
-            // Update payable total display
-            payableTotalElement.textContent = `¥${updatedTotal.toFixed(2)}`; // Format the output
-        }
+					// Update payable total display
+					payableTotalElement.textContent = `¥${updatedTotal.toFixed(2)}`; // Format the output
+				}
 
-        // Handle using points checkbox change
-        usePointsCheckbox.addEventListener('change', function() {
-            if (usePointsCheckbox.checked) {
-                cashOnDeliveryCheckbox.checked = false; // Uncheck cash on delivery if using points
-                updatePayableTotal(); // Update totals when checkbox state changes
-            } 
-        });
+				// Handle using points checkbox change
+				usePointsCheckbox.addEventListener('change', function () {
+					if (usePointsCheckbox.checked) {
+						cashOnDeliveryCheckbox.checked = false; // Uncheck cash on delivery if using points
+						updatePayableTotal(); // Update totals when checkbox state changes
+					}
+				});
 
-        // Handle cash on delivery checkbox change
-        cashOnDeliveryCheckbox.addEventListener('change', function() {
-            if (cashOnDeliveryCheckbox.checked) {
-                usePointsCheckbox.checked = false; // Uncheck use points if cash on delivery is selected
-                usedPointsElement.textContent = `¥00`; // Reset used points display
-                pointsUsed = false; // Reset points used flag
-                usePointsCheckbox.disabled = false; // Re-enable points checkbox
-            }
+				// Handle cash on delivery checkbox change
+				cashOnDeliveryCheckbox.addEventListener('change', function () {
+					if (cashOnDeliveryCheckbox.checked) {
+						usePointsCheckbox.checked = false; // Uncheck use points if cash on delivery is selected
+						usedPointsElement.textContent = `¥00`; // Reset used points display
+						pointsUsed = false; // Reset points used flag
+						usePointsCheckbox.disabled = false; // Re-enable points checkbox
+					}
 
-			location.reload();
-			
-            updatePayableTotal(); // Recalculate total when changing payment method
-        });
+					location.reload();
 
-        // Initial calculation on page load
-        updatePayableTotal();
-    });
-</script>
+					updatePayableTotal(); // Recalculate total when changing payment method
+				});
 
-
+				// Initial calculation on page load
+				updatePayableTotal();
+			});
+		</script>
 
 
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const usePointsCheckbox = document.getElementById('usePointsunchecked');
-        const pointsValue = 100; // You can replace this with a dynamic value from PHP if needed
 
-        usePointsCheckbox.addEventListener('change', function () {
-            if (this.checked) {
-                // Show SweetAlert when the checkbox is checked
-                Swal.fire({
-                    title: 'Use Points',
-                    text: `Your points are ${pointsValue}. Do you want to use them?`,
-                    icon: 'info',
-                  
-                    confirmButtonText: 'Ok',
-                   
-                }).then((result) => {
-                   
-                    
-                        // User did not confirm, uncheck the checkbox
-                        usePointsCheckbox.checked = false;
-                    
-                });
-            }
-        });
-    });
-</script>
+
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				const usePointsCheckbox = document.getElementById('usePointsunchecked');
+				const pointsValue = 100; // You can replace this with a dynamic value from PHP if needed
+
+				usePointsCheckbox.addEventListener('change', function () {
+					if (this.checked) {
+						// Show SweetAlert when the checkbox is checked
+						Swal.fire({
+							title: 'Use Points',
+							text: `Your points are ${pointsValue}. Do you want to use them?`,
+							icon: 'info',
+
+							confirmButtonText: 'Ok',
+
+						}).then((result) => {
+
+
+							// User did not confirm, uncheck the checkbox
+							usePointsCheckbox.checked = false;
+
+						});
+					}
+				});
+			});
+		</script>
 
 
 
@@ -428,7 +505,7 @@ if ($_SESSION['name']) {
 
 	</html>
 
-<?php
+	<?php
 } else {
 	header("Location: login.php");
 }
