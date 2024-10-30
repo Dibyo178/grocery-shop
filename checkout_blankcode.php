@@ -1,7 +1,5 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-	integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <?php
 
@@ -30,92 +28,121 @@ $grand_total = $data1['grand_total'];
 
 // Insert data
 if (isset($_POST['placeorder'])) {
-	$random_id = $_POST['random_id'];
-	$name = $_POST["name"];
-	$address = $_POST['address'];
-	$mobile = $_POST['mobile'];
-	$country = $_POST['country'];
-	$text_select = $_POST['text_select'];
-	$time = $_POST['time'];
-	$subtotal = $_POST['subtotal'];
-	$shippingCost = $_POST['shippingCost'];
-	$tax = $_POST['tax'];
-	$discount = $_POST['discount'];
-	$usedPoints = $_POST['usedPoints'];
-	$grand_total = $_POST['grand_total'];
-	$form_check_input = $_POST['form_check_input'];
+    $random_id = $_POST['random_id'];
+    $name = $_POST["name"];
+    $address = $_POST['address'];
+    $mobile = $_POST['mobile'];
+    $country = $_POST['country'];
+    $text_select = $_POST['text_select'];
+    $time = $_POST['time'];
+    $subtotal = $_POST['subtotal'];
+    $shippingCost = $_POST['shippingCost'];
+    $tax = $_POST['tax'];
+    $discount = $_POST['discount'];
+    $usedPoints = $_POST['usedPoints'];
+    $grand_total = $_POST['grand_total'];
+    $form_check_input = $_POST['form_check_input'];
 
-	$insert = $pdo->prepare("INSERT INTO orders(name, phone, address, delivery, country, random_id, amount, shipping, tax, coupon, points, amount_paid, pmode, time) 
+    $insert = $pdo->prepare("INSERT INTO orders(name, phone, address, delivery, country, random_id, amount, shipping, tax, coupon, points, amount_paid, pmode, time) 
                               VALUES(:name, :phone, :address, :delivery, :country, :random_id, :amount, :shipping, :tax, :coupon, :points, :amount_paid, :pmode, :time)");
-	$insert->bindParam(':name', $name);
-	$insert->bindParam(':phone', $mobile);
-	$insert->bindParam(':address', $address);
-	$insert->bindParam(':delivery', $text_select);
-	$insert->bindParam(':country', $country);
-	$insert->bindParam(':random_id', $random_id);
-	$insert->bindParam(':amount', $subtotal);
-	$insert->bindParam(':shipping', $shippingCost);
-	$insert->bindParam(':tax', $tax);
-	$insert->bindParam(':coupon', $discount);
-	$insert->bindParam(':points', $usedPoints);
-	$insert->bindParam(':amount_paid', $grand_total);
-	$insert->bindParam(':pmode', $form_check_input);
-	$insert->bindParam(':time', $time);
+    $insert->bindParam(':name', $name);
+    $insert->bindParam(':phone', $mobile);
+    $insert->bindParam(':address', $address);
+    $insert->bindParam(':delivery', $text_select);
+    $insert->bindParam(':country', $country);
+    $insert->bindParam(':random_id', $random_id);
+    $insert->bindParam(':amount', $subtotal);
+    $insert->bindParam(':shipping', $shippingCost);
+    $insert->bindParam(':tax', $tax);
+    $insert->bindParam(':coupon', $discount);
+    $insert->bindParam(':points', $usedPoints);
+    $insert->bindParam(':amount_paid', $grand_total);
+    $insert->bindParam(':pmode', $form_check_input);
+    $insert->bindParam(':time', $time);
 
-	if (isset($_POST['form_check_input'])) {
-		$form_check_input = $_POST['form_check_input'];
-	} else {
-		$form_check_input = "Cash on delivery"; // Default value if none is selected
-	}
+    // Insert and verify success
+    // if ($insert->execute()) {
+    //     // Delete from temporary cart table after order insertion
+    //     mysqli_query($con, "DELETE FROM temporary_cart WHERE mobile = '$mobile'");
+
+    //     // SweetAlert for successful order placement
+    //     echo '<script type="text/javascript">
+    //         $(document).ready(function() {
+    //             swal({
+    //                 title: "Order Placed!",
+    //                 text: "Your order has been successfully placed.",
+    //                 icon: "success",
+    //                 button: "Ok",
+    //             }).then(() => {
+    //                 localStorage.clear(); // Clear local storage on success
+    //                 window.location.href = "index.php"; // Redirect to home page
+    //             });
+    //         });
+    //     </script>';
+    // } else {
+    //     // SweetAlert for failed order placement
+    //     echo '<script type="text/javascript">
+    //         $(document).ready(function() {
+    //             swal({
+    //                 title: "Order Placement Failed",
+    //                 text: "Please try again.",
+    //                 icon: "error",
+    //                 button: "OK",
+    //             });
+    //         });
+    //     </script>';
+    // }
+
 
 	// Insert and verify success
-	// if ($insert->execute()) {
+if ($insert->execute()) {
+    // Delete from temporary cart table after order insertion
+    mysqli_query($con, "DELETE FROM temporary_cart WHERE mobile = '$mobile'");
 
-	//     mysqli_query($con, "DELETE FROM temporary_cart WHERE mobile = '$mobile'");
+    // Check if the "Use Points" option was selected
+    if (isset($_POST['usePoints']) && $_POST['usedPoints'] > 0) {
+        // Deduct points if "Use Points" was selected
+        $usedPoints = $_POST['usedPoints'];
+        $updatePointsQuery = "UPDATE login SET points = points - $usedPoints WHERE mobile = '$mobile'";
+        mysqli_query($con, $updatePointsQuery);
+    }
 
-	if ($insert->execute()) {
-		// Update user points in the login table
-		$newPoints = $points - $usedPoints + 1; // Deduct used points and add 1
-		$updatePoints = $pdo->prepare("UPDATE login SET points = :points WHERE mobile = :mobile");
-		$updatePoints->bindParam(':points', $newPoints);
-		$updatePoints->bindParam(':mobile', $mobile);
-		$updatePoints->execute();
+    // Increment user points by 1
+    $incrementPointsQuery = "UPDATE login SET points = points + 1 WHERE mobile = '$mobile'";
+    mysqli_query($con, $incrementPointsQuery);
 
-		// Delete from temporary cart table after order insertion
-		mysqli_query($con, "DELETE FROM temporary_cart WHERE mobile = '$mobile'");
-
-
-		// SweetAlert for successful order placement
-		echo '<script type="text/javascript">
-            $(document).ready(function() {
-                swal({
-                    title: "Order Placed!",
-                    text: "Your order has been successfully placed.",
-                    icon: "success",
-                    button: "Ok",
-                }).then(() => {
-                    localStorage.clear(); // Clear local storage on success
-                    window.location.href = "index.php"; // Redirect to home page
-                });
+    // SweetAlert for successful order placement
+    echo '<script type="text/javascript">
+        $(document).ready(function() {
+            swal({
+                title: "Order Placed!",
+                text: "Your order has been successfully placed.",
+                icon: "success",
+                button: "Ok",
+            }).then(() => {
+                localStorage.clear(); // Clear local storage on success
+                window.location.href = "index.php"; // Redirect to home page
             });
-        </script>';
-	} else {
-		// SweetAlert for failed order placement
-		echo '<script type="text/javascript">
-            $(document).ready(function() {
-                swal({
-                    title: "Order Placement Failed",
-                    text: "Please try again.",
-                    icon: "error",
-                    button: "OK",
-                });
+        });
+    </script>';
+} else {
+    // SweetAlert for failed order placement
+    echo '<script type="text/javascript">
+        $(document).ready(function() {
+            swal({
+                title: "Order Placement Failed",
+                text: "Please try again.",
+                icon: "error",
+                button: "OK",
             });
-        </script>';
-	}
+        });
+    </script>';
+}
+
 }
 
 if ($_SESSION['name']) {
-	?>
+?>
 
 
 	<!DOCTYPE html>
@@ -143,7 +170,7 @@ if ($_SESSION['name']) {
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-
+	
 	</head>
 	<style>
 		/* Custom styles for the select dropdown */
@@ -304,7 +331,7 @@ if ($_SESSION['name']) {
 									<li>Coupon <span>¥<?php echo $discount; ?></span></li>
 
 									<li>Use Points <small style="font-weight:700">(-)</small><span id="usedPoints">
-											¥0</span></li>
+											¥00</span></li>
 									<li><b>Payable Total</b><span><b
 												id="payableTotal">¥<?php echo $grand_total; ?></b></span></li>
 								</ul>
@@ -316,30 +343,7 @@ if ($_SESSION['name']) {
 							<input type="hidden" name="shippingCost" id="hiddenShippingCost" value="0.00">
 							<input type="hidden" name="tax" value="<?php echo $tax; ?>">
 							<input type="hidden" name="discount" value="<?php echo $discount; ?>">
-
-							<?php
-
-							if ($points >= 100) {
-
-								?>
-								<input type="hidden" name="usedPoints" id="hiddenUsedPoints" value="100">
-
-								<?php
-							} else {
-
-								?>
-
-								<input type="hidden" name="usedPoints" id="hiddenUsedPoints" value="0">
-
-
-								<?php
-
-							}
-
-							?>
-
-
-
+							<input type="hidden" name="usedPoints" id="hiddenUsedPoints" value="0">
 							<input type="hidden" name="grand_total" id="hiddenPayableTotal"
 								value="<?php echo $grand_total; ?>">
 
@@ -347,8 +351,7 @@ if ($_SESSION['name']) {
 								<h2>Payment method</h2>
 								<div class="form-check">
 									<label class="inline">
-										<input class="form-check-input" value="Cash on delivery" name="form_check_input"
-											type="radio" id="cashOnDelivery" checked>
+										<input class="form-check-input" value="Cash on delivery" name="form_check_input" checked type="checkbox" id="cashOnDelivery">
 										<span class="input"></span>Cash on delivery
 									</label>
 								</div>
@@ -356,12 +359,14 @@ if ($_SESSION['name']) {
 								<?php
 
 								if ($points >= 100) {
+
+
+
 									?>
 
 									<div class="form-check">
 										<label class="inline">
-											<input class="form-check-input" value="Use Points" name="form_check_input"
-												type="radio" id="usePoints">
+											<input class="form-check-input" value="Use Points" name="form_check_input" type="checkbox" id="usePoints">
 											<span class="input"></span>Use Points
 										</label>
 									</div>
@@ -524,47 +529,31 @@ if ($_SESSION['name']) {
 				usePointsCheckbox.addEventListener('change', function () {
 					if (this.checked) {
 						// Show SweetAlert when the checkbox is checked
+						Swal.fire({
+							title: 'Use Points',
+							text: `Your points are ${pointsValue}. Do you want to use them?`,
+							icon: 'info',
 
-						$(document).ready(function () {
-							swal({
-								title: "Order Placed Fail!",
-								text: `Do not use your point is below 100 ?`,
-								icon: "warning",
-								button: "Ok",
-							}).then(() => {
-								// User did not confirm, uncheck the checkbox
-								usePointsCheckbox.checked = false;
-							});
+							confirmButtonText: 'Ok',
+
+						}).then((result) => {
+
+
+							// User did not confirm, uncheck the checkbox
+							usePointsCheckbox.checked = false;
+
 						});
-
-
-						// Swal.fire({
-						// 	title: 'Use Points',
-						// 	text: `Your points are ${pointsValue}. Do you want to use them?`,
-						// 	icon: 'info',
-
-						// 	confirmButtonText: 'Ok',
-
-						// }).then((result) => {
-
-
-						// 	// User did not confirm, uncheck the checkbox
-						// 	usePointsCheckbox.checked = false;
-
-						// });
 					}
 				});
 			});
 		</script>
 
 
-
-
-		<script>
-			if (window.history.replaceState) {
-				window.history.replaceState(null, null, window.location.href);
-			}
-		</script>
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 
 
 	</body>
