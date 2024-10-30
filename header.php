@@ -25,9 +25,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Zaman Halal Food</title>
-    <!-- <link rel="icon" href="assets/logo/favicon.png" type="image/gif" sizes="16x16"> -->
-    <!-- <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="18x18">
-    <link rel="icon" href="assets/img/icon.png" type="image/gif" sizes="20x20"> -->
+
 
 
     <link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">

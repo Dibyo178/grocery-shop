@@ -1,3 +1,6 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <?php
 
 include './connectdb.php';
@@ -9,14 +12,13 @@ $username = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
 $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
 // Fetch user data
-$view = mysqli_query($con, "select * from login where mobile =  '$mobile' ");
+$view = mysqli_query($con, "SELECT * FROM login WHERE mobile =  '$mobile'");
 $data = mysqli_fetch_assoc($view);
 $address = $data['address'];
-
 $points = $data['points'];
 
 // Fetch temporary cart data
-$view1 = mysqli_query($con, "select * from temporary_cart where mobile =  '$mobile' ");
+$view1 = mysqli_query($con, "SELECT * FROM temporary_cart WHERE mobile =  '$mobile'");
 $data1 = mysqli_fetch_assoc($view1);
 $random_id = $data1['random_id'];
 $discount = $data1['discount'];
@@ -24,71 +26,77 @@ $tax = $data1['tax'];
 $subtotal = $data1['subtotal'];
 $grand_total = $data1['grand_total'];
 
-// insert data
+// Insert data
+if (isset($_POST['placeorder'])) {
+    $random_id = $_POST['random_id'];
+    $name = $_POST["name"];
+    $address = $_POST['address'];
+    $mobile = $_POST['mobile'];
+    $country = $_POST['country'];
+    $text_select = $_POST['text_select'];
+    $time = $_POST['time'];
+    $subtotal = $_POST['subtotal'];
+    $shippingCost = $_POST['shippingCost'];
+    $tax = $_POST['tax'];
+    $discount = $_POST['discount'];
+    $usedPoints = $_POST['usedPoints'];
+    $grand_total = $_POST['grand_total'];
+    $form_check_input = $_POST['form_check_input'];
 
-
-if(isset($_POST['placeorder'])){
-    
-    $random_id=$_POST['random_id'];
-    
-    $name=$_POST["name"];
-//    $tax=$_POST['txttax'];
-    $address=$_POST['address'];
-    $mobile=$_POST['mobile'];
-    $country=$_POST['country'];
-    $text_select=$_POST['text_select'];
-    $time=$_POST['time'];
-    $subtotal=$_POST['subtotal'];
-    $shippingCost=$_POST['shippingCost'];
-    
-    $tax=$_POST['tax'];
-    
-    $discount=$_POST['discount'];
-
-    $usedPoints=$_POST['usedPoints'];
-
-    $grand_total=$_POST['grand_total'];
-
-    $form_check_input=$_POST['form_check_input'];
-
-    
-
-    // Prepare and execute insert statement for the orders table
-    $insert = $pdo->prepare("INSERT INTO orders(phone, address, delivery, country, random_id, amount, tax, coupon, amount_paid) 
-                             VALUES(:phone, :address, :delivery, :country, :random_id, :amount, :tax, :coupon, :amount_paid)");
-
+    $insert = $pdo->prepare("INSERT INTO orders(name, phone, address, delivery, country, random_id, amount, shipping, tax, coupon, points, amount_paid, pmode, time) 
+                              VALUES(:name, :phone, :address, :delivery, :country, :random_id, :amount, :shipping, :tax, :coupon, :points, :amount_paid, :pmode, :time)");
+    $insert->bindParam(':name', $name);
     $insert->bindParam(':phone', $mobile);
     $insert->bindParam(':address', $address);
     $insert->bindParam(':delivery', $text_select);
     $insert->bindParam(':country', $country);
     $insert->bindParam(':random_id', $random_id);
     $insert->bindParam(':amount', $subtotal);
+    $insert->bindParam(':shipping', $shippingCost);
     $insert->bindParam(':tax', $tax);
     $insert->bindParam(':coupon', $discount);
+    $insert->bindParam(':points', $usedPoints);
     $insert->bindParam(':amount_paid', $grand_total);
+    $insert->bindParam(':pmode', $form_check_input);
+    $insert->bindParam(':time', $time);
 
-    $insert->execute();
-    
-    
-    
-    
-    
-    
-    
-    
-    
-   
-    
-    
-    
-    
-}        
-        
-   
+    // Insert and verify success
+    if ($insert->execute()) {
+        // Delete from temporary cart table after order insertion
+        mysqli_query($con, "DELETE FROM temporary_cart WHERE mobile = '$mobile'");
+
+        // SweetAlert for successful order placement
+        echo '<script type="text/javascript">
+            $(document).ready(function() {
+                swal({
+                    title: "Order Placed!",
+                    text: "Your order has been successfully placed.",
+                    icon: "success",
+                    button: "Ok",
+                }).then(() => {
+                    localStorage.clear(); // Clear local storage on success
+                    window.location.href = "index.php"; // Redirect to home page
+                });
+            });
+        </script>';
+    } else {
+        // SweetAlert for failed order placement
+        echo '<script type="text/javascript">
+            $(document).ready(function() {
+                swal({
+                    title: "Order Placement Failed",
+                    text: "Please try again.",
+                    icon: "error",
+                    button: "OK",
+                });
+            });
+        </script>';
+    }
+}
 
 if ($_SESSION['name']) {
+?>
 
-	?>
 
 	<!DOCTYPE html>
 	<html class="no-js" lang="en">
@@ -115,13 +123,7 @@ if ($_SESSION['name']) {
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-		<!-- SweetAlert CSS -->
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-		<!-- SweetAlert JS -->
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
-
-
+	
 	</head>
 	<style>
 		/* Custom styles for the select dropdown */
@@ -302,7 +304,7 @@ if ($_SESSION['name']) {
 								<h2>Payment method</h2>
 								<div class="form-check">
 									<label class="inline">
-										<input class="form-check-input" name="form_check_input" checked type="checkbox" id="cashOnDelivery">
+										<input class="form-check-input" value="Cash on delivery" name="form_check_input" checked type="checkbox" id="cashOnDelivery">
 										<span class="input"></span>Cash on delivery
 									</label>
 								</div>
@@ -317,7 +319,7 @@ if ($_SESSION['name']) {
 
 									<div class="form-check">
 										<label class="inline">
-											<input class="form-check-input" name="form_check_input" type="checkbox" id="usePoints">
+											<input class="form-check-input" value="Use Points" name="form_check_input" type="checkbox" id="usePoints">
 											<span class="input"></span>Use Points
 										</label>
 									</div>
@@ -499,6 +501,12 @@ if ($_SESSION['name']) {
 			});
 		</script>
 
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
+</script>
 
 
 	</body>

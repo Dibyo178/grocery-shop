@@ -1,5 +1,4 @@
 <?php
-
 include './connectdb.php';
 include './connection.php';
 
@@ -9,12 +8,13 @@ $username = isset($_SESSION['name']) ? $_SESSION['name'] : 'Guest';
 $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
 // Fetch user data
-$view = mysqli_query($con, "select * from login where mobile =  '$mobile' ");
+$view = mysqli_query($con, "select * from login where mobile = '$mobile'");
 $data = mysqli_fetch_assoc($view);
 $address = $data['address'];
+$points = $data['points'];
 
 // Fetch temporary cart data
-$view1 = mysqli_query($con, "select * from temporary_cart where mobile =  '$mobile' ");
+$view1 = mysqli_query($con, "select * from temporary_cart where mobile = '$mobile'");
 $data1 = mysqli_fetch_assoc($view1);
 $random_id = $data1['random_id'];
 $discount = $data1['discount'];
@@ -22,217 +22,155 @@ $tax = $data1['tax'];
 $subtotal = $data1['subtotal'];
 $grand_total = $data1['grand_total'];
 
+// Place order and delete temporary cart data on form submission
+if (isset($_POST['placeorder'])) {
+	// Collect POST data
+	$random_id = $_POST['random_id'];
+	$name = $_POST["name"];
+	$address = $_POST['address'];
+	$mobile = $_POST['mobile'];
+	$country = $_POST['country'];
+	$text_select = $_POST['text_select'];
+	$time = $_POST['time'];
+	$subtotal = $_POST['subtotal'];
+	$shippingCost = $_POST['shippingCost'];
+	$tax = $_POST['tax'];
+	$discount = $_POST['discount'];
+	$usedPoints = $_POST['usedPoints'];
+	$grand_total = $_POST['grand_total'];
+	$form_check_input = $_POST['form_check_input'];
+
+	// Prepare and execute insert statement for the orders table
+	$insert = $pdo->prepare("INSERT INTO orders(name, phone, address, delivery, country, random_id, amount, shipping, tax, coupon, points, amount_paid) 
+							 VALUES(:name, :phone, :address, :delivery, :country, :random_id, :amount, :shipping, :tax, :coupon, :points, :amount_paid)");
+	$insert->bindParam(':name', $name);
+	$insert->bindParam(':phone', $mobile);
+	$insert->bindParam(':address', $address);
+	$insert->bindParam(':delivery', $text_select);
+	$insert->bindParam(':country', $country);
+	$insert->bindParam(':random_id', $random_id);
+	$insert->bindParam(':amount', $subtotal);
+	$insert->bindParam(':shipping', $shippingCost);
+	$insert->bindParam(':tax', $tax);
+	$insert->bindParam(':coupon', $discount);
+	$insert->bindParam(':points', $usedPoints);
+	$insert->bindParam(':amount_paid', $grand_total);
+
+	// Insert and verify success
+	if ($insert->execute()) {
+		// Delete from temporary cart table after order insertion
+		mysqli_query($con, "DELETE FROM temporary_cart WHERE mobile = '$mobile'");
+
+		// SweetAlert for successful order placement and redirect
+		echo '<script type="text/javascript">
+			jQuery(function validation() {
+				swal({
+					title: "Order Placed!",
+					text: "Your order has been successfully placed.",
+					icon: "success",
+					button: "Ok",
+				}).then(() => {
+					localStorage.clear(); // Clear local storage on success
+					window.location.href = "index.php"; // Redirect to home page
+				});
+			});
+		</script>';
+	} else {
+		echo '<script type="text/javascript">
+			jQuery(function validation() {
+				swal({
+					title: "Order Placement Failed",
+					text: "Please try again.",
+					icon: "error",
+					button: "OK",
+				});
+			});
+		</script>';
+	}
+}
+
 if ($_SESSION['name']) {
 
 ?>
 
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
+
 <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<title>Zaman Halal Food</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Zaman Halal Food</title>
+	<!-- Add other styles and scripts here -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 
-		<link rel="shortcut icon" href="./assets/logo/final_logo/Zaman-Halal-Food-Icon-Resize.png" type="image/x-icon">
-
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/css/bootstrap-icons.css">
-		<link rel="stylesheet" href="assets/css/fontawesome.all.min.css">
-		<link rel="stylesheet" href="assets/css/owl.carousel.min.css">
-		<link rel="stylesheet" href="assets/css/owl.theme.default.min.css">
-		<link rel="stylesheet" href="assets/css/nice-select.css">
-		<link rel="stylesheet" href="assets/css/animate.css">
-		<link rel="stylesheet" href="assets/css/magnific-popup.css">
-		<link rel="stylesheet" href="assets/css/normalize.css">
-		<link rel="stylesheet" href="style.css">
-		<link rel="stylesheet" href="assets/css/responsive.css">
-
-	</head>
 <body>
-
-<!-- Start Breadcrumb Area -->
-<section class="breadcrumb-area pt-100 pb-100" style="background-image:url('assets/discount-images/checkout.png');">
+	<!-- Start Checkout Page -->
+	<form method="post" action="">
+		<section class="section-padding-2">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-12 text-center">
-						<div class="breadcrumb-content">
-							<h2 style="color:black
-					">Checkout</h2>
+					<div class="col-lg-8 mb-30">
+						<div class="checkout-form-main">
+							<h2>Billing details</h2>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="input-field">
+										<label>Name <span style="color:red">*</span></label>
+										<input type="text" name="name" required="required" value="<?php echo $username; ?>" readonly>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="input-field">
+										<label>Home Address <span style="color:red">*</span></label>
+										<input type="text" name="address" value="<?php echo $address; ?>" readonly>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="input-field">
+										<label>Phone <span style="color:red">*</span></label>
+										<input type="text" name="mobile" value="<?php echo $mobile; ?>" readonly>
+									</div>
+								</div>
+								<!-- Additional form fields here -->
+							</div>
+						</div>
+					</div>
+					<!-- Checkout Summary -->
+					<div class="col-lg-4 mb-30">
+						<div class="checkout-summery mb-30">
+							<h2>Checkout summary</h2>
 							<ul>
-								<!-- <li><a href="index.html" style="color:black
-					">Home</a></li> -->
-								<!-- <li><i class="fas fa-angle-double-right" style="color:black
-					"></i></li> -->
-								<!-- <li style="color:black
-					">Checkout</li> -->
+								<li>Subtotal <span>¥<?php echo $subtotal; ?></span></li>
+								<li>Shipping <span id="shippingCost">¥0.00</span></li>
+								<li>Total Tax <span>¥<?php echo $tax; ?></span></li>
+								<li>Coupon <span>¥<?php echo $discount; ?></span></li>
+								<li>Use Points <small style="font-weight:700">(-)</small><span id="usedPoints"> ¥00</span></li>
+								<li><b>Payable Total</b><span><b id="payableTotal">¥<?php echo $grand_total; ?></b></span></li>
 							</ul>
 						</div>
+						<input type="hidden" name="subtotal" value="<?php echo $subtotal; ?>">
+						<input type="hidden" name="shippingCost" id="hiddenShippingCost" value="0.00">
+						<input type="hidden" name="tax" value="<?php echo $tax; ?>">
+						<input type="hidden" name="discount" value="<?php echo $discount; ?>">
+						<input type="hidden" name="usedPoints" id="hiddenUsedPoints" value="0">
+						<input type="hidden" name="grand_total" id="hiddenPayableTotal" value="<?php echo $grand_total; ?>">
+
+						<button type="submit" name="placeorder" class="button-1 mt-10">Place Order</button>
 					</div>
 				</div>
 			</div>
 		</section>
-<!-- End Breadcrumb Area -->
-
-<!-- Start Checkout Page -->
-<form method="post" action="">
-    <section class="section-padding-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mb-30">
-                    <div class="checkout-form-main">
-                        <h2>Billing details</h2>
-                        <div class="row">
-                            <div class="col-md-6" style="display:none">
-                                <div class="input-field">
-                                    <label>Random ID</label>
-                                    <input type="text" required="required" value="<?php echo $random_id; ?>" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
-                                <div class="input-field">
-                                    <label>Name</label>
-                                    <input type="text" required="required" value="<?php echo $username; ?>" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="input-field">
-                                    <label>Home Address</label>
-                                    <input type="text" value="<?php echo $address; ?>" readonly>
-                                </div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="input-field">
-                                    <label>Phone</label>
-                                    <input type="text" value="<?php echo $mobile; ?>" readonly>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="input-field">
-                                    <label>Country</label>
-                                    <input type="text" value="Japan" readonly>
-                                </div>
-                            </div>
-                            <!-- Delivery Area Dropdown -->
-                            <div class="col-12">
-							<div class="input-field">
-												<label>Delivery Area <span style="color:red">*</span> </label>
-												<select name="country" id="deliveryArea">
-													<?php
-													$index = 1;
-													$view = mysqli_query($con, "select * from area ");
-													while ($data = mysqli_fetch_assoc($view)) {
-														$area = $data['area'];
-														$price = $data['price'];
-													?>
-														<option value="<?php echo $price; ?>"><?php echo $area; ?></option>
-													<?php
-														$index++;
-													} ?>
-												</select>
-											</div>
-                            </div>
-
-                            <div class="col-12">
-                                <div class="input-field">
-                                    <label>Delivery Time</label>
-                                    <input type="time" name="zip">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Checkout Summary -->
-                <div class="col-lg-4 mb-30">
-                    <div class="checkout-summery mb-30">
-                        <h2>Checkout summary</h2>
-                        <ul>
-                            <li>Subtotal <span>¥<?php echo $subtotal; ?></span></li>
-                            <li>Shipping <span id="shippingCost">¥0.00</span></li>
-                            <li>Total Tax <span>¥<?php echo $tax; ?></span></li>
-                            <li>Coupon <span>¥<?php echo $discount; ?></span></li>
-                            <li><b>Payable Total</b><span><b id="payableTotal">¥<?php echo $grand_total; ?></b></span></li>
-                        </ul>
-                    </div>
-
-                    <div class="checkout-summery">
-                        <h2>Payment method</h2>
-                        <div class="form-check">
-                            <label class="inline">
-                                <input class="form-check-input" type="checkbox" id="cashOnDelivery">
-                                <span class="input"></span>Cash on delivery
-                            </label>
-                        </div>
-
-                        <div class="form-check">
-                            <label class="inline">
-                                <input class="form-check-input" type="checkbox" id="usePoints">
-                                <span class="input"></span>Use Points
-                            </label>
-                        </div>
-
-                        <button type="submit" class="button-1 mt-10">Place Order</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</form>
-<!-- End Checkout Page -->
-
-<!-- Footer Area -->
-<?php include 'footer.php'; ?>
-
-<!-- Js Files -->
- 
-<script src="./assets/js/cart.js"></script>
-<script src="assets/js/modernizr.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-<script src="assets/js/jquery-3.5.1.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-		<script src="assets/js/jquery.nice-select.min.js"></script>
-		<script src="assets/js/jquery.magnific-popup.min.js"></script>
-		<script src="assets/js/script.js"></script>
-<script src="assets/js/mobile-menu.js"></script>
-		<script src="assets/js/script.js"></script>
-		<script src="assets/js/wow.min.js"></script>
-		<script src="assets/js/ajax-form.js"></script>
-
-<!-- JavaScript to update Shipping and Payable Total values dynamically -->
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const deliveryAreaSelect = document.getElementById('deliveryArea');
-        const shippingCostElement = document.getElementById('shippingCost');
-        const payableTotalElement = document.getElementById('payableTotal');
-
-        const subtotal = <?php echo $subtotal; ?>;
-        const tax = <?php echo $tax; ?>;
-        const discount = <?php echo $discount; ?>;
-
-        function updateTotals() {
-            const shippingCost = parseFloat(deliveryAreaSelect.value) || 0;
-            shippingCostElement.textContent = `¥${shippingCost.toFixed(2)}`;
-            const grandTotal = subtotal + tax - discount + shippingCost;
-            payableTotalElement.textContent = `¥${grandTotal.toFixed(2)}`;
-            console.log("Shipping Cost:", shippingCost, "Updated Payable Total:", grandTotal);
-        }
-
-        deliveryAreaSelect.addEventListener('change', updateTotals);
-        updateTotals();
-    });
-</script>
+	</form>
+	<!-- End Checkout Page -->
 
 </body>
 </html>
 
 <?php
 } else {
-    header("Location: login.php");
+	header("Location: login.php");
 }
 ?>
