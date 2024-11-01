@@ -319,7 +319,7 @@ if ($_SESSION['name']) {
 
 							<?php
 
-							if ($points >= 100) {
+							if ($points >= 500) {
 
 								?>
 								<input type="hidden" name="usedPoints" id="hiddenUsedPoints" value="100">
@@ -355,7 +355,7 @@ if ($_SESSION['name']) {
 
 								<?php
 
-								if ($points >= 100) {
+								if ($points >= 500) {
 									?>
 
 									<div class="form-check">
@@ -519,7 +519,7 @@ if ($_SESSION['name']) {
 		<script>
 			document.addEventListener('DOMContentLoaded', function () {
 				const usePointsCheckbox = document.getElementById('usePointsunchecked');
-				const pointsValue = 100; // You can replace this with a dynamic value from PHP if needed
+				const pointsValue = 500; // You can replace this with a dynamic value from PHP if needed
 
 				usePointsCheckbox.addEventListener('change', function () {
 					if (this.checked) {
@@ -528,7 +528,7 @@ if ($_SESSION['name']) {
 						$(document).ready(function () {
 							swal({
 								title: "Order Placed Fail!",
-								text: `Do not use your point is below 100 ?`,
+								text: `Do not use your point is below 500 ?`,
 								icon: "warning",
 								button: "Ok",
 							}).then(() => {
