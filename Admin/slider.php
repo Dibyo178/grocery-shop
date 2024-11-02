@@ -8,12 +8,8 @@ if ($_SESSION['username'] == "" || $_SESSION['role'] == "") {
 
 if ($_SESSION['role'] == "Admin") {
     include_once 'header.php';
-} else if ($_SESSION['role'] == "User-Nayasarak") {
-    include_once 'headeruser.php';
-} else if ($_SESSION['role'] == "User-Zindabazar") {
-    include_once './zindabazarHeader.php';
-} else {
-    include_once './manikpirHeader.php';
+}  else {
+    include_once './headeruser.php';
 }
 
 // Add Product Offer
@@ -55,7 +51,7 @@ if (isset($_POST['btnaddproduct'])) {
                         echo '<script type="text/javascript">
                         jQuery(function validation(){
                             swal({
-                              title: "Product Added Successfully!",
+                              title: "Slider Add Successfully!",
                               text: "Added",
                               icon: "success",
                               button: "Ok",
@@ -98,7 +94,7 @@ if (isset($_GET['deleteid'])) {
         echo '<script type="text/javascript">
         jQuery(function validation(){
             swal({
-              title: "Product Deleted!",
+              title: "Slider Deleted!",
               text: "Deleted",
               icon: "warning",
               button: "Ok",
@@ -121,7 +117,7 @@ if (isset($_GET['deleteid'])) {
 <!-- Content Wrapper -->
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Add Product Offer Details</h1>
+        <h1 style="font-weight:700">Add Home Page Slider</h1>
     </section>
 
     <section class="content container-fluid">

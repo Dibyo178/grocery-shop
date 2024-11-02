@@ -129,7 +129,7 @@ jQuery(function validation(){
 
 
 swal({
-  title: "Edit Product Offer Successfull!",
+  title: "Edit Slider Successfull!",
   text: "Added",
   icon: "success",
   button: "Ok",
@@ -149,7 +149,7 @@ jQuery(function validation(){
 
 swal({
   title: "ERROR!",
-  text: "Edit Product Offer Fail",
+  text: "Edit Slider Fail",
   icon: "error",
   button: "Ok",
 });
@@ -285,7 +285,7 @@ $logo_db=$row['image'];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-       Product Offer Details
+       Edit Slider Details
 
       </h1>
 
@@ -317,14 +317,14 @@ $logo_db=$row['image'];
                 </div> -->
 
                 <div class="form-group">
-                  <label >Name</label>
-                  <input type="Name" name="txtname" value="<?php echo  $name_db; ?>"  class="form-control" id="exampleInputName" placeholder="Enter a name" required>
+                  <label >Text1</label>
+                  <input type="Name" name="txtname" value="<?php echo  $name_db; ?>"  class="form-control" id="exampleInputName" placeholder="Enter a text1" required>
                 </div>
                   
                  
                 <div class="form-group">
-                  <label>Price</label>
-                  <input type="text" name='txtprice' value="<?php echo  $price_db; ?>" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+                  <label>Text2</label>
+                  <input type="text" name='txtprice' value="<?php echo  $price_db; ?>" class="form-control" id="exampleInputPassword1" placeholder="Enter a text2" required>
                 </div>
 
 

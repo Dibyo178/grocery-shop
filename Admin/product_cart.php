@@ -153,6 +153,18 @@ if (isset($_POST['btnallavailable'])) {
   table.dataTable thead .sorting:after {
     display: none !important;
   }
+
+  
+  .radio-group input[type="radio"]:checked + label::before {
+  background-color: #ffffff;
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px #007bff inset; /* Blue ring effect */
+}
+
+/* Hover effect for the label */
+.radio-group label:hover {
+  background-color: #e0e0e0;
+}
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -195,9 +207,12 @@ if (isset($_POST['btnallavailable'])) {
               <label>Previous Price</label>
               <input type="text" name="txtpreviousprice" class="form-control" placeholder="Enter previous price" required>
             </div>
-            <div class="form-group">
+            <div class="form-group radio-group">
+          
               <label>Select Product Type</label><br>
               <input type="radio" id="new" name="product_type" value="New" checked onclick="toggleDiscountField()">
+              <label for="no product">No Product Type</label>
+              <input type="radio" id="new" name="product_type" value="New" onclick="toggleDiscountField()">
               <label for="new">New</label>
               <input type="radio" id="discount" name="product_type" value="Discount" onclick="toggleDiscountField()">
               <label for="discount">Discount</label>

@@ -9,6 +9,7 @@ include_once "./connection.php";
 
 ?>
 <!DOCTYPE html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,13 +73,27 @@ include_once "./connection.php";
     <section class="heros-sldier-area">
         <div class="hero-slider-style-2 owl-carousel">
             <!-- Single -->
+
+            <?php
+
+            $select = $pdo->prepare("select * from tbl_slider");
+            $select->execute();
+            while($row = $select->fetch(PDO::FETCH_ASSOC)){
+
+            $text1_db = $row['text1'];
+
+            $text2_db = $row['text2'];
+
+            $logo_db = $row['image'];
+
+            ?>
             <div class="hero-slider-item">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6  order-lg-first order-last align-self-center">
                             <div class="hero-slider-content">
-                                <h4>Organic and fresh food</h4>
-                                <h2>Teasty & Healthy Organic Food</h2>
+                                <h4><?php echo $text1_db;?></h4>
+                                <h2><?php echo $text2_db; ?></h2>
                                 <div class="hero-btn">
                                     <a class="button-1" href="shop.php">Shop Now</a>
                                     <a class="button-3" href="#category">Category</a>
@@ -87,40 +102,24 @@ include_once "./connection.php";
                         </div>
                         <div class="col-lg-5">
                             <div class="hero-slider-rimg">
-                                <img class="hero-img" src="assets/Halal/RIce-removebg-preview.png" alt="img">
-                                <!-- <h2 class="hero-discount-con">
-									<span>45% <br>Off</span>
-								</h2> -->
+                                <img class="hero-img" src="./Admin/slider-image/<?php  echo $logo_db;?>" alt="img">
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Single -->
-            <div class="hero-slider-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6 order-lg-first order-last align-self-center">
-                            <div class="hero-slider-content">
-                                <h4>Organic and fresh food</h4>
-                                <h2>Teasty & Healthy Organic Food</h2>
-                                <div class="hero-btn">
-                                    <a class="button-1" href="shop.php">Shop Now</a>
-                                    <a class="button-3" href="#category">Category</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="hero-slider-rimg">
-                                <img class="hero-img" src="assets/Halal/OIL-removebg-preview.png" alt="img">
-                                <!-- <h2 class="hero-discount-con">
-									<span>45% <br>Off</span>
-								</h2> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+        
+
+        
+
+            <?php
+
+}
+
+            ?>
+    
         </div>
     </section>
     <!-- End Hero Slider Area -->
@@ -132,7 +131,7 @@ include_once "./connection.php";
                 <div class="col-lg-6 mb-30 d-flex">
                     <div class="lg-banner-item">
                         <a href="shop.php">
-                            <img src="assets/Halal/banner1.png" alt="banner">
+                            <img src="./assets/discount-images/bg-remove/j1.png" alt="banner">
                         </a>
                     </div>
                 </div>
@@ -508,8 +507,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="#" class="add-to-cart"><i
+                                                    class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -537,8 +538,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -568,8 +571,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -599,8 +604,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -629,8 +636,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -660,8 +669,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -691,8 +702,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -745,8 +758,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="#" class="add-to-cart"><i
+                                                    class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -768,13 +783,16 @@ include_once "./connection.php";
                             <div class="sale-badge"><span>new</span></div>
                             <div class="product-thumbnail">
                                 <a href="product-details.html">
-                                    <img src="assets/discount-images/bg-remove/ダウンロード-16-removebg-preview.png" alt="Another product image">
+                                    <img src="assets/discount-images/bg-remove/ダウンロード-16-removebg-preview.png"
+                                        alt="Another product image">
                                 </a>
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="#" class="add-to-cart"><i
+                                                    class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -825,8 +843,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="#" class="add-to-cart"><i
+                                                    class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -856,8 +876,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -887,8 +909,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -918,8 +942,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -949,8 +975,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -980,8 +1008,10 @@ include_once "./connection.php";
                                 <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                 <div class="product-overly-btn">
                                     <ul>
-                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                        <li><a href="cart.html"><i class="fas fa-shopping-cart"></i><span>Add to
+                                                    Cart</span></a></li>
+                                        <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i
+                                                    class="far fa-eye"></i><span>Quick view</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -1075,7 +1105,8 @@ include_once "./connection.php";
                             <div class="content">
                                 <h3> Convenient & Quick</h3>
                                 <p>
-                                    No waiting in traffic, no haggling, no worries carrying Food,they're delivered right at your door. </p>
+                                    No waiting in traffic, no haggling, no worries carrying Food,they're delivered right
+                                    at your door. </p>
                             </div>
                         </div>
                     </div>
@@ -1088,7 +1119,8 @@ include_once "./connection.php";
                             <div class="content">
                                 <h3> Get Fresh Products</h3>
                                 <p>
-                                    Our fresh produce is sourced In our store, you get the best from us.we are always sourced halal products </p>
+                                    Our fresh produce is sourced In our store, you get the best from us.we are always
+                                    sourced halal products </p>
                             </div>
                         </div>
                     </div>
@@ -1101,22 +1133,23 @@ include_once "./connection.php";
                             <div class="content">
                                 <h3> Product Purchaes Offer</h3>
                                 <p>
-                                    Order more than <span style="color:#679509;font-weight:700">¥8000</span> & get free delivery</p>
+                                    Order more than <span style="color:#679509;font-weight:700">¥8000</span> & get free
+                                    delivery</p>
                             </div>
                         </div>
                     </div>
                     <!-- Single -->
                     <!-- <div class="col-lg-3 col-md-6 mb-30">
-						<div class="shipping-item">
-							<div class="iocn">
-								<i class="bi bi-shield-lock"></i>
-							</div>
-							<div class="content">
-								<h3> Safe Payment</h3>
-								<p>We are using secure payment methods.</p>
-							</div>
-						</div>
-					</div> -->
+                        <div class="shipping-item">
+                            <div class="iocn">
+                                <i class="bi bi-shield-lock"></i>
+                            </div>
+                            <div class="content">
+                                <h3> Safe Payment</h3>
+                                <p>We are using secure payment methods.</p>
+                            </div>
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -1160,13 +1193,13 @@ include_once "./connection.php";
                     $image = $data['image'];
 
 
-                ?>
+                    ?>
 
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="blog-item">
                             <div class="thumbnail">
                                 <a href="blog.php">
-                                <img src="./Admin/blogimage/<?php echo $image; ?>" alt="blog">
+                                    <img src="./Admin/blogimage/<?php echo $image; ?>" alt="blog">
                                 </a>
                             </div>
                             <div class="content">
@@ -1174,10 +1207,10 @@ include_once "./connection.php";
                                     <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
                                     <!-- <span><a href="#"><i class="bi bi-tags-fill"></i> Vegetables</a></span> -->
                                 </div>
-                                <h2 class="title"><a href="blog.php"><?php echo $name;?></a></h2>
+                                <h2 class="title"><a href="blog.php"><?php echo $name; ?></a></h2>
                                 <div class="btm-meta">
                                     <div class="date">
-                                        <span><i class="far fa-calendar-alt"></i> <?php echo $date;?></span>
+                                        <span><i class="far fa-calendar-alt"></i> <?php echo $date; ?></span>
                                     </div>
                                     <div class="read-more">
                                         <a href="blog.php">Read More</a>
@@ -1187,10 +1220,11 @@ include_once "./connection.php";
                         </div>
                     </div>
 
-                <?php
+                    <?php
 
                     $index++;
-                };
+                }
+                ;
                 ?>
 
 
@@ -1247,19 +1281,29 @@ include_once "./connection.php";
                             <div class="modal_tab_button">
                                 <ul class="nav product_navactive owl-carousel" role="tablist">
                                     <li>
-                                        <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="assets/img/product/1.jpg" alt="img"></a>
+                                        <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab"
+                                            aria-controls="tab1" aria-selected="false"><img
+                                                src="assets/img/product/1.jpg" alt="img"></a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false"><img src="assets/img/product/2.jpg" alt="img"></a>
+                                        <a class="nav-link" data-toggle="tab" href="#tab2" role="tab"
+                                            aria-controls="tab2" aria-selected="false"><img
+                                                src="assets/img/product/2.jpg" alt="img"></a>
                                     </li>
                                     <li>
-                                        <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="false"><img src="assets/img/product/3.jpg" alt="img"></a>
+                                        <a class="nav-link button_three" data-toggle="tab" href="#tab3" role="tab"
+                                            aria-controls="tab3" aria-selected="false"><img
+                                                src="assets/img/product/3.jpg" alt="img"></a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" data-toggle="tab" href="#tab4" role="tab" aria-controls="tab4" aria-selected="false"><img src="assets/img/product/4.jpg" alt="img"></a>
+                                        <a class="nav-link" data-toggle="tab" href="#tab4" role="tab"
+                                            aria-controls="tab4" aria-selected="false"><img
+                                                src="assets/img/product/4.jpg" alt="img"></a>
                                     </li>
                                     <li>
-                                        <a class="nav-link" data-toggle="tab" href="#tab5" role="tab" aria-controls="tab5" aria-selected="false"><img src="assets/img/product/5.jpg" alt="img"></a>
+                                        <a class="nav-link" data-toggle="tab" href="#tab5" role="tab"
+                                            aria-controls="tab5" aria-selected="false"><img
+                                                src="assets/img/product/5.jpg" alt="img"></a>
                                     </li>
 
                                 </ul>
@@ -1279,7 +1323,9 @@ include_once "./connection.php";
                             </div>
                             <!-- Title -->
                             <h3>Vegetables Juices</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac dui sed nunc sagittis maximus. Sed lobortis commodo dapibus. Nunc placerat, massa nec blandit egestas, eros diam lacinia lectus</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac dui sed nunc sagittis
+                                maximus. Sed lobortis commodo dapibus. Nunc placerat, massa nec blandit egestas, eros
+                                diam lacinia lectus</p>
                             <!-- Price -->
                             <div class="pricing">
                                 <span>$200 <del>$210</del></span>
@@ -1348,10 +1394,10 @@ include_once "./connection.php";
 
     <!-- Add this script at the end of your HTML or in your JavaScript file -->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const categoryButton = document.querySelector('.button-3'); // Assuming this class is used for the category button
 
-            categoryButton.addEventListener('click', function(event) {
+            categoryButton.addEventListener('click', function (event) {
                 event.preventDefault(); // Prevent the default anchor click behavior
                 const targetSection = document.getElementById('category'); // Target the category section
                 targetSection.scrollIntoView({

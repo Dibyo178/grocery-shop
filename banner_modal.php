@@ -56,7 +56,7 @@
                 <div class="modal-body">
                     <img src="./assets/discount-images/delivery.png" class="delivery-image"  >
                     
-                    <p>Order more than <strong>¥8500</strong> & get free delivery!</p>
+                    <p>Frozen Foods Order More Than <strong>¥9500</strong> Or Dry Foods Order More Than <strong>¥8000</strong> Get Free Delivery !</p>
                 </div>
                 <div class="modal-footer">
                     <a href="./shop.php" type="button" class="btn btn-warning">Shop Now</a>
