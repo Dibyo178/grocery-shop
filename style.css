@@ -361,7 +361,7 @@ img {
 /*
  * #-Menu
 */
-.menu ul li {
+/* .menu ul li {
   display: inline-block;
   position: relative;
 }
@@ -486,6 +486,82 @@ img {
   transform: rotate(-90deg);
   top: 30%;
 }
+/* Default hidden state for the dropdown */
+/* .menu ul li.menu-item-has-children > ul {
+  display: none; /* Hidden initially */
+  position: absolute;
+  top: 83px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #efefef;
+  width: 200px;
+  z-index: 999;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+/* } */ */
+
+/* Show dropdown when parent item has "open" class */
+/* .menu ul li.menu-item-has-children.open > ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+} */ 
+
+/* Hide dropdowns by default */
+.menu ul li.menu-item-has-children > ul {
+  display: block;
+  position: absolute;
+  top: 83px;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #efefef;
+  width: 200px;
+  z-index: 999;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Show dropdown when parent has "open" class */
+.menu ul li.menu-item-has-children.open > ul {
+  display: none;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Additional styling for submenu */
+.menu ul li > ul > li {
+  position: relative;
+}
+.menu ul li > ul > li a {
+  display: block;
+  width: 100%;
+  padding: 15px 14px;
+  border-bottom: 1px dashed #efefef;
+  font-size: 14px;
+  color: #4d4d4d;
+}
+.menu ul li > ul > li:last-child a {
+  border-bottom: none;
+}
+
+/* Icon for menu items with children */
+.menu ul li.menu-item-has-children::after {
+  content: "\f107"; /* Font Awesome caret */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  color: #4d4d4d;
+  transition: color 0.3s;
+}
+
+.menu ul li.menu-item-has-children:hover::after {
+  color: #679509;
+}
+
+
 /*
  * #-Mini Cart
 */

@@ -55,7 +55,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -667,15 +667,15 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
                                 if (!$_SESSION['name']) {
 
-                                ?>
+                                    ?>
                                     <li class="signin-option">
                                         <a href="login.php"><i class="far fa-user"></i></a>
                                     </li>
 
-                                <?php
+                                    <?php
                                 } else {
 
-                                ?>
+                                    ?>
 
 
 
@@ -684,7 +684,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                                     <li class="signin-option">
                                         <a href="./account.php"><i class="far fa-user"></i></a>
                                     </li>
-                                <?php
+                                    <?php
 
 
                                 }
@@ -785,6 +785,11 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                                     <li>
                                         <a href="./shop.php"> Shop</a>
                                     </li>
+
+
+
+
+
                                     <!-- <li class="menu-item-has-children">
                                         <a href="#">Page</a>
                                         <ul>
@@ -836,7 +841,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                         <img style="width:100px" src="./assets/logo/favicon.png" alt="logo">
                     </a>
                 </div>
-                <div id="menu" class="text-left ">
+                <!-- <div id="menu" class="text-left ">
                     <ul class="offcanvas_main_menu">
                         <li class="active">
                             <a href="./index.php">Home</a>
@@ -850,6 +855,10 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                             <a href="./shop.php"> Shop</a>
                         </li>
 
+                         <li>
+                            category list
+                         </li>
+
 
                         <li>
                             <a href="blogpage.php"> Blog</a>
@@ -860,7 +869,37 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                             <a href="contact.html"> Contact Us</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
+                <div id="menu" class="text-left">
+    <ul class="offcanvas_main_menu">
+        <li class="active"><a href="./index.php">Home</a></li>
+        <li class="menu-item-has-children"><a href="about.html">About Us</a></li>
+        <li><a href="./shop.php">Shop</a></li>
+
+        <!-- Category List with Dropdown Subcategories -->
+        <li class="menu-item-has-children">
+            <a href="#">Category List <i class="fa-solid fa-circle-chevron-down"></i></a>
+            <ul style="display: none;">
+                <li><a href="#">Category 1</a></li>
+                <li><a href="#">Category 2</a></li>
+                <li class="menu-item-has-children">
+                    <a href="#">Category 3</a>
+                    <ul>
+                        <li><a href="#">Subcategory 3.1</a></li>
+                        <li><a href="#">Subcategory 3.2</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Category 4</a></li>
+            </ul>
+        </li>
+
+        <li><a href="blogpage.php">Blog</a></li>
+        <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
+    </ul>
+</div>
+
+
+
             </div>
         </div>
     </div>
@@ -914,17 +953,45 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+    // Handle click on category menu item
+    $('.menu-item-has-children > a').on('click', function(event) {
+        event.preventDefault(); // Prevent the default link behavior
 
+        // Toggle "open" class on the clicked item
+        const $parentLi = $(this).parent(); // Get the parent <li> element
+        if ($parentLi.hasClass('open')) {
+            // If it's already open, close it
+            $parentLi.removeClass('open');
+        } else {
+            // Close any other open menus
+            $('.menu-item-has-children').removeClass('open');
+            // Open the clicked menu
+            $parentLi.addClass('open');
+        }
+    });
 
+    // Close the menu if clicking outside of it
+    $(document).on('click', function(event) {
+        // Check if the click happened outside the menu
+        if (!$(event.target).closest('.menu').length) {
+            $('.menu-item-has-children').removeClass('open'); // Close all open menus
+        }
+    });
+});
+
+</script>
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Get the dropdown list element
             var signinOption = document.getElementById('signinDropdown');
 
             // Add a click event listener to the whole <li>
-            signinOption.addEventListener('click', function(event) {
+            signinOption.addEventListener('click', function (event) {
                 event.preventDefault(); // Prevent default link behavior
                 // Toggle the dropdown
                 var dropdownMenu = signinOption.querySelector('.dropdown-menu');
@@ -932,7 +999,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
             });
 
             // Close the dropdown if clicked outside
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 if (!signinOption.contains(event.target)) {
                     var dropdownMenu = signinOption.querySelector('.dropdown-menu');
                     dropdownMenu.classList.remove('show');

@@ -128,7 +128,7 @@ if (isset($_GET['deleteid'])) {
             <form role="formproduct" action="" method="post" enctype="multipart/form-data">
                 <div class="box-body">
                     <div class="col-md-4">
-                        <label style="margin-top: -5px;color:red">* Optoinal Text1 and Text 2 *</label>
+                        <!-- <label style="margin-top: -5px;color:red">* Optoinal Text1 and Text 2 *</label> -->
                         <div class="form-group">
                             <label>Text1</label>
                             <input type="text" name="txtname" class="form-control" id="exampleInputName" placeholder="Enter a Text 1" >
