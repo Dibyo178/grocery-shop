@@ -3,7 +3,7 @@
 include_once 'connectdb.php';
 session_start();
 
-if ($_SESSION['username'] == "" OR $_SESSION['role'] == "") {
+if ($_SESSION['username'] == "" or $_SESSION['role'] == "") {
     header("location:index.php");
 }
 
@@ -216,6 +216,7 @@ if (isset($_POST['btndelete'])) {
                                     <th>#</th>
                                     <th>Category</th>
                                     <th>Image</th>
+                                    <th>Status</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -227,20 +228,32 @@ if (isset($_POST['btndelete'])) {
                                 $select->execute();
                                 while ($row = $select->fetch(PDO::FETCH_OBJ)) {
                                     echo '
-                                    <tr>
-                                        <td>' . $index . '</td>
-                                        <td>' . $row->category . '</td>
-                                        <td><img src="category_images/' . $row->image . '" width="100"></td>
-                                        <td>
-                                            <button type="submit" name="btnedit" value="' . $row->catid . '" class="btn btn-success">Edit</button>
-                                        </td>
-                                        <td>
-                                            <button type="submit" name="btndelete" value="' . $row->catid . '" class="btn btn-danger">Delete</button>
-                                        </td>
-                                    </tr>';
+    <tr>
+        <td>' . $index . '</td>
+        <td>' . $row->category . '</td>
+        <td><img src="category_images/' . $row->image . '" width="100"></td>
+        
+        <td>';
+
+                                    // Display the correct button based on status
+                                    if ($row->status == 1) {
+                                        echo '<p><a href="categorystatus.php?tid=' . $row->catid . '&status=0" class="btn btn-success">Visible</a></p>';
+                                    } else {
+                                        echo '<p><a href="categorystatus.php?tid=' . $row->catid . '&status=1" class="btn btn-danger">Invisible</a></p>';
+                                    }
+
+                                    echo '</td>
+        <td>
+            <button type="submit" name="btnedit" value="' . $row->catid . '" class="btn btn-success">Edit</button>
+        </td>
+        <td>
+            <button type="submit" name="btndelete" value="' . $row->catid . '" class="btn btn-danger">Delete</button>
+        </td>
+    </tr>';
                                     $index++;
                                 }
                                 ?>
+
                             </tbody>
                         </table>
                     </div>

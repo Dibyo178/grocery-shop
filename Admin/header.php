@@ -483,7 +483,7 @@ desired effect
 
            
 
-          <!-- <li><a href="addProductOffer.php"><i class="fa-solid fa-bag-shopping"></i><span> Add Products Offer </span></a></li> -->
+          <li><a href="about.php"><i class="fa-solid fa-address-card"></i><span> Add About Details </span></a></li>
 
           <li><a href="placing_order.php"><i class="fa-solid fa-clipboard-list"></i><span> Place Order </span></a></li>
 

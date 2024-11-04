@@ -54,9 +54,22 @@
 	<section class="section-padding">
 		<div class="container">
 			<div class="row">
+
+			 
+			<?php
+                $index = 1; // Default count
+                $select = $pdo->prepare("SELECT * FROM about");
+                $select->execute();
+
+                while ($row = $select->fetch(PDO::FETCH_OBJ)) {
+                    // Fetch values with object notation
+                    $image = $row->image;
+                    $description = $row->description;
+                ?>
+
 				<div class="col-lg-6">
 					<div class="about-img">
-						<img src="assets/discount-images/a1.png" alt="about">
+						<img src="./Admin/aboutimages/<?php echo $image;?>" alt="about">
 					</div>
 				</div>
 				<div class="col-lg-6 align-self-center">
@@ -66,14 +79,24 @@
 						<!-- <p> 〒348-0044 Saitamaken, Hanyu City, Kamiiwase 545
 							Phone: 080-6554-4316
 							E-mail:- zamanmd4316@gmail.com.</p> -->
-						<ul>
+						<!-- <ul>
 							<li><i class="fas fa-check-circle"></i>Our Shop Address : <span style="font-weight:400">〒348-0044 Saitamaken, Hanyu City, Kamiiwase 545</span></li>
 							<li><i class="fas fa-check-circle"></i>Phone:<span style="font-weight:400"> 080-6554-4316 </span></li>
 							<li><i class="fas fa-check-circle"></i> E-mail: <span style="font-weight:400">zamanmd4316@gmail.com.</span></li>
-						</ul>
-						<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus urna arcu, eu bibendum ante eleifend eu. Aliquam vitae nisi fringilla, gravida enim id, pharetra magna. Donec eu eleifend ex.</p> -->
+						</ul> -->
+						<p><?php echo $description;?>.</p>
 					</div>
 				</div>
+
+				<?php
+
+                $index++;
+
+				}
+
+				 ?>
+
+
 			</div>
 		</div>
 	</section>

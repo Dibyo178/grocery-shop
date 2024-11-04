@@ -113,7 +113,6 @@ if (isset($_POST['btn_login'])) {
 		</div>
 	</div>
 	<!-- End Login Register Content -->
-
 	
 
 	<!-- Start Footer Area -->
@@ -124,7 +123,7 @@ if (isset($_POST['btn_login'])) {
        <i class="fa fa-angle-up"></i>
     </div>
 
-
+ 
     <!-- Js File -->
 	<script src="./assets/js/cart.js"></script>
     <script src="assets/js/modernizr.min.js"></script>

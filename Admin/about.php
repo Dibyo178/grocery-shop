@@ -2,34 +2,56 @@
 include_once 'connectdb.php';
 session_start();
 
+// Redirect if not logged in
 if ($_SESSION['username'] == "" || $_SESSION['role'] == "") {
     header("location:index.php");
 }
 
+// Include the appropriate header based on the user role
 if ($_SESSION['role'] == "Admin") {
     include_once 'header.php';
-}  else {
+} else {
     include_once './headeruser.php';
 }
 
 // Add Product Offer
 if (isset($_POST['btnaddproduct'])) {
-
-    $username = $_POST['txtname'];
-
     $description = $_POST['description'];
 
     // Upload image
     $f_name = $_FILES['myfile']['name'];
     $f_tmp = $_FILES['myfile']['tmp_name'];
     $f_size = $_FILES['myfile']['size'];
-    $f_extension = explode('.', $f_name);
-    $f_extension = strtolower(end($f_extension));
+    $f_extension = strtolower(pathinfo($f_name, PATHINFO_EXTENSION));
     $f_newfile = uniqid() . '.' . $f_extension;
-    $store = "blogimage/" . $f_newfile;
+    $store = "aboutimages/" . $f_newfile;
 
     if (in_array($f_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-        if ($f_size >= 10000000) {
+        if ($f_size <= 1000000) { // 1MB file size limit
+            if (move_uploaded_file($f_tmp, $store)) {
+                $productimage = $f_newfile;
+                
+                // Corrected INSERT query
+                $insert = $pdo->prepare("INSERT INTO about(image, description) VALUES(:logo, :description)");
+                $insert->bindParam(':logo', $productimage);
+                $insert->bindParam(':description', $description);
+
+                if ($insert->execute()) {
+                    echo '<script type="text/javascript">
+                    jQuery(function validation(){
+                        swal({
+                          title: "Success!",
+                          text: "About Details Added Successfully!",
+                          icon: "success",
+                          button: "Ok",
+                        });
+                    });
+                    </script>';
+                } else {
+                    print_r($insert->errorInfo()); // Display error information
+                }
+            }
+        } else {
             echo '<script type="text/javascript">
             jQuery(function validation(){
                 swal({
@@ -40,42 +62,6 @@ if (isset($_POST['btnaddproduct'])) {
                 });
             });
             </script>';
-        } else {
-            if (move_uploaded_file($f_tmp, $store)) {
-                $productimage = $f_newfile;
-                if (!isset($error)) {
-                    // Corrected INSERT query
-                    $insert = $pdo->prepare("INSERT INTO blog(image, name,description) VALUES(:logo, :name,:description)");
-                    $insert->bindParam(':logo', $productimage);
-                    $insert->bindParam(':name', $username);
-
-                    $insert->bindParam(':description', $username);
-
-                    if ($insert->execute()) {
-                        echo '<script type="text/javascript">
-                        jQuery(function validation(){
-                            swal({
-                              title: "Blog Added Successfully!",
-                              text: "Added",
-                              icon: "success",
-                              button: "Ok",
-                            });
-                        });
-                        </script>';
-                    } else {
-                        echo '<script type="text/javascript">
-                        jQuery(function validation(){
-                            swal({
-                              title: "ERROR!",
-                              text: "Blog Add Failed",
-                              icon: "error",
-                              button: "Ok",
-                            });
-                        });
-                        </script>';
-                    }
-                }
-            }
         }
     } else {
         echo '<script type="text/javascript">
@@ -93,12 +79,14 @@ if (isset($_POST['btnaddproduct'])) {
 
 // Delete functionality
 if (isset($_GET['deleteid'])) {
-    $delete = $pdo->prepare("DELETE FROM blog WHERE id=" . $_GET['deleteid']);
+    $delete = $pdo->prepare("DELETE FROM about WHERE id = :id");
+    $delete->bindParam(':id', $_GET['deleteid'], PDO::PARAM_INT);
+    
     if ($delete->execute()) {
         echo '<script type="text/javascript">
         jQuery(function validation(){
             swal({
-              title: "Blog Deleted!",
+              title: "About Details Deleted!",
               text: "Deleted",
               icon: "warning",
               button: "Ok",
@@ -110,16 +98,16 @@ if (isset($_GET['deleteid'])) {
 ?>
 
 <style>
-.form-control {
-    position: relative;
-    z-index: 10;
-}
+    .form-control {
+        position: relative;
+        z-index: 10;
+    }
 </style>
 
 <!-- Content Wrapper -->
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>Add Blogs</h1>
+        <h1>Add About</h1>
     </section>
 
     <section class="content container-fluid">
@@ -131,20 +119,13 @@ if (isset($_GET['deleteid'])) {
                 <div class="box-body">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <label>Blog Title</label>
-                            <input type="text" name="txtname" class="form-control" id="exampleInputName" placeholder="Enter a blog title" required>
+                            <label>About Description</label>
+                            <textarea name="description" id="" cols="40" rows="5" required></textarea>
                         </div>
 
                         <div class="form-group">
-                            <label>Blog Description</label>
-                            <!-- <input type="text" name="txtname" class="form-control" id="exampleInputName" placeholder="Enter a link" required> -->
-                             <textarea name="description" id="" cols="40" rows="5"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label>Product Image</label>
+                            <label>Image</label>
                             <input type="file" name="myfile" class="input-group" required>
-                            <!-- <p>Image size should be less than 1MB. Allowed types: jpg, jpeg, png, gif.</p> -->
                         </div>
 
                         <div class="box-footer">
@@ -157,8 +138,8 @@ if (isset($_GET['deleteid'])) {
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Blog Title</th>
                                     <th>Description</th>
+                                    <th>Image</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -166,24 +147,21 @@ if (isset($_GET['deleteid'])) {
                             <tbody>
                                 <?php
                                 $index = 1;
-                                $select = $pdo->prepare("SELECT * FROM blog ORDER BY id ASC");
+                                $select = $pdo->prepare("SELECT * FROM about ORDER BY id ASC");
                                 $select->execute();
                                 while ($row = $select->fetch(PDO::FETCH_OBJ)) {
                                     echo '
                                     <tr>
                                         <td>' . $index . '</td>
-                                        <td>' . $row->name . '</td>
-                                        
-                                        <td>' . $row->description. '</td>
-                                    
-                                        <td><img src="blogimage/' . $row->image . '" class="img-rounded" width="40px" height="40px"/></td>
+                                        <td>' . htmlspecialchars($row->description) . '</td>
+                                        <td><img src="aboutimages/' . htmlspecialchars($row->image) . '" class="img-rounded" width="40px" height="40px"/></td>
                                         <td>
-                                            <a href="editblog.php?id=' . $row->id . '" class="btn btn-info" role="button">
+                                            <a href="editabout.php?id=' . $row->id . '" class="btn btn-info" role="button">
                                                 <span class="fa fa-pencil-square" style="color:#ffffff" data-toggle="tooltip" title="Edit Product"></span>
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="deleteid=' . $row->id . '" class="btn btn-danger" role="button">
+                                            <a href="?deleteid=' . $row->id . '" class="btn btn-danger" role="button">
                                                 <span class="glyphicon glyphicon-trash" title="delete"></span>
                                             </a>
                                         </td>

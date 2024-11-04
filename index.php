@@ -78,48 +78,48 @@ include_once "./connection.php";
 
             $select = $pdo->prepare("select * from tbl_slider");
             $select->execute();
-            while($row = $select->fetch(PDO::FETCH_ASSOC)){
+            while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
 
-            $text1_db = $row['text1'];
+                $text1_db = $row['text1'];
 
-            $text2_db = $row['text2'];
+                $text2_db = $row['text2'];
 
-            $logo_db = $row['image'];
+                $logo_db = $row['image'];
 
             ?>
-            <div class="hero-slider-item">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-6  order-lg-first order-last align-self-center">
-                            <div class="hero-slider-content">
-                                <h4><?php echo $text1_db;?></h4>
-                                <h2><?php echo $text2_db; ?></h2>
-                                <div class="hero-btn">
-                                    <a class="button-1" href="shop.php">Shop Now</a>
-                                    <a class="button-3" href="#category">Category</a>
+                <div class="hero-slider-item">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-6  order-lg-first order-last align-self-center">
+                                <div class="hero-slider-content">
+                                    <h4><?php echo $text1_db; ?></h4>
+                                    <h2><?php echo $text2_db; ?></h2>
+                                    <div class="hero-btn">
+                                        <a class="button-1" href="shop.php">Shop Now</a>
+                                        <a class="button-3" href="#category">Category</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="hero-slider-rimg">
-                                <img class="hero-img" src="./Admin/slider-image/<?php  echo $logo_db;?>" alt="img">
+                            <div class="col-lg-5">
+                                <div class="hero-slider-rimg">
+                                    <img class="hero-img" src="./Admin/slider-image/<?php echo $logo_db; ?>" alt="img">
 
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        
 
-        
+
+
 
             <?php
 
-}
+            }
 
             ?>
-    
+
         </div>
     </section>
     <!-- End Hero Slider Area -->
@@ -173,306 +173,43 @@ include_once "./connection.php";
             </div>
             <div class="row" id="category">
 
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/bens-dry-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Beans & Dry Fruit </a></h4>
-                            <!-- <span>(24 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/beef-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">Beef </a></h4>
-                            <!-- <span>(94 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/chicken-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Chicken </a></h4>
-                            <!-- <span>(11 item)</span> -->
+                <?php
+                $index = 1; // Default count
+                $select = $pdo->prepare("SELECT * FROM tbl_category WHERE status = 1  ORDER BY catid DESC");
+                $select->execute();
+
+                while ($row = $select->fetch(PDO::FETCH_OBJ)) {
+                    // Fetch values with object notation
+                    $catid = $row->catid;
+                    $image = $row->image;
+                    $category = $row->category;
+                ?>
+
+                    <!-- Single -->
+                    <div class="col-lg-3 col-6 mb-30">
+                        <div class="s2-cate-item">
+                            <div class="thumbn">
+                                <a href="shop.php?category=<?php echo $catid; ?>">
+                                    <img src="./Admin/category_images/<?php echo $image; ?>" alt="img">
+                                </a>
+                            </div>
+                            <div class="con">
+                                <h4><a href="shop.php?category=<?php echo $catid; ?>">
+                                        <?php echo $category; ?>
+                                    </a></h4>
+                                <!-- <span>(24 item)</span> -->
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <!-- Single -->
 
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/masla-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Masala & Spices </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="./assets/Halal/bg-remove/Bangladeshi-food.png" alt="img">
-
-
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Bangladeshi Food </a></h4>
-                            <!-- <span>(78 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/frozen_and_dry-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Frozen & Dry Fish </a></h4>
-                            <!-- <span>(99 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/indonetian-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Indonesian Food </a></h4>
-                            <!-- <span>(32 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single -->
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/Cos-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-                                    Cosmetics </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/mutton-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-                                    Mutton </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/meat-fish-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-                                    Meat & Fish </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/srilankan-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-                                    Srilankan Food </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/OIL-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-                                    Oil and Ghee </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/meat-fish-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-                                    Meat & Fish </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/Nepal-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-
-                                    Nepali Food </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/ramadan-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-
-                                    Ramadan Food </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/snaks-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-
-
-                                    Snacks </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/Bangladeshi-food.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-
-
-                                    Rice and Atta </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="col-lg-3 col-6 mb-30">
-                    <div class="s2-cate-item">
-                        <div class="thumbn">
-                            <a href="shop.php">
-                                <img src="assets/Halal/bg-remove/pakistani-removebg-preview.png" alt="img">
-                            </a>
-                        </div>
-                        <div class="con">
-                            <h4><a href="shop.php">
-
-
-                                    Pakistani Food </a></h4>
-                            <!-- <span>(11 item)</span> -->
-                        </div>
-                    </div>
-                </div>
-
+                <?php
+                    $index++;
+                }
+                ?>
 
             </div>
+
         </div>
     </section>
     <!-- End Shop Category -->
@@ -1193,7 +930,7 @@ include_once "./connection.php";
                     $image = $data['image'];
 
 
-                    ?>
+                ?>
 
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="blog-item">
@@ -1220,11 +957,10 @@ include_once "./connection.php";
                         </div>
                     </div>
 
-                    <?php
+                <?php
 
                     $index++;
-                }
-                ;
+                };
                 ?>
 
 
@@ -1394,10 +1130,10 @@ include_once "./connection.php";
 
     <!-- Add this script at the end of your HTML or in your JavaScript file -->
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             const categoryButton = document.querySelector('.button-3'); // Assuming this class is used for the category button
 
-            categoryButton.addEventListener('click', function (event) {
+            categoryButton.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent the default anchor click behavior
                 const targetSection = document.getElementById('category'); // Target the category section
                 targetSection.scrollIntoView({

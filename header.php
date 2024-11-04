@@ -504,18 +504,46 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                     <div class="col-lg-10">
                         <!-- Category Or Search -->
                         <div class="select-search-option">
-                            <div class="select-category">
+                            <!-- <div class="select-category">
                                 <select name="cate">
                                     <option value="0">Select Category</option>
-                                    <option value="1">Vegetables</option>
-                                    <option value="2">Fruits</option>
-                                    <option value="3">Salads</option>
-                                    <option value="4">Fish & Seafood</option>
-                                    <option value="5">Fresh Meat</option>
-                                    <option value="6">Health Product</option>
-                                    <option value="7">Butter & Eggs</option>
+                                    <?php
+                                    $select = $pdo->prepare("SELECT * FROM tbl_category ORDER BY catid DESC");
+                                    $select->execute();
+                                    $count = 0;
+
+                                    while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                                        if ($count < 10) {
+                                            echo '<a href="shop.php?category=' . $row['catid'] . '"<option value="' . $row['catid'] . '" style="height: 50px; line-height: 50px;">' . $row['category'] . '</a></option>';
+                                        }
+                                        $count++;
+                                    }
+                                    ?>
+                                  
+                                </select>
+                            </div> -->
+
+                            <!-- part2 -->
+
+                            <div class="select-category">
+                                <select name="cate" onchange="navigateToCategory(this)">
+                                    <option value="0">Select Category</option>
+                                    <?php
+                                    $select = $pdo->prepare("SELECT * FROM tbl_category ORDER BY catid DESC");
+                                    $select->execute();
+                                    $count = 0;
+
+                                    while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                                        if ($count < 10) {
+                                            echo '<option value="shop.php?category=' . $row['catid'] . '" style="height: 50px; line-height: 50px;">' . $row['category'] . '</option>';
+                                        }
+                                        $count++;
+                                    }
+                                    ?>
                                 </select>
                             </div>
+
+
                             <div class="search-form">
                                 <form action="#">
                                     <div class="search">
@@ -667,15 +695,15 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
                                 if (!$_SESSION['name']) {
 
-                                    ?>
+                                ?>
                                     <li class="signin-option">
                                         <a href="login.php"><i class="far fa-user"></i></a>
                                     </li>
 
-                                    <?php
+                                <?php
                                 } else {
 
-                                    ?>
+                                ?>
 
 
 
@@ -684,7 +712,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                                     <li class="signin-option">
                                         <a href="./account.php"><i class="far fa-user"></i></a>
                                     </li>
-                                    <?php
+                                <?php
 
 
                                 }
@@ -871,32 +899,32 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                     </ul>
                 </div> -->
                 <div id="menu" class="text-left">
-    <ul class="offcanvas_main_menu">
-        <li class="active"><a href="./index.php">Home</a></li>
-        <li class="menu-item-has-children"><a href="about.html">About Us</a></li>
-        <li><a href="./shop.php">Shop</a></li>
+                    <ul class="offcanvas_main_menu">
+                        <li class="active"><a href="./index.php">Home</a></li>
+                        <li class="menu-item-has-children"><a href="about.html">About Us</a></li>
+                        <li><a href="./shop.php">Shop</a></li>
 
-        <!-- Category List with Dropdown Subcategories -->
-        <li class="menu-item-has-children">
-            <a href="#">Category List <i class="fa-solid fa-circle-chevron-down"></i></a>
-            <ul style="display: none;">
-                <li><a href="#">Category 1</a></li>
-                <li><a href="#">Category 2</a></li>
-                <li class="menu-item-has-children">
-                    <a href="#">Category 3</a>
-                    <ul>
-                        <li><a href="#">Subcategory 3.1</a></li>
-                        <li><a href="#">Subcategory 3.2</a></li>
+                        <!-- Category List with Dropdown Subcategories -->
+                        <li class="menu-item-has-children">
+                            <a href="#">Category List <i class="fa-solid fa-circle-chevron-down"></i></a>
+                            <ul style="display: none;">
+                                <li><a href="#">Category 1</a></li>
+                                <li><a href="#">Category 2</a></li>
+                                <li class="menu-item-has-children">
+                                    <a href="#">Category 3</a>
+                                    <ul>
+                                        <li><a href="#">Subcategory 3.1</a></li>
+                                        <li><a href="#">Subcategory 3.2</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Category 4</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="blogpage.php">Blog</a></li>
+                        <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
                     </ul>
-                </li>
-                <li><a href="#">Category 4</a></li>
-            </ul>
-        </li>
-
-        <li><a href="blogpage.php">Blog</a></li>
-        <li class="menu-item-has-children"><a href="contact.html">Contact Us</a></li>
-    </ul>
-</div>
+                </div>
 
 
 
@@ -954,44 +982,43 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    $(document).ready(function() {
-    // Handle click on category menu item
-    $('.menu-item-has-children > a').on('click', function(event) {
-        event.preventDefault(); // Prevent the default link behavior
+    <script>
+        $(document).ready(function() {
+            // Handle click on category menu item
+            $('.menu-item-has-children > a').on('click', function(event) {
+                event.preventDefault(); // Prevent the default link behavior
 
-        // Toggle "open" class on the clicked item
-        const $parentLi = $(this).parent(); // Get the parent <li> element
-        if ($parentLi.hasClass('open')) {
-            // If it's already open, close it
-            $parentLi.removeClass('open');
-        } else {
-            // Close any other open menus
-            $('.menu-item-has-children').removeClass('open');
-            // Open the clicked menu
-            $parentLi.addClass('open');
-        }
-    });
+                // Toggle "open" class on the clicked item
+                const $parentLi = $(this).parent(); // Get the parent <li> element
+                if ($parentLi.hasClass('open')) {
+                    // If it's already open, close it
+                    $parentLi.removeClass('open');
+                } else {
+                    // Close any other open menus
+                    $('.menu-item-has-children').removeClass('open');
+                    // Open the clicked menu
+                    $parentLi.addClass('open');
+                }
+            });
 
-    // Close the menu if clicking outside of it
-    $(document).on('click', function(event) {
-        // Check if the click happened outside the menu
-        if (!$(event.target).closest('.menu').length) {
-            $('.menu-item-has-children').removeClass('open'); // Close all open menus
-        }
-    });
-});
-
-</script>
+            // Close the menu if clicking outside of it
+            $(document).on('click', function(event) {
+                // Check if the click happened outside the menu
+                if (!$(event.target).closest('.menu').length) {
+                    $('.menu-item-has-children').removeClass('open'); // Close all open menus
+                }
+            });
+        });
+    </script>
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function() {
             // Get the dropdown list element
             var signinOption = document.getElementById('signinDropdown');
 
             // Add a click event listener to the whole <li>
-            signinOption.addEventListener('click', function (event) {
+            signinOption.addEventListener('click', function(event) {
                 event.preventDefault(); // Prevent default link behavior
                 // Toggle the dropdown
                 var dropdownMenu = signinOption.querySelector('.dropdown-menu');
@@ -999,13 +1026,22 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
             });
 
             // Close the dropdown if clicked outside
-            document.addEventListener('click', function (event) {
+            document.addEventListener('click', function(event) {
                 if (!signinOption.contains(event.target)) {
                     var dropdownMenu = signinOption.querySelector('.dropdown-menu');
                     dropdownMenu.classList.remove('show');
                 }
             });
         });
+    </script>
+
+    <script>
+        function navigateToCategory(select) {
+            const url = select.value;
+            if (url !== "0") {
+                window.location.href = url;
+            }
+        }
     </script>
 
 

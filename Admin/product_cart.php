@@ -5,15 +5,15 @@ session_start();
 
 // Session check
 if (empty($_SESSION['username']) || empty($_SESSION['role'])) {
-    header("location:index.php");
-    exit; // Always exit after header redirection
+  header("location:index.php");
+  exit; // Always exit after header redirection
 }
 
 // Header based on role
 if ($_SESSION['role'] == "Admin") {
-    include_once 'header.php';
+  include_once 'header.php';
 } else {
-    include_once './headeruser.php';
+  include_once './headeruser.php';
 }
 
 // Add product logic
@@ -34,8 +34,8 @@ if (isset($_POST['btnaddproduct'])) {
   $store = "FoodImages/" . $f_newfile;
 
   if (in_array($f_extension, ['jpg', 'jpeg', 'png', 'gif'])) {
-      if ($f_size >= 1000000) {
-          echo '<script>
+    if ($f_size >= 1000000) {
+      echo '<script>
               jQuery(function validation(){
                   swal({
                       title: "Error!",
@@ -45,23 +45,23 @@ if (isset($_POST['btnaddproduct'])) {
                   });
               });
           </script>';
-      } else {
-          if (move_uploaded_file($f_tmp, $store)) {
-              $productimage = $f_newfile;
+    } else {
+      if (move_uploaded_file($f_tmp, $store)) {
+        $productimage = $f_newfile;
 
-              $insert = $pdo->prepare("INSERT INTO product_cart (image, name, price, previous_price, category, product_type, txtdiscountprice) 
+        $insert = $pdo->prepare("INSERT INTO product_cart (image, name, price, previous_price, category, product_type, txtdiscountprice) 
               VALUES (:logo, :name, :price, :previous_price, :category, :product_type, :txtdiscountprice)");
 
-              $insert->bindParam(':logo', $productimage);
-              $insert->bindParam(':name', $username);
-              $insert->bindParam(':price', $price);
-              $insert->bindParam(':previous_price', $txtpreviousprice);
-              $insert->bindParam(':category', $category);
-              $insert->bindParam(':product_type', $product_type);
-              $insert->bindParam(':txtdiscountprice', $discount);
+        $insert->bindParam(':logo', $productimage);
+        $insert->bindParam(':name', $username);
+        $insert->bindParam(':price', $price);
+        $insert->bindParam(':previous_price', $txtpreviousprice);
+        $insert->bindParam(':category', $category);
+        $insert->bindParam(':product_type', $product_type);
+        $insert->bindParam(':txtdiscountprice', $discount);
 
-              if ($insert->execute()) {
-                  echo '<script>
+        if ($insert->execute()) {
+          echo '<script>
                       jQuery(function validation(){
                           swal({
                               title: "Success!",
@@ -71,8 +71,8 @@ if (isset($_POST['btnaddproduct'])) {
                           });
                       });
                   </script>';
-              } else {
-                  echo '<script>
+        } else {
+          echo '<script>
                       jQuery(function validation(){
                           swal({
                               title: "ERROR!",
@@ -82,11 +82,11 @@ if (isset($_POST['btnaddproduct'])) {
                           });
                       });
                   </script>';
-              }
-          }
+        }
       }
+    }
   } else {
-      echo '<script>
+    echo '<script>
           jQuery(function validation(){
               swal({
                   title: "Warning!",
@@ -105,7 +105,7 @@ if (isset($_GET['deleteid'])) {
   $delete->bindParam(':id', $_GET['deleteid']);
 
   if ($delete->execute()) {
-      echo '<script>
+    echo '<script>
           jQuery(function validation(){
               swal({
                   title: "Product Deleted!",
@@ -121,9 +121,9 @@ if (isset($_GET['deleteid'])) {
 
 // Set all products to available
 if (isset($_POST['btnallavailable'])) {
-    $update = $pdo->prepare("UPDATE product_cart SET status = 1");
-    if ($update->execute()) {
-        echo '<script>
+  $update = $pdo->prepare("UPDATE product_cart SET status = 1");
+  if ($update->execute()) {
+    echo '<script>
             jQuery(function validation(){
                 swal({
                     title: "Success!",
@@ -133,8 +133,8 @@ if (isset($_POST['btnallavailable'])) {
                 });
             });
         </script>';
-    } else {
-        echo '<script>
+  } else {
+    echo '<script>
             jQuery(function validation(){
                 swal({
                     title: "ERROR!",
@@ -144,27 +144,28 @@ if (isset($_POST['btnallavailable'])) {
                 });
             });
         </script>';
-    }
+  }
 }
 ?>
 
 <style>
-  table.dataTable thead .sorting_asc:after, 
+  table.dataTable thead .sorting_asc:after,
   table.dataTable thead .sorting:after {
     display: none !important;
   }
 
-  
-  .radio-group input[type="radio"]:checked + label::before {
-  background-color: #ffffff;
-  border-color: #007bff;
-  box-shadow: 0 0 0 4px #007bff inset; /* Blue ring effect */
-}
 
-/* Hover effect for the label */
-.radio-group label:hover {
-  background-color: #e0e0e0;
-}
+  .radio-group input[type="radio"]:checked+label::before {
+    background-color: #ffffff;
+    border-color: #007bff;
+    box-shadow: 0 0 0 4px #007bff inset;
+    /* Blue ring effect */
+  }
+
+  /* Hover effect for the label */
+  .radio-group label:hover {
+    background-color: #e0e0e0;
+  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -208,7 +209,7 @@ if (isset($_POST['btnallavailable'])) {
               <input type="text" name="txtpreviousprice" class="form-control" placeholder="Enter previous price" required>
             </div>
             <div class="form-group radio-group">
-          
+
               <label>Select Product Type</label><br>
               <input type="radio" id="new" name="product_type" value="New" checked onclick="toggleDiscountField()">
               <label for="no product">No Product Type</label>
@@ -231,105 +232,103 @@ if (isset($_POST['btnallavailable'])) {
             </div>
           </div>
 
-          </form>
+      </form>
 
-          <!-- All Available Button Form -->
-<form method="post" class="col-md-8">
-    <button type="submit" name="btnallavailable" class="btn btn-warning">All Available</button>
-</form>
+      <!-- All Available Button Form -->
+      <form method="post" class="col-md-8">
+        <button type="submit" name="btnallavailable" class="btn btn-warning">All Available</button>
+      </form>
 
-          <!-- Display Products Table -->
-          <div class="col-md-8" style="overflow-x:auto;">
-            <table id="example1" class="table table-bordered table-striped">
-            <thead>
-        <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Product Type</th>
-            <th>Discount</th>
-            <th>Image</th>
-            <th>Status</th>
-            <th>Edit</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-              <tbody>
-                <?php
-                $index = 1;
-                $select = $pdo->query("SELECT * FROM product_cart");
-                while ($data = $select->fetch(PDO::FETCH_ASSOC)) {
-                  ?>
-                  <tr>
-                    <td><?php echo $index; ?></td>
-                    <td><?php echo $data['name']; ?></td>
-                    <td><?php echo $data['price']; ?></td>
-                    <td><?php echo $data['category']; ?></td>
-                    <td><?php echo $data['product_type']; ?></td>
-                    <td><?php echo $data['txtdiscountprice']; ?></td>
-                    <td><img src="FoodImages/<?php echo $data['image']; ?>" width="100" height="70"></td>
-                    <td>
-                    <?php
-                    if ($data['status'] == 1) {
-                        echo '<p><a href="status.php?tid=' . $data['id'] . '&status=0" class="btn btn-success">Available</a></p>';
-                    } else {
-                        echo '<p><a href="status.php?tid=' . $data['id'] . '&status=1" class="btn btn-danger">Unavailable</a></p>';
-                    }
-                    ?>
-                </td>
+      <!-- Display Products Table -->
+      <div class="col-md-8" style="overflow-x:auto;">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Product Type</th>
+              <th>Discount</th>
+              <th>Image</th>
+              <th>Status</th>
+              <th>Edit</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $index = 1;
+            $select = $pdo->query("SELECT * FROM product_cart");
+            while ($data = $select->fetch(PDO::FETCH_ASSOC)) {
+            ?>
+              <tr>
+                <td><?php echo $index; ?></td>
+                <td><?php echo $data['name']; ?></td>
+                <td><?php echo $data['price']; ?></td>
+                <td><?php echo $data['category']; ?></td>
+                <td><?php echo $data['product_type']; ?></td>
+                <td><?php echo $data['txtdiscountprice']; ?></td>
+                <td><img src="FoodImages/<?php echo $data['image']; ?>" width="100" height="70"></td>
                 <td>
-                    <a href="editproduct_cart.php?id=<?php echo $data['id']; ?>" class="btn btn-info" role="button">
-                        <span class="fa fa-pencil-square" style="color:#ffffff" data-toggle="tooltip" title="Edit Product"></span>
-                    </a>
-                </td>
-                <td>
-                    <a href="product_cart.php?deleteid=<?php echo $data['id']; ?>" class="btn btn-danger" role="button">
-                        <span class="glyphicon glyphicon-trash" title="delete"></span>
-                    </a>
-                </td>
-                  </tr>
                   <?php
-                  $index++;
-                }
-                ?>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      
+                  if ($data['status'] == 1) {
+                    echo '<p><a href="status.php?tid=' . $data['id'] . '&status=0" class="btn btn-success">Available</a></p>';
+                  } else {
+                    echo '<p><a href="status.php?tid=' . $data['id'] . '&status=1" class="btn btn-danger">Unavailable</a></p>';
+                  }
+                  ?>
+                </td>
+                <td>
+                  <a href="editproduct_cart.php?id=<?php echo $data['id']; ?>" class="btn btn-info" role="button">
+                    <span class="fa fa-pencil-square" style="color:#ffffff" data-toggle="tooltip" title="Edit Product"></span>
+                  </a>
+                </td>
+                <td>
+                  <a href="product_cart.php?deleteid=<?php echo $data['id']; ?>" class="btn btn-danger" role="button">
+                    <span class="glyphicon glyphicon-trash" title="delete"></span>
+                  </a>
+                </td>
+              </tr>
+            <?php
+              $index++;
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
     </div>
-  </section>
+
+</div>
+</section>
 </div>
 
 <script>
   $('.productid').select2();
-    //Date picker
-    $('#datepicker').datepicker({
-        autoclose: true
-    });
-    
-</script> 
+  //Date picker
+  $('#datepicker').datepicker({
+    autoclose: true
+  });
+</script>
 
 <script>
- $(function() {
+  $(function() {
     $('#example1').DataTable({
-        'paging': true,
-        'lengthChange': false,
-        'searching': true, // Enable searching
-        'ordering': true,  // Enable column ordering
-        'info': true,
-        'autoWidth': false
+      'paging': true,
+      'lengthChange': false,
+      'searching': true, // Enable searching
+      'ordering': true, // Enable column ordering
+      'info': true,
+      'autoWidth': false
     });
-});
-
+  });
 </script>
 
 <script>
   function toggleDiscountField() {
-      var discountField = document.getElementById('discountField');
-      var isDiscountChecked = document.getElementById('discount').checked;
-      discountField.style.display = isDiscountChecked ? 'block' : 'none';
+    var discountField = document.getElementById('discountField');
+    var isDiscountChecked = document.getElementById('discount').checked;
+    discountField.style.display = isDiscountChecked ? 'block' : 'none';
   }
 </script>
 
