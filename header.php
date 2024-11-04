@@ -55,7 +55,9 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
@@ -553,95 +555,51 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                                         <div id="not-found">No items found</div>
                                         <ul id="dropdata">
                                             <li>
-                                                <a href="#" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
-                                                                    alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                                <!-- Repeat as necessary for more items -->
-                                                <a href="#" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
-                                                                    alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
 
-                                                <a href="#" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
-                                                                    alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                <?php
 
-                                                <a href="#" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
-                                                                    alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                $index = 1; //default 1 count
+                                                
+                                                $select = $pdo->prepare("select * from product_cart  order by id asc");
 
-                                                <a href="#" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
-                                                                    alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
+                                                $select->execute();
 
-                                                <a href="#" style="color: black; text-decoration: none">
-                                                    <div class="col-lg-6 border_part">
-                                                        <div class="search_part col-lg-12">
-                                                            <div class="search_img">
-                                                                <img src="./assets/discount-images/bg-remove/dry-lptoa.png"
-                                                                    alt="TShirt Image">
-                                                            </div>
-                                                            <div class="search_des">
-                                                                <h3>TShirt</h3>
-                                                                <p>1900 BDT</p>
+                                                while ($row = $select->fetch(PDO::FETCH_OBJ)) {
+
+                                                    $price = $row->price;
+                                                    $image = $row->image;
+                                                    $name = $row->name;
+                                                    $id = $row->id;
+
+                                                    ?>
+
+                                                    <a href="shop.php?product=<?php echo $id; ?>"
+                                                        style="color: black; text-decoration: none">
+                                                        <div class="col-lg-6 border_part">
+                                                            <div class="search_part col-lg-12">
+                                                                <div class="search_img">
+                                                                    <img src="./Admin/FoodImages/<?php echo $image; ?>"
+                                                                        alt="<?php echo $name; ?>">
+                                                                </div>
+                                                                <div class="search_des"
+                                                                    style="display: flex; justify-content: space-between; align-items: center;">
+                                                                    <h3 style="margin: 0;"><?php echo $name; ?></h3>
+                                                                    <p style="margin: 0; width:50px">¥ <?php echo $price; ?></p>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </a>
+                                                    </a>
+
+
+                                                    <?php
+
+                                                }
+                                                $index++;
+
+                                                ?>
+
+
+
 
                                             </li>
                                         </ul>
@@ -695,15 +653,15 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
                                 if (!$_SESSION['name']) {
 
-                                ?>
+                                    ?>
                                     <li class="signin-option">
                                         <a href="login.php"><i class="far fa-user"></i></a>
                                     </li>
 
-                                <?php
+                                    <?php
                                 } else {
 
-                                ?>
+                                    ?>
 
 
 
@@ -712,7 +670,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                                     <li class="signin-option">
                                         <a href="./account.php"><i class="far fa-user"></i></a>
                                     </li>
-                                <?php
+                                    <?php
 
 
                                 }
@@ -908,16 +866,33 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                         <li class="menu-item-has-children">
                             <a href="#">Category List <i class="fa-solid fa-circle-chevron-down"></i></a>
                             <ul style="display: none;">
-                                <li><a href="#">Category 1</a></li>
-                                <li><a href="#">Category 2</a></li>
-                                <li class="menu-item-has-children">
+
+                            <?php
+                                    $select = $pdo->prepare("SELECT * FROM tbl_category ORDER BY catid DESC");
+                                    $select->execute();
+                                    $count = 0;
+
+                                    while ($row = $select->fetch(PDO::FETCH_ASSOC)) {
+                                        if ($count < 10) {
+                                            echo '<li><a href="shop.php?category=' . $row['catid'] . '">' . $row['category'] . '</a></li>';
+                                        }
+                                        $count++;
+                                    }
+                                    ?>
+
+
+                                <!-- <li><a href="#">Category 1</a></li> -->
+
+
+                                <!-- <li><a href="#">Category 2</a></li> -->
+                                <!-- <li class="menu-item-has-children">
                                     <a href="#">Category 3</a>
                                     <ul>
                                         <li><a href="#">Subcategory 3.1</a></li>
                                         <li><a href="#">Subcategory 3.2</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Category 4</a></li>
+                                <li><a href="#">Category 4</a></li> -->
                             </ul>
                         </li>
 
@@ -981,11 +956,13 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Handle click on category menu item
-            $('.menu-item-has-children > a').on('click', function(event) {
+            $('.menu-item-has-children > a').on('click', function (event) {
                 event.preventDefault(); // Prevent the default link behavior
 
                 // Toggle "open" class on the clicked item
@@ -1002,7 +979,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
             });
 
             // Close the menu if clicking outside of it
-            $(document).on('click', function(event) {
+            $(document).on('click', function (event) {
                 // Check if the click happened outside the menu
                 if (!$(event.target).closest('.menu').length) {
                     $('.menu-item-has-children').removeClass('open'); // Close all open menus
@@ -1013,12 +990,12 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Get the dropdown list element
             var signinOption = document.getElementById('signinDropdown');
 
             // Add a click event listener to the whole <li>
-            signinOption.addEventListener('click', function(event) {
+            signinOption.addEventListener('click', function (event) {
                 event.preventDefault(); // Prevent default link behavior
                 // Toggle the dropdown
                 var dropdownMenu = signinOption.querySelector('.dropdown-menu');
@@ -1026,7 +1003,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
             });
 
             // Close the dropdown if clicked outside
-            document.addEventListener('click', function(event) {
+            document.addEventListener('click', function (event) {
                 if (!signinOption.contains(event.target)) {
                     var dropdownMenu = signinOption.querySelector('.dropdown-menu');
                     dropdownMenu.classList.remove('show');

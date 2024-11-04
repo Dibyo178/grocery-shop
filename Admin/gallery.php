@@ -16,19 +16,10 @@ session_start();
   if ($_SESSION['role'] == "Admin") {
 
     include_once 'header.php';
-} else if(($_SESSION['role'] == "User-Nayasarak")) {
-
-    include_once 'headeruser.php';
 }
-
-else if(($_SESSION['role'] == "User-Zindabazar")) {
-
-    include_once './zindabazarHeader.php';
-}
-
 else{
 
-    include_once './manikpirHeader.php';
+    include_once './headeruser.php';
 
 }
 
@@ -36,10 +27,6 @@ else{
 
 if(isset($_POST['btnaddproduct'])){
    
-
-
-
-
 
     
 //    upload images
