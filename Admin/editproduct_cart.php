@@ -24,6 +24,7 @@ $id_db = $row['id'];
 $name_db = $row['name'];
 $price_db = $row['price'];
 $previous_price_db = $row['previous_price'];
+$tax_db = $row['tax'];
 $txtdiscountprice_db = $row['txtdiscountprice'];
 $category_db = $row['category'];
 $logo_db = $row['image'];
@@ -33,8 +34,10 @@ if (isset($_POST['btnupdate'])) {
     $username = $_POST['txtname'];
     $price = $_POST['txtprice'];
     $previous_price = $_POST['txtpreviousprice'];
+    $previous_price = $_POST['txtpreviousprice'];
     $discount_price = $_POST['txtdiscountprice'];
     $product_type = $_POST['product_type'];
+    $taxprice = $_POST['txttax'];
 
     $f_name = $_FILES['myfile']['name'];
     
@@ -60,11 +63,12 @@ if (isset($_POST['btnupdate'])) {
             } else {
                 if (move_uploaded_file($f_tmp, $store)) {
                     $update = $pdo->prepare("UPDATE product_cart 
-                                             SET image = :logo, name = :username, price = :price, previous_price = :previous_price, product_type = :product_type, txtdiscountprice = :txtdiscountprice 
+                                             SET image = :logo, name = :username, price = :price, previous_price = :previous_price, product_type = :product_type, txtdiscountprice = :txtdiscountprice ,tax=:tax
                                              WHERE id = :id");
                     $update->bindParam(':username', $username);
                     $update->bindParam(':price', $price);
                     $update->bindParam(':previous_price', $previous_price);
+                    $update->bindParam(':tax', $taxprice);
                     $update->bindParam(':product_type', $product_type);
                     $update->bindParam(':txtdiscountprice', $discount_price);
                     $update->bindParam(':logo', $f_newfile);
@@ -109,11 +113,12 @@ if (isset($_POST['btnupdate'])) {
         }
     } else {
         $update = $pdo->prepare("UPDATE product_cart 
-                                 SET name = :username, price = :price, previous_price = :previous_price, product_type = :product_type, txtdiscountprice = :txtdiscountprice, image = :logo 
+                                 SET name = :username, price = :price, previous_price = :previous_price, product_type = :product_type, txtdiscountprice = :txtdiscountprice, image = :logo , tax=:tax
                                  WHERE id = :id");
         $update->bindParam(':username', $username);
         $update->bindParam(':price', $price);
         $update->bindParam(':previous_price', $previous_price);
+        $update->bindParam(':tax', $taxprice);
         $update->bindParam(':product_type', $product_type);
         $update->bindParam(':txtdiscountprice', $discount_price);
         $update->bindParam(':logo', $logo_db);  // Keep existing image
@@ -183,7 +188,13 @@ if (isset($_POST['btnupdate'])) {
                             <input type="text" name="txtpreviousprice" class="form-control" value="<?php echo $previous_price_db; ?>" required>
                         </div>
                         <div class="form-group">
+                            <label>Tax</label>
+                            <input type="text" name="txttax" class="form-control" value="<?php echo $tax_db ?>" required>
+                        </div>
+                        <div class="form-group">
                             <label>Select Product Type</label><br>
+                            <input type="radio" id="noproducttype" name="product_type" value="No Product Type" <?php if ($product_type_db == 'No Product Type') echo 'checked'; ?> onclick="toggleDiscountField()">
+                            <label for="new">No Product Type</label>
                             <input type="radio" id="new" name="product_type" value="New" <?php if ($product_type_db == 'New') echo 'checked'; ?> onclick="toggleDiscountField()">
                             <label for="new">New</label>
                             <input type="radio" id="discount" name="product_type" value="Discount" <?php if ($product_type_db == 'Discount') echo 'checked'; ?> onclick="toggleDiscountField()">

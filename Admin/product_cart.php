@@ -24,6 +24,7 @@ if (isset($_POST['btnaddproduct'])) {
   $txtpreviousprice = $_POST['txtpreviousprice'];
   $discount = $_POST['txtdiscountprice'];
   $product_type = $_POST['product_type'];
+  $taxProduct = $_POST['txttax'];
 
   // File upload logic
   $f_name = $_FILES['myfile']['name'];
@@ -49,8 +50,8 @@ if (isset($_POST['btnaddproduct'])) {
       if (move_uploaded_file($f_tmp, $store)) {
         $productimage = $f_newfile;
 
-        $insert = $pdo->prepare("INSERT INTO product_cart (image, name, price, previous_price, category, product_type, txtdiscountprice) 
-              VALUES (:logo, :name, :price, :previous_price, :category, :product_type, :txtdiscountprice)");
+        $insert = $pdo->prepare("INSERT INTO product_cart (image, name, price, previous_price, category, product_type, txtdiscountprice,tax) 
+              VALUES (:logo, :name, :price, :previous_price, :category, :product_type, :txtdiscountprice,:tax)");
 
         $insert->bindParam(':logo', $productimage);
         $insert->bindParam(':name', $username);
@@ -59,6 +60,7 @@ if (isset($_POST['btnaddproduct'])) {
         $insert->bindParam(':category', $category);
         $insert->bindParam(':product_type', $product_type);
         $insert->bindParam(':txtdiscountprice', $discount);
+        $insert->bindParam(':tax', $taxProduct);
 
         if ($insert->execute()) {
           echo '<script>
@@ -208,10 +210,15 @@ if (isset($_POST['btnallavailable'])) {
               <label>Previous Price</label>
               <input type="text" name="txtpreviousprice" class="form-control" placeholder="Enter previous price" required>
             </div>
+
+            <div class="form-group">
+              <label>Product Tax</label>
+              <input type="text" name="txttax" class="form-control" placeholder="Enter a tax value of product" required>
+            </div>
             <div class="form-group radio-group">
 
               <label>Select Product Type</label><br>
-              <input type="radio" id="new" name="product_type" value="New" checked onclick="toggleDiscountField()">
+              <input type="radio" id="noproducttype" name="product_type" value="NoProductType" checked onclick="toggleDiscountField()">
               <label for="no product">No Product Type</label>
               <input type="radio" id="new" name="product_type" value="New" onclick="toggleDiscountField()">
               <label for="new">New</label>
@@ -247,6 +254,8 @@ if (isset($_POST['btnallavailable'])) {
               <th>#</th>
               <th>Name</th>
               <th>Price</th>
+              <th>Old Price</th>
+              <th>Tax</th>
               <th>Category</th>
               <th>Product Type</th>
               <th>Discount</th>
@@ -266,6 +275,8 @@ if (isset($_POST['btnallavailable'])) {
                 <td><?php echo $index; ?></td>
                 <td><?php echo $data['name']; ?></td>
                 <td><?php echo $data['price']; ?></td>
+                <td><?php echo $data['previous_price']; ?></td>
+                <td><?php echo $data['tax']; ?></td>
                 <td><?php echo $data['category']; ?></td>
                 <td><?php echo $data['product_type']; ?></td>
                 <td><?php echo $data['txtdiscountprice']; ?></td>

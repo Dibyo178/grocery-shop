@@ -1,3 +1,14 @@
+<?php
+
+
+ include_once './connectdb.php'; 
+
+ include_once './connection.php'; 
+
+ 
+ ?>
+
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
 
@@ -131,7 +142,7 @@
 					<div class="breadcrumb-content">
 						<h2>Shop</h2>
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="index.php">Home</a></li>
 							<li><i class="fas fa-angle-double-right"></i></li>
 							<li>Shop</li>
 						</ul>
@@ -186,7 +197,74 @@
                         <!-- Shop GridView -->
                         <div class="tab-pane fade show active shop-gridview" id="gridView" role="tabpanel" aria-labelledby="gridView-tab">
                             <div class="row">
+
+                            <?php 
+                              
+                              $index=1; //default 1 count
+                              
+                              $select=$pdo->prepare("select * from product_cart  order by id asc");
+                              
+                              $select->execute();
+                              
+                              while($row=$select->fetch(PDO::FETCH_OBJ)){
+
+                                 $id = $row->id;
+                                 $name = $row->name;
+                                 $new_price = $row->price;
+                                 $previous_price = $row->previous_price;
+                                 $image = $row->image;
+                                 $product_type = $row->product_type;
+                                 $discount = $row->txtdiscountprice;
+                                
+
+                                 ?>
+
+
+                                 <?php
+
+                                 if($product_type=='NoProductType'){
+
+
+                                  ?>
+
+
                                 <!-- Single Product Item -->
+                                <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="<?php echo $id ?>" data-name="<?php echo $name ?>" data-price="200">
+                                        
+                                        <div class="product-thumbnail">
+                                            <a href="product-details.html">
+                                                <img src="./Admin/FoodImages/<?php echo $image;?>" alt="Marmite product image">
+                                            </a>
+                                        
+                                            <div class="product-overly-btn">
+                                                <ul>
+                                                    <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
+                                                    <li><a data-bs-toggle="modal" data-bs-target="#quickViewModal" href="#"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <h4><a href="product-details.html">Raddish Vegetable</a></h4>
+                                            <div class="pricing">
+                                                <span>¥200 <del>¥210</del></span>
+                                            </div>
+                                            <div class="tax" style="display:none">
+                                                <span>¥20</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <?php
+
+                                 }
+
+                                 else if($product_type=='New'){
+
+                                 ?>
+
+                                 <!-- Single Product Item -->
                                 <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
                                     <div class="product-item" data-id="1" data-name="Raddish Vegetable" data-price="200">
                                         <div class="sale-badge"><span>new</span></div>
@@ -213,13 +291,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Repeat product items as needed -->
-                                <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-                                    <div class="product-item" data-id="2" data-name="Tomato" data-price="150">
-                                        <div class="sale-badge"><span>new</span></div>
+
+                                <?php
+
+                                 }
+
+                                 else if($product_type=='Discount'){
+
+                                ?>
+
+                                    <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
+                                    <div class="product-item" data-id="1" data-name="Raddish Vegetable" data-price="200">
+                                        <div class="sale-badge" style="background:brown;color:#fff"><span ><i class="fa-solid fa-yen-sign"></i> <?php echo $discount;?></span></div>
                                         <div class="product-thumbnail">
                                             <a href="product-details.html">
-                                                <img src="assets/discount-images/bg-remove/tomato.png" alt="Tomato product image">
+                                                <img src="assets/discount-images/bg-remove/marmite.png" alt="Marmite product image">
                                             </a>
                                             <a class="wishlist" href="wishlist.html"><i class="far fa-heart"></i></a>
                                             <div class="product-overly-btn">
@@ -230,16 +316,31 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <h4><a href="product-details.html">Tomato</a></h4>
+                                            <h4><a href="product-details.html">Raddish Vegetable</a></h4>
                                             <div class="pricing">
-                                                <span>¥150 <del>¥160</del></span>
+                                                <span>¥200 <del>¥210</del></span>
                                             </div>
                                             <div class="tax" style="display:none">
-                                                <span>¥15</span>
+                                                <span>¥20</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <?php
+
+                                 }
+
+                                 ?>
+
+
+                                <?php 
+
+                                 $index++;
+
+                                }
+
+                                 ?>
                                 <!-- Add more product items here -->
                             </div>
                         </div>
@@ -345,10 +446,10 @@
 							<div class="tab-content product-details-large">
 								<div class="tab-pane fade show active" id="tab1" role="tabpanel">
 									<div class="modal_tab_img">
-										<a href="#"><img src="assets/img/product/1.jpg" alt="img"></a>
+										<a href="#"><img src="./Admin/FoodImages/<?php echo $image;?>" alt="img"></a>
 									</div>
 								</div>
-								<div class="tab-pane fade" id="tab2" role="tabpanel">
+								<!-- <div class="tab-pane fade" id="tab2" role="tabpanel">
 									<div class="modal_tab_img">
 										<a href="#"><img src="assets/img/product/2.jpg" alt="img"></a>
 									</div>
@@ -367,9 +468,9 @@
 									<div class="modal_tab_img">
 										<a href="#"><img src="assets/img/product/5.jpg" alt="img"></a>
 									</div>
-								</div>
+								</div> -->
 							</div>
-							<div class="modal_tab_button">
+							<!-- <div class="modal_tab_button">
 								<ul class="nav product_navactive owl-carousel" role="tablist">
 									<li>
 										<a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false"><img src="assets/img/product/1.jpg" alt="img"></a>
@@ -388,26 +489,26 @@
 									</li>
 
 								</ul>
-							</div>
+							</div> -->
 						</div>
 					</div>
 					<div class="col-lg-6 col-md-6">
 						<div class="quickview-modal-content-full">
 							<!-- Ratting -->
-							<div class="ratting">
+							<!-- <div class="ratting">
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><i class="fas fa-star"></i></span>
 								<span><small>( 25 Reviews )</small></span>
-							</div>
+							</div> -->
 							<!-- Title -->
-							<h3>Vegetables Juices</h3>
+							<h3><?php echo $name;?></h3>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac dui sed nunc sagittis maximus. Sed lobortis commodo dapibus. Nunc placerat, massa nec blandit egestas, eros diam lacinia lectus</p>
-							<!-- Price -->
+							
 							<div class="pricing">
-								<span>$200 <del>$210</del></span>
+								<span><i class="fa-solid fa-yen-sign"></i> <?php echo $new_price; ?> <del> <i class="fa-solid fa-yen-sign"></i> <?php echo $previous_price; ?></del></span>
 							</div>
 							<!-- Category -->
 							<div class="cate">
@@ -419,20 +520,20 @@
 							</div>
 							<!-- Add To Cart -->
 							<div class="quantity-add-cart">
-								<span class="quantity">
+								<!-- <span class="quantity">
 									<input type="number" min="1" max="1000" step="1" value="1">
-								</span>
+								</span> -->
 								<div class="cart-btn">
 									<a class="button-1" href="#"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
 								</div>
 							</div>
-							<div class="quick-view-sahre mt-50">
+							<!-- <div class="quick-view-sahre mt-50">
 								<span><strong>Share :</strong></span>
 								<span><a href="#"><i class="fab fa-facebook-f"></i></a></span>
 								<span><a href="#"><i class="fab fa-twitter"></i></a></span>
 								<span><a href="#"><i class="fab fa-pinterest-p"></i></a></span>
 								<span><a href="#"><i class="fab fa-instagram"></i></a></span>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -549,6 +650,30 @@
 
 </script>
 
+<script>
+    // jQuery to handle "Quick view" button click
+$(document).on('click', '.add-to-cart', function (e) {
+    e.preventDefault();  // Prevent default link action
+
+    // Get the parent product item of the clicked button
+    let productItem = $(this).closest('.product-item');
+
+    // Fetch data attributes from the product item
+    let productId = productItem.data('id');
+    let productName = productItem.data('name');
+    let productPrice = productItem.data('price');
+    let productImage = productItem.find('img').attr('src');
+
+    // Update modal fields with fetched data
+    $('#quickViewModal .quickview-modal-content-full h3').text(productName);  // Product title
+    $('#quickViewModal .quickview-modal-content-full .pricing span').html(`¥${productPrice}`);  // Product price
+    $('#quickViewModal .modal_tab_img a img').attr('src', productImage);  // Product image
+
+    // Optionally, set up more fields if they vary by product
+    // Example: $('#quickViewModal .quickview-modal-content-full p').text(productDescription);
+});
+
+</script>
 
 
 </body>
