@@ -612,7 +612,7 @@ $mobile = isset($_SESSION['mobile']) ? $_SESSION['mobile'] : 'Not set';
                             <ul>
                                 <li class="call">
                                     <i class="bi bi-telephone-inbound"></i>
-                                    <span><a href="tel:080-6554-4316" style="color:black">080-6554-4316</a></span>
+                                    <span><a href="tel:080 6554 4316" style="color:black">080 6554 4316</a></span>
                                 </li>
 
                                 <?php

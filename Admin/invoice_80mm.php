@@ -45,7 +45,7 @@ $pdf->Cell(0, 5, $row->id, 0, 1);
 $pdf->SetFont('Arial', 'BI', 8);
 $pdf->Cell(25, 5, 'Date:', 0, 0);
 $pdf->SetFont('Courier', 'BI', 8);
-$pdf->Cell(0, 5, $row->date, 0, 1);
+$pdf->Cell(0, 5, $row->order_date, 0, 1);
 
 $pdf->Ln(5); // Adjusted line break
 

@@ -2,6 +2,13 @@
 include './connection.php';
 include './connectdb.php';
 
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+
+
 // Define the number of results per page
 $results_per_page = 6;
 
@@ -21,7 +28,7 @@ $current_page = max(1, min($total_pages, $current_page)); // Ensure page is with
 $start_from = ($current_page - 1) * $results_per_page;
 
 // Retrieve selected results from database
-$view = mysqli_query($con, "SELECT * FROM blog ORDER BY date DESC LIMIT $start_from, $results_per_page");
+// $view = mysqli_query($con, "SELECT * FROM blog ORDER BY id DESC LIMIT $start_from, $results_per_page");
 
 ?>
 
@@ -46,10 +53,10 @@ $view = mysqli_query($con, "SELECT * FROM blog ORDER BY date DESC LIMIT $start_f
 </head>
 
 <body>
-    <!-- Preloader -->
     <!-- Start Header Area -->
     <?php include './header.php'; ?>
-    <!-- End Mincart Section -->
+    <!-- End Header Area -->
+
     <!-- Start Breadcrumb Area -->
     <section class="breadcrumb-area pt-100 pb-100" style="background-image:url('./assets/discount-images/blog.png');">
         <div class="container">
@@ -73,32 +80,58 @@ $view = mysqli_query($con, "SELECT * FROM blog ORDER BY date DESC LIMIT $start_f
     <section class="section-padding">
         <div class="container">
             <div class="row">
-                <!-- Single -->
-                <?php while ($data = mysqli_fetch_assoc($view)) : ?>
+                <!-- Single Blog Item -->
+
+                <?php 
+                              
+                              $index=1; //default 1 count
+                              
+                              $select=$pdo->prepare("select * from blog  order by id desc limit $start_from, $results_per_page ");
+                              
+                              $select->execute();
+                              
+                              while($row=$select->fetch(PDO::FETCH_OBJ)){
+
+                                $id=$row->id;
+                                $name=$row->name;
+                                $image=$row->image;
+                                $date=$row->date;
+                                // $name=$row->name;
+
+                                ?>
+            
                     <div class="col-lg-4 col-md-6 mb-30">
                         <div class="blog-item">
                             <div class="thumbnail">
-                                <a href="blog.php">
-                                    <img src="./Admin/blogimage/<?php echo $data['image']; ?>" alt="blog">
+                                <a href="blog.php?id=<?php echo $id; ?>">
+                                    <img src="./Admin/blogimage/<?php echo $image; ?>" alt="blog">
                                 </a>
                             </div>
                             <div class="content">
                                 <div class="meta">
                                     <span><a href="#"><i class="fas fa-user"></i> by: Admin</a></span>
                                 </div>
-                                <h2 class="title"><a href="blog.php"><?php echo $data['name']; ?></a></h2>
+                                <h2 class="title"><a href="blog.php?id=<?php echo $id; ?>"><?php echo $data['name']; ?></a></h2>
                                 <div class="btm-meta">
                                     <div class="date">
-                                        <span><i class="far fa-calendar-alt"></i> <?php echo $data['date']; ?></span>
+                                        <span><i class="far fa-calendar-alt"></i> <?php $formatted_date = date(" F j, Y", strtotime($date)); echo $formatted_date; ?></span>
                                     </div>
                                     <div class="read-more">
-                                        <a href="blog.php">Read More</a>
+                                        <a href="blog.php?id=<?php echo $id; ?>">Read More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <?php endwhile; ?>
+
+                    <?php
+
+                    $index++;
+
+                              }
+
+                     ?>
+               
             </div>
 
             <!-- Pagination -->
@@ -133,6 +166,7 @@ $view = mysqli_query($con, "SELECT * FROM blog ORDER BY date DESC LIMIT $start_f
     <!-- Start Footer Area -->
     <?php include './footer.php'; ?>
     <!-- End Footer Area -->
+
     <div class="scroll-area">
         <i class="fa fa-angle-up"></i>
     </div>
