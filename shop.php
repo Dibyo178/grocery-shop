@@ -166,10 +166,14 @@ include_once './connection.php';
                                     <div class="ltn__grid-list-tab-menu ">
                                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                                             <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" id="gridView-tab" data-bs-toggle="tab" data-bs-target="#gridView" role="tab" aria-controls="gridView" aria-selected="true"><i class="fas fa-th"></i></button>
+                                                <button class="nav-link active" id="gridView-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#gridView" role="tab" aria-controls="gridView"
+                                                    aria-selected="true"><i class="fas fa-th"></i></button>
                                             </li>
                                             <li class="nav-item" role="presentation">
-                                                <button class="nav-link" id="listView-tab" data-bs-toggle="tab" data-bs-target="#listView" role="tab" aria-controls="listView" aria-selected="false"><i class="fas fa-list-ul"></i></button>
+                                                <button class="nav-link" id="listView-tab" data-bs-toggle="tab"
+                                                    data-bs-target="#listView" role="tab" aria-controls="listView"
+                                                    aria-selected="false"><i class="fas fa-list-ul"></i></button>
                                             </li>
                                         </ul>
                                     </div>
@@ -198,7 +202,8 @@ include_once './connection.php';
                         <div class="tab-content" id="myTabContent">
                             <!-- Shop GridView -->
                             <!-- Shop GridView -->
-                            <div class="tab-pane fade show active shop-gridview" id="gridView" role="tabpanel" aria-labelledby="gridView-tab">
+                            <div class="tab-pane fade show active shop-gridview" id="gridView" role="tabpanel"
+                                aria-labelledby="gridView-tab">
                                 <div class="row">
                                     <?php
                                     $select = $pdo->prepare("SELECT * FROM product_cart ORDER BY id ASC");
@@ -212,32 +217,43 @@ include_once './connection.php';
                                         $image = $row->image;
                                         $product_type = $row->product_type;
                                         $discount = $row->txtdiscountprice;
-                                    ?>
+                                        ?>
 
                                         <!-- Single Product Item -->
                                         <div class="col-lg-3 col-md-4 col-sm-6 mb-30">
-                                            <div class="product-item" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>" data-price="<?php echo $new_price; ?>" data-image="./Admin/FoodImages/<?php echo $image; ?>">
-                                                <?php if ($product_type == 'New') : ?>
+                                            <div class="product-item" data-id="<?php echo $id; ?>"
+                                                data-name="<?php echo $name; ?>" data-price="<?php echo $new_price; ?>"
+                                                data-image="./Admin/FoodImages/<?php echo $image; ?>">
+                                                <?php if ($product_type == 'New'): ?>
                                                     <div class="sale-badge"><span>new</span></div>
-                                                <?php elseif ($product_type == 'Discount') : ?>
-                                                    <div class="sale-badge" style="background:brown;color:#fff"><span><i class="fa-solid fa-yen-sign"></i> <?php echo $discount; ?></span></div>
+                                                <?php elseif ($product_type == 'Discount'): ?>
+                                                    <div class="sale-badge" style="background:brown;color:#fff"><span><i
+                                                                class="fa-solid fa-yen-sign"></i>
+                                                            <?php echo $discount; ?></span></div>
                                                 <?php endif; ?>
 
                                                 <div class="product-thumbnail">
                                                     <a href="">
-                                                        <img src="./Admin/FoodImages/<?php echo $image; ?>" alt="<?php echo $name; ?> image">
+                                                        <img src="./Admin/FoodImages/<?php echo $image; ?>"
+                                                            alt="<?php echo $name; ?> image">
                                                     </a>
                                                     <div class="product-overly-btn">
                                                         <ul>
-                                                            <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                                            <li><a href="#" class="quick-view" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                            <li><a href="#" class="add-to-cart"><i
+                                                                        class="fas fa-shopping-cart"></i><span>Add to
+                                                                        Cart</span></a></li>
+                                                            <li><a href="#" class="quick-view" data-bs-toggle="modal"
+                                                                    data-bs-target="#quickViewModal"><i
+                                                                        class="far fa-eye"></i><span>Quick view</span></a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><a href=""><?php echo $name; ?></a></h4>
                                                     <div class="pricing">
-                                                        <span>¥<?php echo $new_price; ?> <del>¥<?php echo $previous_price; ?></del></span>
+                                                        <span>¥<?php echo $new_price; ?>
+                                                            <del>¥<?php echo $previous_price; ?></del></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -263,31 +279,45 @@ include_once './connection.php';
                                         $image = $row->image;
                                         $product_type = $row->product_type;
                                         $discount = $row->txtdiscountprice;
-                                    ?>
+                                        $product_url = "product_detail.php?id=" . $id; // Generate product URL for quick view
+                                        ?>
 
                                         <div class="col-lg-12 mb-30">
-                                        <div class="product-item" data-id="<?php echo $id; ?>" data-name="<?php echo $name; ?>" data-price="<?php echo $new_price; ?>" data-image="./Admin/FoodImages/<?php echo $image; ?>">
-                                                <?php if ($product_type == 'New') : ?>
+                                            <div class="product-item" data-id="<?php echo $id; ?>"
+                                                data-name="<?php echo $name; ?>" data-price="<?php echo $new_price; ?>"
+                                                data-image="./Admin/FoodImages/<?php echo $image; ?>">
+                                                <?php if ($product_type == 'New'): ?>
                                                     <div class="sale-badge"><span>new</span></div>
-                                                <?php elseif ($product_type == 'Discount') : ?>
-                                                    <div class="sale-badge" style="background:brown;color:#fff"><span><i class="fa-solid fa-yen-sign"></i> <?php echo $discount; ?></span></div>
+                                                <?php elseif ($product_type == 'Discount'): ?>
+                                                    <div class="sale-badge" style="background:brown;color:#fff"><span><i
+                                                                class="fa-solid fa-yen-sign"></i>
+                                                            <?php echo $discount; ?></span></div>
                                                 <?php endif; ?>
 
                                                 <div class="product-thumbnail">
                                                     <a href="">
-                                                        <img src="./Admin/FoodImages/<?php echo $image; ?>" alt="<?php echo $name; ?> image">
+                                                        <img src="./Admin/FoodImages/<?php echo $image; ?>"
+                                                            alt="<?php echo $name; ?> image">
                                                     </a>
                                                     <div class="product-overly-btn">
                                                         <ul>
-                                                            <li><a href="#" class="add-to-cart"><i class="fas fa-shopping-cart"></i><span>Add to Cart</span></a></li>
-                                                            <li><a href="#" class="quick-view" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="far fa-eye"></i><span>Quick view</span></a></li>
+                                                            <li><a href="#" class="add-to-cart"><i
+                                                                        class="fas fa-shopping-cart"></i><span>Add to
+                                                                        Cart</span></a></li>
+                                                            <li><a href="#" class="quick-view"
+                                                                    data-url="<?php echo $product_url; ?>"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#quickViewModal"><i
+                                                                        class="far fa-eye"></i><span>Quick view</span></a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                                 <div class="product-content">
                                                     <h4><a href=""><?php echo $name; ?></a></h4>
                                                     <div class="pricing">
-                                                        <span>¥<?php echo $new_price; ?> <del>¥<?php echo $previous_price; ?></del></span>
+                                                        <span>¥<?php echo $new_price; ?>
+                                                            <del>¥<?php echo $previous_price; ?></del></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -297,6 +327,7 @@ include_once './connection.php';
                                 </div>
                             </div>
 
+
                         </div>
                     </div>
                     <!-- Pagination -->
@@ -304,9 +335,11 @@ include_once './connection.php';
                         <div class="col-12 text-center">
                             <div class="fr-pagination">
                                 <ul>
-                                    <li><a href="#" class="page-link prev-page disabled" id="prev-page"><i class="fas fa-angle-left"></i></a></li>
+                                    <li><a href="#" class="page-link prev-page disabled" id="prev-page"><i
+                                                class="fas fa-angle-left"></i></a></li>
                                     <!-- Pagination links will be dynamically added here by JS -->
-                                    <li><a href="#" class="page-link next-page" id="next-page"><i class="fas fa-angle-right"></i></a></li>
+                                    <li><a href="#" class="page-link next-page" id="next-page"><i
+                                                class="fas fa-angle-right"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -350,42 +383,48 @@ include_once './connection.php';
                         </div>
                     </div>
 
-                    
+
 
                     <div class="col-lg-6 col-md-6">
                         <div class="quickview-modal-content-full">
                             <h3 id="modalProductName"></h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac dui sed nunc sagittis maximus.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ac dui sed nunc sagittis
+                                maximus.</p>
                             <!-- Category -->
-							<div class="cate">
-								<span><strong>Categories:</strong></span>
-								<span><a href="#">Cover,</a></span>
-								<span><a href="#">Seat,</a></span>
-								<span><a href="#">Car,</a></span>
-								<span><a href="#">Parts</a></span>
-							</div>
+                            <div class="cate">
+                                <span><strong>Categories:</strong></span>
+                                <span><a href="#">Cover,</a></span>
+                                <span><a href="#">Seat,</a></span>
+                                <span><a href="#">Car,</a></span>
+                                <span><a href="#">Parts</a></span>
+                            </div>
                             <div class="pricing"><span style="font-size:35px"><strong>Price:</strong></span>
-                                <span><i class="fa-solid fa-yen-sign"></i> <span id="modalProductPrice"></span>  <del><span style="font-size:30px" id="modalPreviousPrice"></span></del></span>
+                                <span><i class="fa-solid fa-yen-sign"></i> <span id="modalProductPrice"></span>
+                                    <del><span style="font-size:30px" id="modalPreviousPrice"></span></del></span>
                             </div>
                             <div class="quantity-add-cart">
-								<!-- <span class="quantity">
-									<input type="number" min="1" max="1000" step="1" value="1">
-								</span> -->
-								<div class="cart-btn">
-									<a class="button-1 add-to-cart" href="#"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+                                <!-- <span class="quantity">
+                                    <input type="number" min="1" max="1000" step="1" value="1">
+                                </span> -->
+                                <div class="cart-btn">
+                                    <a class="button-1 add-to-cart" href="#"><i class="fas fa-shopping-cart"></i> Add to
+                                        Cart</a>
                                     <input type="hidden" id="modalProductId" value="">
-								</div>
-							</div>
-							<div class="quick-view-sahre mt-50">
-								<span><strong>Share :</strong></span>
-								<span><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/watch?v=dVxxL8qoiLg&t=170s"><i class="fab fa-facebook-f"></i></a></span>
-								<!-- <span><a href="#"><i class="fab fa-twitter"></i></a></span> -->
-								<!-- <span><a href="#"><i class="fab fa-pinterest-p"></i></a></span> -->
-								<span><a href="https://www.instagram.com/share?url=<YOUR_PRODUCT_URL>"><i class="fab fa-instagram"></i></a></span>
+                                </div>
+                            </div>
+                            <div class="quick-view-sahre mt-50">
+                                <span><strong>Share :</strong></span>
+                                <span><a
+                                        href="https://www.facebook.com/sharer/sharer.php?u="><i
+                                            class="fab fa-facebook-f"></i></a></span>
+                                <!-- <span><a href="#"><i class="fab fa-twitter"></i></a></span> -->
+                                <!-- <span><a href="#"><i class="fab fa-pinterest-p"></i></a></span> -->
+                                <span><a href="https://www.instagram.com/share?url=<YOUR_PRODUCT_URL>"><i
+                                            class="fab fa-instagram"></i></a></span>
 
                                 <!-- <span><a href="https://www.facebook.com/sharer/sharer.php?u=https://www.youtube.com/watch?v=dVxxL8qoiLg&t=170s" target="_blank"><i class="fab fa-facebook-f"></i></a></span>
                                 <span><a href="https://www.instagram.com/share?url=<YOUR_PRODUCT_URL>" target="_blank"><i class="fab fa-instagram"></i></a></span> -->
-							</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -422,7 +461,7 @@ include_once './connection.php';
     <!-- jQuery and JavaScript -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             const itemsPerPage = 12; // Number of items to show per page
             const totalItems = $('.product-item:visible').length; // Count only visible items
             const totalPages = Math.ceil(totalItems / itemsPerPage); // Calculate total pages based on visible items
@@ -486,7 +525,7 @@ include_once './connection.php';
             showPage(currentPage);
 
             // Handle pagination clicks
-            $('.fr-pagination').on('click', '.page-link', function(e) {
+            $('.fr-pagination').on('click', '.page-link', function (e) {
                 e.preventDefault();
 
                 // Ignore if the button is disabled
@@ -510,7 +549,7 @@ include_once './connection.php';
 
 
     <script>
-        $(document).on('click', '.quick-view', function(e) {
+        $(document).on('click', '.quick-view', function (e) {
             e.preventDefault();
 
             // Get data from the clicked product item
@@ -528,6 +567,23 @@ include_once './connection.php';
 
             // Show the modal
             $('#quickViewModal').modal('show');
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const quickViewButtons = document.querySelectorAll('.quick-view');
+
+            quickViewButtons.forEach(button => {
+                button.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const productUrl = this.getAttribute('data-url');
+
+                    // Assuming you have an iframe in the modal to load the product page
+                    const modalBody = document.querySelector('#quickViewModal .modal-body');
+                    modalBody.innerHTML = `<iframe src="${productUrl}" width="100%" height="400" frameborder="0"></iframe>`;
+                });
+            });
         });
     </script>
 
