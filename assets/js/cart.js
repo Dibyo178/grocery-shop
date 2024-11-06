@@ -151,8 +151,49 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
     });
 });
 
+// ** Modal Integration for Add to Cart **
 
-//  spiner view cart
+// Handle the Add to Cart button inside the modal
+document.querySelector('#quickViewModal .add-to-cart').addEventListener('click', function(e) {
+    e.preventDefault();
 
-// scroll part 
+    // Ensure modal elements are loaded before accessing them
+    const productId = document.getElementById('modalProductId').value; // Hidden input for ID
+    const productName = document.getElementById('modalProductName').textContent;
+    const productPrice = document.getElementById('modalProductPrice').textContent.replace('¥', '').trim();
+    const productImage = document.getElementById('modalProductImage').src;
 
+    if (!productId || !productName || !productPrice || !productImage) {
+        console.error('Missing product data in modal');
+        return; // Exit if data is not available
+    }
+
+    const product = {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        image: productImage
+    };
+
+    // Call the addToCart function from the cart script
+    addToCart(product);
+});
+
+// Example of setting modal product data when a product is clicked
+document.querySelectorAll('.product-item').forEach(item => {
+    item.addEventListener('click', function() {
+        const productId = this.getAttribute('data-id');
+        const productName = this.getAttribute('data-name');
+        const productPrice = this.getAttribute('data-price');
+        const productImage = this.querySelector('img').getAttribute('src');
+
+        // Set the modal data
+        document.getElementById('modalProductId').value = productId;
+        document.getElementById('modalProductName').textContent = productName;
+        document.getElementById('modalProductPrice').textContent = `¥${productPrice}`;
+        document.getElementById('modalProductImage').setAttribute('src', productImage);
+
+        // Open the modal
+        // $('#quickViewModal').modal('show');
+    });
+});
